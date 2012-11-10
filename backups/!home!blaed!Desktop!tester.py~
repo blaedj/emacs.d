@@ -1,0 +1,10 @@
+#!/usr/bin/python
+str = "|   |\n" + "|   |\n"+ "|   |\n" + "+---+\n" + "  X  \n"
+str2 ="|   |\n" + "|   |\n" + "|   |\n"+ "|   |\n" + "+---+\n" + "  Y  \n"
+#print str + str2
+
+str3 = "       |   |\n" + "|   |  |   |\n" + "|   |  |   |\n" + "|   |  |   |\n"
+str4 ="+---+  +---+\n" + "  X      Y  \n"
+print str3 + str4
+str5 = str3 + str4
+print str5

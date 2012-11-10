@@ -1,0 +1,16 @@
+/**
+ *
+ * @author Blaed Johnston
+ */
+public class Greetings {
+
+    public Greetings(String aName) {
+        name = aName;
+    }
+  
+    public String greet() {
+        return "Hello " + name + "!";
+    }
+     
+    private String name;
+}

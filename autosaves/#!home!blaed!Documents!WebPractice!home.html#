@@ -1,0 +1,74 @@
+<html>
+
+  <head>
+    <title>Fuzzy-octal: interesting links, info for the future</title>
+    <link rel="stylesheet" href="style.css"  type="text/css">
+    <script type="text/javascript" src="fun.js"></script>
+    <script type="text/javascript" src="jquery-1-8-2.js"></script>
+    <meta encoding="UTF-8"  >
+  </head>
+  <body>
+    <div class="headerbar">
+      <ul>
+	<li><a href="WebPractice/home.html">Home</a></li>
+	<li><a href="submitpage.html">Submit link</a></li>
+	<li><a href="about.html">about me</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar">
+      <h3>Contact Info</h3>
+      <code>
+	me@example.com
+      </code>
+      <h3>Send a message</h3>
+      <input type="text" name="message" value="..." />
+      <h3>Blogs I like</h3>
+      <ul class="links" id="blogs">
+	<li><a href="http://www.kalzumeus.com/"><div>Kalzumeus</div></a></li>
+	<li><a href="http://www.codinghorror.com/blog/"><div>Coding Horror</div></a></li>
+	<li><a href="http://www.hanselman.com"><div>Scott Hanselman's Computer Zen</div></a></li>
+      </ul>
+    </div>
+
+
+    <div class="box">
+      
+      <h1>Welcome to Fuzzy-Octal!</h1>
+      <p>There probably will not be a lot of original materials here, mostly I need a better way to store reference information and store reminders and links to resources that will be useful in the future (definition of <em>Future</em>: that nebulous time in which I will have copious amounts of free time to peruse the content included here and learn until my head explodes), as creating a bookmark everytime I find something worth saving just doesn't "scale".</p>
+
+       <h3>Links</h3>
+      <ul class="accordian links left">
+	<li><a href="http://ruby.railstutorial.org"><div id="important">Ruby on Rails Tutorial</div></a></li>
+
+	<li><a href="https://crate.io"><div>Crate.io Lots of cool python libraries</div></a></li>
+
+	<li><a href="http://daringfireball.net/projects/markdown/"><div>DaringFireball:Markdown The basics of markdown</div></a></li>
+
+	<li><a href="https://www.learnstreet.com"><div>Learnstreet for learning ruby, python and JS</div></a></li>
+
+	<li ><a href="http://pagekite.net/"><div>Pagekite: making localhost part of the internet</div></a></li>
+
+	<li ><a href="https://github.com/scripted-editor/scripted"><div>Scripted in-browser Javascript/HTML/CSS editor, runs on node.js</div></a></li>
+      </ul>
+     
+      <ul class="accordian links right">
+
+	<li><a href="http://code.google.com/edu/submissions/html-css-javascript/"><div>Google HTML/CSS lessons</div></a></li>
+
+	<li><a href="http://katemats.com/what-every-programmer-should-know-about-seo/"><div>What every programmer should know about seo</div></a></li>
+
+	<li><a href="http://www.emacswiki.org/emacs/HtmlModeDeluxe"><div>maybe a better emacs html mode</div></a></li>
+
+	<li><a href="http://thisisdallas.github.com/Simple-Grid/"><div>Simple, lightweight CSS framework</div></a></li>
+
+	<li><a href="http://jster.net/"><div>Javascript libraries all in one place</div></a></li>
+
+	<li><a href="http://www.wired.com/gadgetlab/2011/01/how-to-strip-drm-from-kindle-e-books-and-others/"><div>DRM Stripping for ebooks</div></a></li>
+      </ul>
+    </div>
+
+  </body>
+
+
+</html>

@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int int main(int argc, char *argv[])
+{
+  int age = 10;
+  int height = 72; 
+  printf("I am %d years onld.\n", age);
+  printf("I am %d inches tall", height);
+
+
+
+  return 0;
+}

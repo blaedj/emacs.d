@@ -1,0 +1,27 @@
+EHCI_BUSES="0000:00:1a.0 0000:00:1d.0"
+XHCI_BUSES="0000:03:00.0"
+case "${1}" in
+    hibernate|suspend)
+        # Switch USB buses off
+        for bus in $EHCI_BUSES; do
+            echo -n $bus > /sys/bus/pci/drivers/ehci_hcd/unbind
+        done
+        for bus in $XHCI_BUSES; do
+            echo -n $bus > /sys/bus/pci/drivers/xhci_hcd/unbind
+        done
+        ;;
+    resume|thaw)
+        # Switch USB buses back on
+        for bus in $EHCI_BUSES; do
+            echo -n $bus > /sys/bus/pci/drivers/ehci_hcd/bind
+        done
+        for bus in $XHCI_BUSES; do
+            echo -n $bus > /sys/bus/pci/drivers/xhci_hcd/bind
+        done
+        # Hacky workaround to fix display after suspend, not needed for kernels 3.1 or newer
+        export DISPLAY=":0"
+        export XAUTHORITY=`ps aux | grep X | grep auth | awk '{sub( /^.*-auth / ,""); sub( / .*/,"");print }'`
+        xset dpms force off
+        xset dpms force on
+        ;;
+esac

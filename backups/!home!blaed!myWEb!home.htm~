@@ -1,0 +1,19 @@
+<html>
+  <head> 
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
+  
+  <body>
+    <div class="box">
+      <h1>An Awesome Title Here
+      </h1>
+
+
+    </div> 
+
+  
+    
+  </body>
+  
+</html>

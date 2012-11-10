@@ -1,0 +1,81 @@
+#Number 1
+var('x')
+y = function('y',x)
+solution = desolve(diff(y,x)/y*sin(x),y,[0,1])
+solution
+
+def EulerMethod(xstart, ystart, xfinish, nsteps, f):
+    '''
+    Returns a list of x and y values for the initial value problem
+    y' = f, y(xstart) = ystart, up to x=xfinish, using n steps of 
+    Euler's Method.
+    
+    EXAMPLE:
+        var('x,y')
+        f(x,y) = -y + cos(x)
+        EulerMethod(0,1,2,4,f)
+        [(0, 1), (0.500000000000000, 1), (1.00000000000000, 0.938791280945),
+(1.50000000000000, 0.739546793407), (2.00000000000000, 0.405141997537)]
+
+        #If you just want to get the last value, you could do:
+        sol = EulerMethod(0,1,2,4,f)
+        sol[-1]
+        (2.00000000000000, 0.405141997537)
+    '''
+    sol = [ystart]
+    xvals = [xstart]
+    h = N((xfinish-xstart)/nsteps)
+    for step in range(nsteps):
+        sol.append(sol[-1] + h*f(x=xvals[-1],y=sol[-1]))
+        xvals.append(xvals[-1] + h)
+        return zip(xvals,sol)
+
+var('x,y')
+f(x,y) = sin(y)
+output = EulerMethod(0,1,1,10,f)
+print 'output ((x,y) pairs):'
+print output
+var('x')
+y = function('y',x)
+solution = desolve(diff(y,x)/y*sin(y),y,[0,1])
+exact_plot = plot(solution,0,1, rgbcolor='red', legend_label='Exact')
+Euler_plot = list_plot(output, plotjoined=True, legend_label = "Euler's method")
+show(Euler_plot + exact_plot, figsize=[6,4])
+
+def RK4Method(xstart, ystart, xfinish, nsteps, f):
+    '''
+    Returns a list of x and y values for the initial value problem
+    y' = f, y(xstart) = ystart, up to x=xfinish, using n steps of the 
+    fourth order Runge-Kutta method.
+    '''
+    sol = [ystart]
+    xvals = [xstart]
+    h = N((xfinish-xstart)/nsteps)
+    for step in range(nsteps):
+        k1 = f(x=xvals[-1],y=sol[-1])
+        k2 = f(x=xvals[-1] + h/2, y=sol[-1] + h*k1/2)
+        k3 = f(x=xvals[-1] + h/2, y=sol[-1] + h*k2/2)
+        k4 = f(x=xvals[-1] + h, y=sol[-1] + h*k3)
+        sol.append(sol[-1] + h*(k1 + 2*k2+ 2*k3 + k4)/6)
+        xvals.append(xvals[-1] + h)
+    return zip(xvals,sol)
+
+
+var('x')
+y = function('y',x)
+solution = desolve(diff(y,x)/y*sin(y),y,[0,1])
+solution
+euler_plot = list_plot(EulerMethod(0,1,1,10,f),plotjoined=True,rgbcolor = 'red')
+rk4_plot = list_plot(RK4Method(0,1,1,10,f),plotjoined=True,rgbcolor = 'blue')
+exact_plot = plot(solution,(x,0,1), rgbcolor = 'black')
+show(euler_plot+exact_plot + rk4_plot)
+
+
+def FinalErrorFromEuler(n):
+    return abs(EulerMethod(0,1,1,n,f)[-1][-1] - Exact_numerical)
+html("<h4>Final cumulative error as a function of number of steps in Euler's method</h4>")
+show(list_plot([FinalErrorFromEuler(n) for n in range(10,100)], plotjoined=True), ymin=0)
+
+LogLogEulerErrors = [[log(n),log(FinalErrorFromEuler(n))] for n in range(0,pi)]
+html("<h4>Log-log plot of final cumulative error versus number of steps in Euler's method</h4>")
+show(list_plot(LogLogEulerErrors, plotjoined=True))
