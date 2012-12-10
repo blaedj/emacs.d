@@ -1,3 +1,7 @@
+
+
+
+
 ;; default load path
 (add-to-list 'load-path "/home/blaed/.emacs.d/")
 (add-to-list 'load-path "/home/blaed/.emacs.d/elpa/color-theme-twilight-0.1/")
@@ -14,10 +18,6 @@
 
 ;; create the autosave dir if necessary, since emacs won't.
 (make-directory "~/.emacs.d/autosaves/" t)
-
-;;For tramp
-(require 'tramp)
-(setq tramp-default-method "scp")
 
 ;;Python-Mode.el
 (add-to-list 'load-path "/home/blaed/.emacs.d/plugins/python-mode.el-6.0.12") 
@@ -45,6 +45,8 @@
 (require 'wrap-region)
 (add-hook 'html-mode-hook 'wrap-region-mode)
 
+;;Attempt to set the color theme on startup
+(add-hook 'emacs-startup-hook 'color-theme-comidia)
 ;;-----------------------------------------------------
 
 ;;yasnippet plugin
@@ -61,6 +63,8 @@
 ;;*************************************************************************
 ;;make C-x z undefined, sick of accidentally freezing emacs...
 (global-unset-key "\C-z")
+
+(global-set-key "\C-x\C-m" 'execute-extended-command)
 
 ;;Set innitial buffer on opening
 (custom-set-variables
@@ -87,9 +91,19 @@
 ;;make "y" or "n" sufficient for "yes" and "no"
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;;---Set indentation to 2 spaces
+(setq standard-indent 2)
+(setq tab-width 2)
+;;(js2-mode tab-width 2)
 
 ;;************************************************************************
 
+;;*******************inf-Ruby****************************************
+ (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
+    (autoload 'inf-ruby-keys "inf-ruby" "" t)
+    (eval-after-load 'ruby-mode
+      '(add-hook 'ruby-mode-hook 'inf-ruby-keys))
+;********************************************************************
 
 ;;COLORS -----------------------------------------------------------------
 ;; Set cursor color
@@ -104,8 +118,8 @@
 
 (require 'color-theme)
 ;(color-theme-initialize)
-(load-file "~/.emacs.d/elpa/color-theme-twilight-0.1/color-theme-twilight.el")
-(color-theme-twilight)
+;(load-file "~/.emacs.d/elpa/color-theme-twilight-0.1/color-theme-twilight.el")
+;(color-theme-twilight)
 
 
 ;;; Set highlighting colors for isearch and drag
