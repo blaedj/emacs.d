@@ -1,18 +1,17 @@
 ;; default load path
 (add-to-list 'load-path "/home/blaed/.emacs.d/")
-(add-to-list  'load-path "~/emacs.d/elpa/")
-(add-to-list  'load-path "~/emacs.d/elpa/color-theme-6.5.5/")
-;;(add-to-list  'load-path "~/emacs.d/elpa/ruby-mode-1.1/")
-(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
-;;(add-to-list 'load-path "~/.emacs.d/elpa/wrap-region-0.6.0")
+(add-to-list  'load-path "~/emacs.d/elpa/*")
+;(add-to-list  'load-path "~/emacs.d/elpa/color-theme-6.5.5/")
+(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet/snippets")
+(add-to-list 'load-path "~/.emacs.d/elpa/autopair-0.3/")
 
 (require 'dired-details+)
-
+(require 'autopair)
+(autopair-global-mode)
 
 ;;TODO
 ;;  -org mode research
 ;;  -multiple-cursors on github
-
 
 ;;Marmalade package repo for package.el
 (require 'package)
@@ -45,9 +44,8 @@
 (global-auto-complete-mode t)
 ;;set ac to start after 1 character is typed
 (setq ac-auto-start 1)
-;;set tab to display auto complete?...
-;TODO
 
+;;set tab to display auto complete?...
 
 ;;-------------------------------------------------------
 
@@ -56,9 +54,10 @@
 (require 'yasnippet)
 (yas/global-mode 1)
 ;;Load the snippet files
-(yas/load-directory "~/.emacs.d/plugins/yasnippet/snippets/text-mode")
-;;put snippets in autocomplete dropdown mode
-(add-to-list 'ac-sources 'ac-sources-yasnippet)
+(yas-load-directory "~/.emacs.d/plugins/yasnippet/")
+(setq yas-snippet-dirs "~/.emacs.d/plugins/yasnippet/snippets")
+;; ;;put snippets in autocomplete dropdown mode
+ (add-to-list 'ac-sources 'ac-sources-yasnippet)
 ;;-------------------------------------------------------
 
 ;;-------------Wrap-region--------------------------------
@@ -73,7 +72,10 @@
 ;;make C-x z undefined, don't freeze emacs...
 (global-unset-key "\C-z")
 ;;alternative for M-x
-(global-set-key "\C-x\C-m" 'execute-extended-command)
+;(global-set-key "\C-x\C-m" 'execute-extended-command)
+(global-set-key "\C-x\C-m" 'smex)
+(global-set-key "\C-x\C-k" 'kill-region)
+(global-set-key "\C-w" 'backward-kill-word)
 ;;-----------------------------------------------------
 
 ;;deal with autosave and backup files
@@ -96,6 +98,8 @@
 
 ;;transient mark mode
 (setq transient-mark-mode t)
+
+(setq user-mail-address "blaedj@gmail.com")
 
 ;;remove unneccesary whitespace before saving a file
 (add-hook 'before-save-hook (lambda ()(delete-trailing-whitespace)))
@@ -121,7 +125,7 @@
 ;; Set mouse color
 (set-mouse-color "green")
 ;;set the color theme on startup
-(add-hook 'emacs-startup-hook 'color-theme-comidia)
+(add-hook 'emacs-startup-hook 'color-theme-oswald)
 
 ;;; Set highlighting colors for isearch and drag
 (set-face-foreground 'highlight "MediumOrchid4")
