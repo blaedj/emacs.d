@@ -19,61 +19,53 @@
 	     '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
-
-;;----------updated ruby mode----------------------------
+;;---updated ruby mode---
 (autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
 (setq inhibit-startup-screen t)
-;;-------------------------------------------------------
+;;---
 
-;;------------inf-Ruby-----------------------------------
+;;---inf-Ruby---
 (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
 (autoload 'inf-ruby-keys "inf-ruby" "" t)
 (eval-after-load 'ruby-mode
   '(add-hook 'ruby-mode-hook 'inf-ruby-keys))
 ;;-------------------------------------------------------
 
+;;---Yaml-Mode---;
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
 ;;---------auto-complete mode----------------------------
-;;load the default configuration
-(require 'auto-complete-config)
-;;make sure we can find the dictionaries
-(add-to-list 'ac-dictionary-directories "/home/blaed/.emacs.d/ac-dict")
+(require 'auto-complete-config)           ;load the default configuration
 (ac-config-default)
-;;turn on auto-complete-mode globally, turn off using M-x auto-complete-mode...
+(add-to-list 'ac-dictionary-directories "/home/blaed/.emacs.d/ac-dict")  ;make sure we can find the dictionaries
 (global-auto-complete-mode t)
-;;set ac to start after 1 character is typed
-(setq ac-auto-start 1)
+
+(setq ac-auto-start 1)                    ;set ac to start after 1 character is typed
 
 ;;set tab to display auto complete?...
 
-;;-------------------------------------------------------
-
-;;-----------yasnippet plugin;;---------------------------
-
+;;---yasnippet---
 (require 'yasnippet)
 (yas/global-mode 1)
-;;Load the snippet files
-(yas-load-directory "~/.emacs.d/plugins/yasnippet/")
+(yas-load-directory "~/.emacs.d/plugins/yasnippet/")         ;Load the snippet files
 (setq yas-snippet-dirs "~/.emacs.d/plugins/yasnippet/snippets")
-;; ;;put snippets in autocomplete dropdown mode
- (add-to-list 'ac-sources 'ac-sources-yasnippet)
-;;-------------------------------------------------------
+(add-to-list 'ac-sources 'ac-sources-yasnippet)  ;put snippets in ac dropdown
 
-;;-------------Wrap-region--------------------------------
-
+;;---Wrap-region---
 (require 'wrap-region)
 (add-hook 'html-mode-hook 'wrap-region-mode)
-;;-------------------------------------------------------
 
-;***************Set environment preferences*******************
 
-;;--GENERAL KEY REMAPPINGS-----------------------
-;;make C-x z undefined, don't freeze emacs...
-(global-unset-key "\C-z")
-;;alternative for M-x
-;(global-set-key "\C-x\C-m" 'execute-extended-command)
-(global-set-key "\C-x\C-m" 'smex)
+;;---ASM-MIPS mode---
+(setq asm-comment-char "#")
+
+;;--GENERAL KEY REMAPPINGS----------
+
+(global-unset-key "\C-z")             ;make C-x z undefined, don't freeze emacs...
+(global-set-key "\C-x\C-m" 'smex)     ; smarter M-x
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-w" 'backward-kill-word)
 ;;-----------------------------------------------------
@@ -86,37 +78,24 @@
 (make-directory "~/.emacs.d/autosaves/" t)
 
 ;;-----Get rid of the training wheels-----------------------
-;;turn off toolbar on startup, to turn on type M-x tool-bar-mode
-(tool-bar-mode -1)
-;;turn off scroll bars, to turn on: M-x scroll-bar-mode
-(set-scroll-bar-mode nil)
-;;turn off menu bar, to turn back on: c-mouse3
-(menu-bar-mode -99)
-;;make "y" or "n" sufficient for "yes" and "no"
-(fset 'yes-or-no-p 'y-or-n-p)
+(tool-bar-mode -1)                  ;turn off toolbar on startup
+(set-scroll-bar-mode nil)           ;turn off scroll bars
+(menu-bar-mode -99)                 ;turn off menu bar
+(fset 'yes-or-no-p 'y-or-n-p)       ;use y/n instead of yes/no
 ;;---------------------------------------------------------
 
-;;transient mark mode
-(setq transient-mark-mode t)
 
+(setq transient-mark-mode t)        ;transient mark mode
 (setq user-mail-address "blaedj@gmail.com")
-
-;;remove unneccesary whitespace before saving a file
-(add-hook 'before-save-hook (lambda ()(delete-trailing-whitespace)))
-
-;;Set indentation to 2 spaces
-(setq standard-indent 2)
+(add-hook 'before-save-hook (lambda ()(delete-trailing-whitespace)))  ;remove unneccesary whitespace before saving a file
+(setq standard-indent 2)            ;Set indentation to 2 spaces
 (setq tab-width 2)
+(setq tabs-mode nil)
 
-;;Enable "interactive-do"-mode
+
 (require 'ido)
-(ido-mode t)
-
-;;show paren mode
-(show-paren-mode t)
-
-;;***********************************************************
-
+(ido-mode t)                       ;Enable "interactive-do"-mode
+(show-paren-mode t)                ;show matching paren mode
 
 ;;*******COLORS ----------------------------------------------------0
 (require 'color-theme)
@@ -136,6 +115,15 @@
 ;;------------------------------------------------------------------0
 
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(js2-warning ((t (:underline "orange")))))
 (put 'narrow-to-region 'disabled t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(send-mail-function (quote mailclient-send-it)))
