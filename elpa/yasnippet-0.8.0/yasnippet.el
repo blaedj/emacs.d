@@ -1356,7 +1356,9 @@ ensure your use `make-local-variable' when you set it.")
                   (yas--table-direct-keymap table))
             yas--direct-keymaps))
     table))
-
+(defun yas/get-snippet-tables ()
+"wrapper function for backwards compatibility with auto-complete"
+ (yas--get-snippet-tables))
 (defun yas--get-snippet-tables ()
   "Get snippet tables for current buffer.
 

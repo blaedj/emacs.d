@@ -1,0 +1,5 @@
+# name: println
+# contributer: blaedj
+# key: print
+# --
+System.out.println("$0");
