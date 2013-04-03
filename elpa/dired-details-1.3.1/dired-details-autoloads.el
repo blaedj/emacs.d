@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads nil nil ("dired-details-pkg.el" "dired-details.el")
-;;;;;;  (20771 42873 534063))
+;;;;;;  (20821 34637 24492))
 
 ;;;***
 

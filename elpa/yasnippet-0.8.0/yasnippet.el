@@ -147,7 +147,7 @@
   "Store the filename that yasnippet.el was originally loaded from.")
 
 (defcustom yas-snippet-dirs (remove nil
-                                    (list "~/.emacs.d/snippets"
+                                    (list "~/.emacs.d/elpa/yasnippet-0.8.0/snippets/"
                                           (when yas--load-file-name
                                             (concat (file-name-directory yas--load-file-name) "snippets"))))
   "Directory or list of snippet dirs for each major mode.
