@@ -147,7 +147,7 @@
   "Store the filename that yasnippet.el was originally loaded from.")
 
 (defcustom yas-snippet-dirs (remove nil
-                                    (list "~/.emacs.d/elpa/yasnippet-0.8.0/snippets/"
+                                    (list "~/.emacs.d/snippets"
                                           (when yas--load-file-name
                                             (concat (file-name-directory yas--load-file-name) "snippets"))))
   "Directory or list of snippet dirs for each major mode.
@@ -1356,9 +1356,7 @@ ensure your use `make-local-variable' when you set it.")
                   (yas--table-direct-keymap table))
             yas--direct-keymaps))
     table))
-(defun yas/get-snippet-tables ()
-"wrapper function for backwards compatibility with auto-complete"
- (yas--get-snippet-tables))
+
 (defun yas--get-snippet-tables ()
   "Get snippet tables for current buffer.
 

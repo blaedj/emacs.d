@@ -3,8 +3,8 @@
 ;;; Code:
 
 
-;;;### (autoloads (windresize) "windresize" "windresize.el" (20518
-;;;;;;  43040))
+;;;### (autoloads (windresize) "windresize" "windresize.el" (20827
+;;;;;;  34549))
 ;;; Generated autoloads from windresize.el
 
 (autoload 'windresize "windresize" "\
@@ -45,7 +45,7 @@ will set the new window configuration and exit.
 
 ;;;***
 
-;;;### (autoloads nil nil ("windresize-pkg.el") (20518 43040 534719))
+;;;### (autoloads nil nil ("windresize-pkg.el") (20827 34549 337578))
 
 ;;;***
 

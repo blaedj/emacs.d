@@ -4,13 +4,13 @@
 
 
 ;;;### (autoloads (dired-details-propagate-flag dired-details-hidden-string)
-;;;;;;  "dired-details+" "dired-details+.el" (20780 1374))
+;;;;;;  "dired-details+" "dired-details+.el" (20827 39481))
 ;;; Generated autoloads from dired-details+.el
 
 (defvar dired-details-hidden-string "" "\
 *This string will be shown in place of file details and symbolic links.")
 
-;(custom-autoload 'dired-details-hidden-string "dired-details+" t)
+(custom-autoload 'dired-details-hidden-string "dired-details+" t)
 
 (defvar dired-details-propagate-flag t "\
 Non-nil means next Dired buffer should be displayed the same.
@@ -21,7 +21,8 @@ buffer created.")
 
 ;;;***
 
-;;;### (autoloads nil nil ("dired-details+-pkg.el") (20780 1374 900324))
+;;;### (autoloads nil nil ("dired-details+-pkg.el") (20827 39481
+;;;;;;  750549))
 
 ;;;***
 

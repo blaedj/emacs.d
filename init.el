@@ -1,22 +1,32 @@
-;Load path list
-(add-to-list 'load-path "/home/blaed/.emacs.d/")
+;; Turn off mouse interface early in startup to avoid momentary display
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
+;; No splash screen please ... jeez
+(setq inhibit-startup-message t)
+
+					;Load path list
+					;/home/blaed/.emacs.d/elpa
+(add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/emacs.d/elpa/")
-;(add-to-list 'load-path "~/emacs.d/elpa/dired-details-1.3.1/dired-details.el")
-;(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet/snippets")
-;s(add-to-list 'load-path "~/.emacs.d/elpa/autopair-0.3/")
+(add-to-list 'load-path "~/emacs.d/lisp/")
+
+;; load sub-dirs
+(let ((default-directory "~/.emacs.d/elpa"))
+  (normal-top-level-add-subdirs-to-load-path))
 
 ;;TODO
-; organization...
-; tabs.el: make it work? especially show-autocomplete and filepath completions
-; look for better/faster way to open files, a la sublime text
+					; organization...
+					; tabs.el: make it work? especially show-autocomplete and filepath completions
+					; look for better/faster way to open files, a la sublime text
 
+(require 'dired-details)
 (require 'dired-details+)
-
+(setq dired-details-hidden-string "" )
 (require 'autopair)
 (autopair-global-mode)
 (global-subword-mode t)
-
-(setq inhibit-startup-screen t)
 
 ;;Marmalade package repo for package.el
 (require 'package)
@@ -29,7 +39,6 @@
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
 ;;---
-
 
 ;;---inf-Ruby---
 (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
@@ -47,15 +56,14 @@
             (hs-minor-mode t)))
 
 ;;---Yaml-Mode---;
-(require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+					;(require 'yaml-mode)
+					;(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
 ;;---------auto-complete mode----------------------------
 (require 'auto-complete-config)           ;load the default configuration
 (ac-config-default)
 (add-to-list 'ac-dictionary-directories "/home/blaed/.emacs.d/ac-dict")  ;make sure we can find the dictionaries
 (global-auto-complete-mode t)
-
 (setq ac-auto-start 1)                    ;set ac to start after 1 character is typed
 
 ;;set tab to display auto complete?...
@@ -63,14 +71,15 @@
 ;;---yasnippet---
 (require 'yasnippet)
 (yas/global-mode 1)
-(yas-load-directory "~/.emacs.d/elpa/yasnippet-0.8.0/snippets/")         ;Load the snippet files
+(yas-load-directory "~/.emacs.d/elpa/yasnippet-0.8.0/snippets/") ;Load the snippet files
 					;(setq yas-snippet-dirs "~/.emacs.d/plugins/yasnippet/snippets")
+(yas-load-directory "~/.emacs.d/elpa/yasnippet-0.8.0/snippets/text-mode/")
 (add-to-list 'ac-sources 'ac-source-yasnippet)  ;put snippets in ac dropdown
 
 ;;---Wrap-region---
 (require 'wrap-region)
+(wrap-region-global-mode t)
 (add-hook 'html-mode-hook 'wrap-region-mode)
-					;(setq 'wrap-re)
 
 ;;---ASM-MIPS mode---
 (setq asm-comment-char "#")
@@ -83,18 +92,14 @@
 (global-set-key "\C-w" 'backward-kill-word)
 ;;----------
 
-;;deal with autosave and backup files
-;;Put autosave files (ie #foo#) and backup files (ie foo~) in ~/.emacs.d/.
-'(auto-save-file-name-transforms '((".*" "~/.emacs.d/autosaves/\\1" t)))
-'(backup-directory-alist '((".*" . "~/.emacs.d/backups/")))
-;; create the autosave dir if necessary, since emacs won't.
-(make-directory "~/.emacs.d/autosaves/" t)
+;; Write backup files to own directory
+(setq backup-directory-alist
+      `(("." . ,(expand-file-name
+                 (concat user-emacs-directory "backups")))))
 
-;;-----Get rid of the training wheels-----------------------
-(tool-bar-mode -1)                  ;turn off toolbar on startup
-(set-scroll-bar-mode nil)           ;turn off scroll bars
-;;(menu-bar-mode -99)                 ;turn off menu bar
-					; decided not to turn off the menu bar because I can use the system titlebar on linux and probably on a mac
+;; Make backups of files, even when they're in version control
+(setq vc-make-backup-files t)
+
 (fset 'yes-or-no-p 'y-or-n-p)       ;use y/n instead of yes/no
 ;;---------------------------------------------------------
 
@@ -119,12 +124,6 @@
 ;;set the color theme on startup
 (add-hook 'emacs-startup-hook 'color-theme-oswald)
 (setq initial-frame-alist '((width . 100) (height . 54)))
-;(add-to-list 'default-frame-alist '(background-color  "#555"))
-;(set-background-color "#141414")
-;; Set highlighting colors for isearch and drag
-;(set-face-foreground 'highlight "MediumOrchid4")
-;(set-face-background 'highlight "#000")
-;(set-face-background 'region "#000")
 (set-face-foreground 'secondary-selection "skyblue")
 ;;------------------------------------------------------------------0
 
@@ -135,7 +134,7 @@
  ;; If there is more than one, they won't work right.
  '(highlight ((t (:background "HotPink" :foreground "black"))))
  '(js2-warning ((t (:underline "orange")))))
-(put 'narrow-to-region 'disabled t)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

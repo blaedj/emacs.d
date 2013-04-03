@@ -30,7 +30,7 @@
 ;; This mode lets you edit the window configuration interactively just
 ;; by using the keyboard.
 ;;
-;; To use it, type M-x windresize; this enters put Emacs in a state
+;; To use it, type M-x windresize; this puts Emacs in a state
 ;; where the up/down and left/right arrow keys resize the window
 ;; dimensions.  To return Emacs to its ordinary state, type RET.
 ;;
@@ -868,7 +868,7 @@ horizontally and vertically."
 (defun windresize-cancel-and-quit ()
   "Cancel window resizing and quit `windresize'."
   (interactive)
-  (if (eq major-mode 'help-mode)
+  (if (derived-mode-p 'help-mode)
       (progn (View-quit)
 	     (setq windresize-msg '("Help quit" . 2)))
     (switch-to-buffer windresize-buffer)
@@ -933,6 +933,36 @@ C-M-arrows:  move window with fixed width/height   0:  delete current window
 See the docstring of `windresize' for detailed description."))
     (with-output-to-temp-buffer "*Help*"
       (princ help))))
+
+;;;; ChangeLog:
+
+;; 2012-10-31  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	* admin/update-archive.sh: Keep old packages.
+;; 
+;; 2011-07-12  Chong Yidong  <cyd@stupidchicken.com>
+;; 
+;; 	Fix version numbers of sisu-mode, register-list, and windresize.
+;; 
+;; 2011-07-08  Chong Yidong  <cyd@stupidchicken.com>
+;; 
+;; 	windresize.el: Make the commentary more informative.
+;; 
+;; 2011-07-08  Bastien Guerry  <bastien1@free.fr>
+;; 
+;; 	Added packages/windresize/windresize.el to GNU ELPA.
+;; 	
+;; 	windresize.el provides commands to quickly manipulate
+;; 	windows.
+;; 
+;; 2011-07-08  Bastien Guerry  <bastien1@free.fr>
+;; 
+;; 	Add windresize.el to GNU ELPA.
+;; 	
+;; 	windresize.el lets the user manipulate windows quickly
+;; 	through simple keystrokes.
+;; 
+
 
 (provide 'windresize)
 
