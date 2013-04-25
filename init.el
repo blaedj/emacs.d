@@ -13,19 +13,20 @@
 (let ((default-directory "~/.emacs.d/elpa"))
   (normal-top-level-add-subdirs-to-load-path))
 
-;(require 'mydefuns) ;; some custom functions
 
 ;;TODO
-					; organization...
-					; tabs.el: make it work? especially show-autocomplete and filepath completions
-					; look for better/faster way to open files, a la sublime text
+;; organization...
+;; tabs.el: make it work? especially show-autocomplete and filepath completions
+;; look for better/faster way to open files, a la sublime text
 
 (require 'dired-details)
 (require 'dired-details+)
 (setq dired-details-hidden-string "" )
 (require 'autopair)
-;(autopair-global-mode)
+(autopair-mode)
 (global-subword-mode t)
+
+(require 'mydefuns) ;; some custom functions
 
 ;;Marmalade package repo for package.el
 (require 'package)
@@ -51,6 +52,16 @@
 (eval-after-load 'ruby-mode
   '(add-hook 'ruby-mode-hook 'inf-ruby-keys))
 ;;-------------------------------------------------------
+
+;;---Java Stuff---
+(add-hook 'java-mode-hook (lambda ()
+			    ;; turn on auto-revert to deal with switching between
+			    ;; emacs and eclispe
+			    (auto-revert-mode t)
+			    ;; turn on autopair
+			    (autopair-mode)
+			    ))
+
 
 ;;---Javascript Stuff---
 (add-hook 'js-mode-hook
@@ -122,10 +133,10 @@
 
 ;;*******COLORS ----------------------------------------------------0
 (require 'color-theme)
-(set-cursor-color "magenta2")
-(set-mouse-color "green")
+;(set-cursor-color "magenta2")
+;(set-mouse-color "green")
 ;(load-theme 'solarized-dark t)'
-(load-theme 'zenburn t)
+(load-theme 'solarized-dark t)
 (add-to-list 'custom-theme-load-path "/home/blaed/.emacs.d/elpa/customThemes/")
 ;;set the color theme on startup
 ;(add-hook 'emacs-startup-hook 'color-theme-oswald)
@@ -152,3 +163,4 @@
  '(js2-bounce-indent-p t)
  '(js2-highlight-level 3)
  '(send-mail-function (quote mailclient-send-it)))
+(put 'upcase-region 'disabled nil)
