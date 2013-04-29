@@ -1,3 +1,8 @@
 *.*~
 elpa/archives/marmalade/*
 *~
+# machine-specific data
+autosaves/
+1ac-comphist.dat
+ac-comphist.dat
+session.*
