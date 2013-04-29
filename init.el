@@ -6,9 +6,15 @@
 (setq inhibit-startup-message t)
 					;Load path list
 (add-to-list 'load-path "~/.emacs.d/")
+
+(if (< (string-to-number emacs-version) 24)
+    (setq outdated t)
+)
+
+
 (add-to-list 'load-path "~/emacs.d/elpa/")
 (add-to-list 'load-path "~/emacs.d/lisp/")
-;(print load-path)
+					;(print load-path)
 ;; load sub-dirs
 (let ((default-directory "~/.emacs.d/elpa"))
   (normal-top-level-add-subdirs-to-load-path))
@@ -29,10 +35,13 @@
 (require 'mydefuns) ;; some custom functions
 
 ;;Marmalade package repo for package.el
-(require 'package)
-(add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
+(unless  (boundp 'outdated)
+ (require 'package)
+ (add-to-list 'package-archives
+	      '("marmalade" . "http://marmalade-repo.org/packages/"))
+ (package-initialize)
+)
+
 
 ;;---updated ruby mode---
 (autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
@@ -114,10 +123,10 @@
                  (concat user-emacs-directory "backups")))))
 (setq vc-make-backup-files t)
 
-;(set-frame-font "DejaVu Sans Mono-12")
-;(set-frame-font "Ubuntu Mono-14")
-;(set-frame-font "Andale Mono 13")
-(set-frame-font "Monaco 11") ; great font, may need to install on non-macs
+					;(set-frame-font "DejaVu Sans Mono-12")
+					;(set-frame-font "Ubuntu Mono-14")
+					;(set-frame-font "Andale Mono 13")
+;(set-frame-font "Monaco 11") ; great font, may need to install on non-macs
 
 (fset 'yes-or-no-p 'y-or-n-p)       ;use y/n instead of yes/no
 (setq tab-width 2)
@@ -132,14 +141,23 @@
 (show-paren-mode t)                ;show matching paren mode
 
 ;;*******COLORS ----------------------------------------------------0
-(require 'color-theme)
-;(set-cursor-color "magenta2")
-;(set-mouse-color "green")
-;(load-theme 'solarized-dark t)'
-(load-theme 'solarized-dark t)
-(add-to-list 'custom-theme-load-path "/home/blaed/.emacs.d/elpa/customThemes/")
+
+;;(unless  (boundp 'outdated)
+(if (boundp 'outdated)
+		(require 'color-theme)
+;; FIXME if outdated, set the color theme as well as requiring color-theme
+;;	(color-theme-oswald)
+	)
+					;(set-cursor-color "magenta2")
+					;(set-mouse-color "green")
+					;(load-theme 'solarized-dark t)'
+(unless (boundp 'outdated)
+	(add-to-list 'custom-theme-load-path "/home/blaed/.emacs.d/elpa/customThemes/")
+	(load-theme 'solarized-dark t)
+)
+
 ;;set the color theme on startup
-;(add-hook 'emacs-startup-hook 'color-theme-oswald)
+					;(add-hook 'emacs-startup-hook 'color-theme-oswald)
 
 (set-face-foreground 'secondary-selection "skyblue")
 ;;------------------------------------------------------------------0
