@@ -9,7 +9,7 @@
 
 (if (< (string-to-number emacs-version) 24)
     (setq outdated t)
-)
+) ; for copatibility with emacs 23
 
 
 (add-to-list 'load-path "~/emacs.d/elpa/")
@@ -31,6 +31,8 @@
 (require 'autopair)
 (autopair-mode)
 (global-subword-mode t)
+(require 'smex)
+
 
 (require 'mydefuns) ;; some custom functions
 
