@@ -1,6 +1,0 @@
-# name: MIPS print
-# key: print
-# --
-li	$v0, 4
-la	$a0, $0
-syscall

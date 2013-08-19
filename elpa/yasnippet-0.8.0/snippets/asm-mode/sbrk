@@ -1,8 +1,0 @@
-# name: sbrk create a struct
-# key: sbrk
-# --
-li	$v0, 9	# sbrk allocate space
-li	$a0, $0	# 1 word = 4 (bytes)
-syscall
-
-move	$1, $v0	# save the address

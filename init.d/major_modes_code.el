@@ -1,5 +1,28 @@
+(defun my-coding-hook ()
+  (make-local-variable 'column-number-mode)
+  (column-number-mode t)
+  (idle-highlight)
+  (linum-mode 1)
+  (auto-complete-mode 1)
+  (autopair-mode)
+  (hs-minor-mode)
+  )
 
-;;---updated ruby mode---
+(add-hook 'emacs-lisp-mode-hook 'my-coding-hook)
+(add-hook 'ruby-mode-hook 'my-coding-hook)
+(add-hook 'js2-mode-hook 'my-coding-hook)
+(add-hook 'js-mode-hook 'my-coding-hook)
+(add-hook 'csharp-mode-hook 'my-coding-hook)
+(add-hook 'css-mode-hook 'my-coding-hook)
+(add-hook 'html-mode-hook 'my-coding-hook)
+(add-hook 'web-mode-hook 'my-coding-hook)
+(add-hook 'html-mode-hook 'wrap-region-mode)
+
+(add-hook 'js2-mode-hook 'skewer-mode)
+(add-hook 'css-mode-hook 'skewer-css-mode)
+(add-hook 'html-mode-hook 'skewer-html-mode)
+
+
 (autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
@@ -10,42 +33,44 @@
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode) )
-(add-hook 'ruby-mode-hook
-	  (lambda () (run-hooks 'code-modes-hook)))
-;;---
 
-(add-hook 'emacs-lisp-mode-hook (lambda () (run-hooks 'code-modes-hook)))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
+
+(print auto-mode-alist)
 
 
 ;; ;;---inf-Ruby---
-;; (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
-;; (autoload 'inf-ruby-keys "inf-ruby" "" t)
-;; (eval-after-load 'ruby-mode
-;;   '(add-hook 'ruby-mode-hook 'inf-ruby-keys))
+(require 'inf-ruby)
+(autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
+(autoload 'inf-ruby-keys "inf-ruby" "" t)
+(eval-after-load 'ruby-mode
+  '(add-hook 'ruby-mode-hook 'inf-ruby-keys))
 ;;-------------------------------------------------------
+
+(setq exec-path (cons (expand-file-name "~/.gem/ruby/1.8/bin") exec-path))
 
 ;;---Java Stuff---
 (add-hook 'java-mode-hook (lambda ()
 			    ;; turn on auto-revert to deal with switching between
 			    ;; emacs and eclispe
 			    (auto-revert-mode t)
-			    ;; turn on autopair
-			    (autopair-mode)
-			    (run-hooks 'code-modes-hook)
 			    ))
-
 
 ;;---Javascript Stuff---
 (add-hook 'js-mode-hook
           (lambda ()
             ;; Scan the file for nested code blocks
             (imenu-add-menubar-index)
-            ;; Activate the folding mode
-            (hs-minor-mode t))
-	  (run-hooks 'code-modes-hook)
-	  )
-;;---Markdown Mode---
-(autoload 'markdown-mode "markdown-mode"
-  "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+	    (run-hooks 'code-modes-hook)
+	    )
+
+
+	  ;;---Markdown Mode---
+	  (autoload 'markdown-mode "markdown-mode"
+	    "Major mode for editing Markdown files" t)
+	  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+
+
+	  (add-to-list 'auto-mode-alist '("\\.zsh\\'" . shell-script-mode))
+	  (add-to-list 'auto-mode-alist '("\\.zsh-theme\\'" . shell-script-mode))

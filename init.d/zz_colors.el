@@ -8,5 +8,8 @@
 					;(load-theme 'solarized-dark t)'
 (unless (boundp 'outdated)
   (add-to-list 'custom-theme-load-path "/home/blaed/.emacs.d/elpa/customThemes/")
-  (load-theme 'solarized-dark t)
+  ;; the bleed through of the solarized-light theme into zenburn is nice.
+  ;; should find a way to save current color settings and set as new theme.
+  (load-theme 'solarized-light)
+  (load-theme 'zenburn)
   )
