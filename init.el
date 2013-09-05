@@ -19,7 +19,7 @@
     (dolist (file (directory-files bcj-init-dir t "\\.el$"))
       (load file)))
 
-(load "~/.emacs.d/floobits/floobits.el")
+;;(load "~/.emacs.d/floobits/floobits.el")
 
 (require 'mydefuns) ;; some custom functions
 ;;----------stuff below should be removed---------------------
