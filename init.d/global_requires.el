@@ -2,10 +2,10 @@
 (require 'dired-details+)
 (setq dired-details-hidden-string "--  " )
 
-
 (require 'autopair)
 (autopair-mode)
 (global-subword-mode t)
+
 (require 'smex)
 
 (require 'ido)
@@ -19,8 +19,11 @@
 ;;---yasnippet---
 (require 'yasnippet)
 (yas/global-mode 1)
-(yas-load-directory "~/.emacs.d/elpa/yasnippet-20130722.1832/snippets/")
+(yas-load-directory "~/.emacs.d/snippets/")
 
+(require 'ace-jump-mode)
+
+(require 'buffer-move)
 ;;(setq yas-snippet-dirs "~/.emacs.d/plugins/yasnippet/snippets")
 ;;(yas-load-directory "~/.emacs.d/elpa/yasnippet-0.8.0/snippets/text-mode/")
 ;;(add-to-list 'ac-sources 'ac-source-yasnippet)  ;put snippets in ac dropdown
@@ -29,9 +32,7 @@
 (require 'wrap-region)
 (wrap-region-global-mode t)
 
-
-(show-paren-mode t)                ;show matching paren mode
-
+(show-paren-mode t)
 
 (require 'auto-complete-config)           ;load the default configuration
 (ac-config-default)

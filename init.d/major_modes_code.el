@@ -1,7 +1,7 @@
 (defun my-coding-hook ()
   (make-local-variable 'column-number-mode)
   (column-number-mode t)
-  (idle-highlight)
+;;  (idle-highlight)
   (linum-mode 1)
   (auto-complete-mode 1)
   (autopair-mode)
@@ -37,8 +37,6 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 
-(print auto-mode-alist)
-
 
 ;; ;;---inf-Ruby---
 (require 'inf-ruby)
@@ -63,14 +61,17 @@
             ;; Scan the file for nested code blocks
             (imenu-add-menubar-index)
 	    (run-hooks 'code-modes-hook)
-	    )
+	    ))
 
 
-	  ;;---Markdown Mode---
-	  (autoload 'markdown-mode "markdown-mode"
-	    "Major mode for editing Markdown files" t)
-	  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+;;---Markdown Mode---
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 
 
-	  (add-to-list 'auto-mode-alist '("\\.zsh\\'" . shell-script-mode))
-	  (add-to-list 'auto-mode-alist '("\\.zsh-theme\\'" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\\.zsh\\'" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\\.zsh-theme\\'" . shell-script-mode))
+
+(require 're-builder)
+(setq reb-re-syntax 'string)
