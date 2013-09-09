@@ -1,7 +1,7 @@
 (defun my-coding-hook ()
   (make-local-variable 'column-number-mode)
   (column-number-mode t)
-;;  (idle-highlight)
+  ;;(idle-highlight)
   (linum-mode 1)
   (auto-complete-mode 1)
   (autopair-mode)
@@ -62,8 +62,6 @@
             (imenu-add-menubar-index)
 	    (run-hooks 'code-modes-hook)
 	    ))
-
-
 ;;---Markdown Mode---
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
