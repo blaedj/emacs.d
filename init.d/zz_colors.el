@@ -12,4 +12,5 @@
   ;; should find a way to save current color settings and set as new theme.
   (load-theme 'solarized-light t)
   (load-theme 'misterioso t)
+  (set-cursor-color  "#8d0")
   )
