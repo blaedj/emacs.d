@@ -1,11 +1,11 @@
 (defun my-coding-hook ()
   (make-local-variable 'column-number-mode)
   (column-number-mode t)
-  ;;(idle-highlight)
+  (idle-highlight)
   (linum-mode 1)
   (auto-complete-mode 1)
-  (autopair-mode)
-  (hs-minor-mode)
+  (autopair-mode 1)
+  (hs-minor-mode 1)
   )
 
 (add-hook 'emacs-lisp-mode-hook 'my-coding-hook)
@@ -38,8 +38,8 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 
-
-;; ;;---inf-Ruby---
+(require 'ruby-end)
+;;---inf-Ruby---
 (require 'inf-ruby)
 (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
 (autoload 'inf-ruby-keys "inf-ruby" "" t)
