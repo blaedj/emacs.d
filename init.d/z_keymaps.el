@@ -19,3 +19,11 @@
   )
 
 (add-hook 'org-mode-hook 'org-keys)
+
+(defun ruby_keys_outputing  ()
+  "Define the keybindings for seeing-is-believing"
+(local-set-key (kbd "C-c C-o") 'seeing-is-believing )
+)
+
+
+(add-hook 'ruby-mode-hook 'ruby_keys_outputing )

@@ -16,7 +16,9 @@
 (add-hook 'css-mode-hook 'my-coding-hook)
 (add-hook 'html-mode-hook 'my-coding-hook)
 (add-hook 'web-mode-hook 'my-coding-hook)
-(add-hook 'c++-mode 'my-coding-hook)
+(add-hook 'c++-mode-hook 'my-coding-hook)
+(add-hook 'c-mode-hook 'my-coding-hook)
+(add-hook 'cmake-mode-hook 'my-coding-hook)
 (add-hook 'html-mode-hook 'wrap-region-mode)
 
 (add-hook 'js2-mode-hook 'skewer-mode)
