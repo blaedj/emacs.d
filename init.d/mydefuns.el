@@ -4,16 +4,16 @@
   (beginning-of-buffer)
   (dired-next-line 3))
 
-(define-key dired-mode-map
-  (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)
+ (define-key dired-mode-map
+   (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)
 
 (defun dired-jump-to-bottom ()
   (interactive)
   (end-of-buffer)
   (dired-next-line -1))
 
-(define-key dired-mode-map
-  (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
+ (define-key dired-mode-map
+   (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
 
 (defun seeing-is-believing ()
   "Replace the current region (or the whole buffer, if none) with the output

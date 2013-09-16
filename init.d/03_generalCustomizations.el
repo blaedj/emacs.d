@@ -12,3 +12,8 @@
 (set-frame-font "Anonymous Pro 13")
 
 (put 'upcase-region 'disabled nil)
+
+;; don't activate yasnippet for ansi-term,
+;; it breaks shell tab-completion
+(add-hook 'term-mode-hook (lambda()
+        (setq yas-dont-activate t)))
