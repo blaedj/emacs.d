@@ -1,4 +1,3 @@
-
 (global-set-key "\C-x\C-m" 'smex)     ; smarter M-x
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-w" 'backward-kill-word)
@@ -10,7 +9,7 @@
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
 (global-set-key (kbd "M-p") 'previous-multiframe-window )
-(global-set-key (kbd "M-n") 'previous-multiframe-window )
+(global-set-key (kbd "M-n") 'next-multiframe-window )
 
 (defun org-keys ()
   "Remap some org keybindings"
