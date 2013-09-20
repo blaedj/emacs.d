@@ -24,5 +24,11 @@
 (local-set-key (kbd "C-c C-o") 'seeing-is-believing )
 )
 
+(defun bcj-revert-buffer-no-confirm ()
+  "Revert buffer with no confirmation"
+  (interactive)
+  (revert-buffer nil t))
+(global-set-key (kbd "<f5>") 'bcj-revert-buffer-no-confirm)
+
 
 (add-hook 'ruby-mode-hook 'ruby_keys_outputing )
