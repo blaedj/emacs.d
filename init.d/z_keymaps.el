@@ -1,4 +1,3 @@
-
 (global-set-key "\C-x\C-m" 'smex)     ; smarter M-x
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-w" 'backward-kill-word)
@@ -10,7 +9,7 @@
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
 (global-set-key (kbd "M-p") 'previous-multiframe-window )
-(global-set-key (kbd "M-n") 'previous-multiframe-window )
+(global-set-key (kbd "M-n") 'next-multiframe-window )
 
 (defun org-keys ()
   "Remap some org keybindings"
@@ -24,6 +23,12 @@
   "Define the keybindings for seeing-is-believing"
 (local-set-key (kbd "C-c C-o") 'seeing-is-believing )
 )
+
+(defun bcj-revert-buffer-no-confirm ()
+  "Revert buffer with no confirmation"
+  (interactive)
+  (revert-buffer nil t))
+(global-set-key (kbd "<f5>") 'bcj-revert-buffer-no-confirm)
 
 
 (add-hook 'ruby-mode-hook 'ruby_keys_outputing )

@@ -4,8 +4,8 @@
 # # Set name of the theme to load.
 # # Look in ~/.oh-my-zsh/themes/
 # # Optionally, if you set this to "random", it'll load a random theme each
-nn# # time that oh-my-zsh is loaded.
-# ZSH_THEME="blaed"
+# # time that oh-my-zsh is loaded.
+ ZSH_THEME="blaed"
 
 # # Example aliases
 # # alias zshconfig="mate ~/.zshrc"

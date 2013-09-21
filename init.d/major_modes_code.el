@@ -41,6 +41,7 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 
+
 (require 'ruby-end)
 ;;---inf-Ruby---
 (require 'inf-ruby)
@@ -81,3 +82,6 @@
 
 (require 're-builder)
 (setq reb-re-syntax 'string)
+
+(require 'cmake-mode )
+(add-to-list 'auto-mode-alist '("\\CMakeLists.txt\\'" . cmake-mode))
