@@ -10,7 +10,7 @@
 ;; No splash screen please ...
 (setq inhibit-startup-message t)
 
-(setq initial-frame-alist '((width . 150) (height . 100)))
+(setq initial-frame-alist '((width . 165) (height . 100)))
 (setq bcj-emacs-init-file (or load-file-name buffer-file-name))
 (setq bcj-emacs-config-dir
       (file-name-directory bcj-emacs-init-file))

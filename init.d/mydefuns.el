@@ -25,3 +25,12 @@ of seeing_is_believing."
 
 
 (provide 'mydefuns)
+
+(defun google-web-search ()
+  "Search google for a user-specified query"
+  (interactive)
+(browse-url
+ (concat "http://www.google.com/#q="(read-from-minibuffer "Query:" ) ))
+)
+
+(global-set-key (kbd "C-x g") 'google-web-search)

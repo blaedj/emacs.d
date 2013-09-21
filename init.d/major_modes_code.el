@@ -75,5 +75,9 @@
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.zsh-theme\\'" . shell-script-mode))
 
+
+(add-hook 'term-mode-hook (lambda()
+			    (setq yas-dont-activate t)))
+
 (require 're-builder)
 (setq reb-re-syntax 'string)
