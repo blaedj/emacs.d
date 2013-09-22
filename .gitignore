@@ -13,3 +13,5 @@ backups1/
 elpa/archives/
 plugins1/
 /url/cookies
+
+eshell/
