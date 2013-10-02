@@ -85,3 +85,10 @@
 
 (require 'cmake-mode )
 (add-to-list 'auto-mode-alist '("\\CMakeLists.txt\\'" . cmake-mode))
+
+
+;; C/C++ mode
+(require 'flycheck)
+(add-hook 'c++-mode-hook #'flycheck-mode)
+(add-hook 'c-mode-hook #'flycheck-mode)
+(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode)
