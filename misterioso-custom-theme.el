@@ -14,7 +14,7 @@
  '(isearch ((((class color) (min-colors 89)) (:background "#fcffad" :foreground "#000000"))))
  '(lazy-highlight ((((class color) (min-colors 89)) (:background "#338f86"))))
  '(trailing-whitespace ((((class color) (min-colors 89)) (:background "#ff4242"))))
- '(mode-line ((t (:background "chartreuse" :foreground "dim gray"))))
+ '(mode-line ((t (:background "dim gray" :foreground "chartreuse"))))
  '(mode-line-inactive ((t (:background "slate gray" :foreground "#eeeeec"))))
  '(header-line ((((class color) (min-colors 89)) (:background "#e5e5e5" :foreground "#333333"))))
  '(minibuffer-prompt ((((class color) (min-colors 89)) (:foreground "#729fcf" :weight bold))))
