@@ -1,5 +1,5 @@
 (deftheme misterioso-custom
-  "Created 2013-10-02.")
+  "Created 2013-10-05.")
 
 (custom-theme-set-variables
  'misterioso-custom
@@ -10,7 +10,7 @@
  '(cursor ((t (:background "#88dd00"))))
  '(fringe ((((class color) (min-colors 89)) (:background "#2e3748"))))
  '(highlight ((((class color) (min-colors 89)) (:background "#338f86" :foreground "#e1e1e0"))))
- '(region ((((class color) (min-colors 89)) (:background "#2d4948" :foreground "#e1e1e0"))))
+ '(region ((t (:background "slate gray"))))
  '(isearch ((((class color) (min-colors 89)) (:background "#fcffad" :foreground "#000000"))))
  '(lazy-highlight ((((class color) (min-colors 89)) (:background "#338f86"))))
  '(trailing-whitespace ((((class color) (min-colors 89)) (:background "#ff4242"))))

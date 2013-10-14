@@ -33,6 +33,9 @@
 (wrap-region-global-mode t)
 
 (show-paren-mode t)
+(setq show-paren-style 'parenthesis)
+(set-face-attribute 'show-paren-match-face nil
+        :weight 'bold :underline nil :overline nil :slant 'normal)
 
 (require 'auto-complete-config)           ;load the default configuration
 (ac-config-default)

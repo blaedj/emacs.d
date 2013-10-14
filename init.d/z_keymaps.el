@@ -11,6 +11,8 @@
 (global-set-key (kbd "M-p") 'previous-multiframe-window )
 (global-set-key (kbd "M-n") 'next-multiframe-window )
 
+(global-set-key (kbd "C-.") 'imenu-anywhere)
+
 (defun org-keys ()
   "Remap some org keybindings"
   (local-unset-key (kbd "C-c SPC"))

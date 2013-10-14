@@ -11,6 +11,6 @@
   ;; the bleed through of the solarized-light theme into zenburn is nice.
   ;; should find a way to save current color settings and set as new theme.
   ;;  (load-theme 'solarized-light t)
-  (load-theme 'solarized-dark t)
-  (load-theme 'misterioso-custom t)
+  (load-theme 'solarized-dark-custom t)
+  ;; (load-theme 'misterioso-custom t)
   )
