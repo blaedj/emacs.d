@@ -35,8 +35,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(flycheck-color-mode-line-error-face ((t (:inherit flycheck-fringe-error :background "orange red" :foreground "#efefef" :weight normal))) t)
- '(flycheck-error ((t (:overline "orange red" :underline "Red1"))))
+ '(flycheck-color-mode-line-error-face ((t (:inherit flycheck-fringe-error :background "orange red" :foreground "#efefef" :weight normal))))
+ '(flycheck-error ((t (:underline "Red1"))))
  '(show-paren-match ((t (:background "DeepSkyBlue" :foreground "slate gray")))))
 
 

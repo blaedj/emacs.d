@@ -40,7 +40,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
-
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode) )
 
 (require 'ruby-end)
 ;;---inf-Ruby---
