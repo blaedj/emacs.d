@@ -19,6 +19,7 @@
 (add-hook 'c++-mode-hook 'my-coding-hook)
 (add-hook 'c-mode-hook 'my-coding-hook)
 (add-hook 'cmake-mode-hook 'my-coding-hook)
+(add-hook 'java-mode-hook 'my-coding-hook)
 
 (add-hook 'html-mode-hook 'wrap-region-mode)
 
@@ -26,6 +27,7 @@
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
 
+(require 'project-explorer)
 
 (autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))

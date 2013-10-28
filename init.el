@@ -58,3 +58,4 @@
  '(js2-highlight-level 3)
  '(send-mail-function (quote mailclient-send-it))
  '(yas-prompt-functions (quote (yas-ido-prompt yas-completing-prompt yas-dropdown-prompt yas-x-prompt yas-no-prompt))))
+(put 'narrow-to-region 'disabled nil)
