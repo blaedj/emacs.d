@@ -1,3 +1,4 @@
+
 (require 'dired-details)
 (require 'dired-details+)
 (setq dired-details-hidden-string "--  " )
@@ -25,7 +26,6 @@
 
 (require 'buffer-move)
 ;;(setq yas-snippet-dirs "~/.emacs.d/plugins/yasnippet/snippets")
-;;(yas-load-directory "~/.emacs.d/elpa/yasnippet-0.8.0/snippets/text-mode/")
 ;;(add-to-list 'ac-sources 'ac-source-yasnippet)  ;put snippets in ac dropdown
 
 ;;---Wrap-region---

@@ -4,6 +4,7 @@
     (setq outdated t)
   ) ; for compatibility with emacs 23
 
-(add-to-list 'load-path "~/emacs.d/elpa/")
-(let ((default-directory "~/.emacs.d/elpa"))
-  (normal-top-level-add-subdirs-to-load-path))
+;; Trying to figure out pallet, don't delete next 3 lines
+;; (add-to-list 'load-path "~/emacs.d/elpa/")
+;; (let ((default-directory "~/.emacs.d/elpa"))
+;;   (normal-top-level-add-subdirs-to-load-path))
