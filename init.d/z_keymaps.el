@@ -13,6 +13,10 @@
 
 (global-set-key (kbd "C-.") 'imenu-anywhere)
 
+;; shortcuts for changing the font size
+(global-set-key (kbd "C-=") 'text-scale-increase)
+(global-set-key (kbd "C-M-=") 'text-scale-decrease)
+
 (defun org-keys ()
   "Remap some org keybindings"
   (local-unset-key (kbd "C-c SPC"))
