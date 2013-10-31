@@ -43,6 +43,21 @@ of seeing_is_believing."
     (replace-match ") {" nil t))
   )
 
+;;; from reddit.com/r/emacs/comments/1pkld4/elisp_question_what_does_foo_mean/
+(setq persistent-scratch-file-name "~/.emacs.d/persScratch.el")
+(defun save-persistent-scratch ()
+  "Write the contents of scratch to the file name `persistent-scratch-file-name'."
+  (with-current-buffer (get-buffer-create "scratch") (write-region (point-min)
+ (point-max) persistent-scratch-file-name)))
+
+(defun load-persistent-scratch ()
+  "Load the contents of `persistent-scratch-file-name' into the scratch buffer, clearing its contents first."
+  (if (file-exists-p persistent-scratch-file-name)
+      (with-current-buffer
+	  (get-buffer "scratch") (delete-region (point-min) (point-max))
+	  (insert-file-contents persistent-scratch-file-name))))
+(push #'load-persistent-scratch after-init-hook)
+(push #'save-persistent-scratch kill-emacs-hook)
 
 
 (provide 'mydefuns)
