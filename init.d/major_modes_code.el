@@ -4,7 +4,8 @@
   (idle-highlight)
   (linum-mode 1)
   (auto-complete-mode 1)
-  (autopair-mode 1)
+  ;; temporarily deprecated to try out smartparens
+  ;(autopair-mode 1)
   (hs-minor-mode 1)
   )
 

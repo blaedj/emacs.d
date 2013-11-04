@@ -3,8 +3,12 @@
 (require 'dired-details+)
 (setq dired-details-hidden-string "--  " )
 
-(require 'autopair)
-(autopair-mode)
+;; temporarily deprecated to try out smartparens
+;(require 'autopair)
+;(autopair-mode)
+
+(require 'smartparens)
+
 (global-subword-mode t)
 
 (require 'smex)
