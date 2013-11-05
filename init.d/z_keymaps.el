@@ -19,6 +19,8 @@
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C-M-=") 'text-scale-decrease)
 
+(global-set-key (kbd "C-x r p") 'replace-rectangle)
+
 (defun org-keys ()
   "Remap some org keybindings"
   (local-unset-key (kbd "C-c SPC"))
