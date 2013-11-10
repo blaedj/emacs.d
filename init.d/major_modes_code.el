@@ -31,20 +31,23 @@
 
 (require 'project-explorer)
 
-
-
+(require 'rspec-mode)
+(require 'ruby-end)
 (autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
 
+(add-hook 'ruby-mode-hook (lambda()(ruby-end-mode 1)))
+(eval-after-load 'rspec-mode
+  '(rspec-install-snippets))
 
-(require 'ruby-end)
-(add-hook 'ruby-mode-hook 'ruby-end-mode 1)
+
 
 ;;---inf-Ruby---
 (require 'inf-ruby)
 (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
 (autoload 'inf-ruby-keys "inf-ruby" "" t)
 (eval-after-load 'ruby-mode
-  '(add-hook 'ruby-mode-hook 'inf-ruby-keys))
+  '(add-hook 'ruby-mode-hook 'inf-ruby-keys)
+  )
 ;;-------------------------------------------------------
 
 (setq exec-path (cons (expand-file-name "~/.gem/ruby/1.8/bin") exec-path))

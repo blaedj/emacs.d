@@ -47,6 +47,7 @@
 (depends-on "popup")
 (depends-on "project-explorer")
 (depends-on "rainbow-mode")
+(depends-on "rspec-mode")
 (depends-on "ruby-end")
 (depends-on "ruby-mode")
 (depends-on "s")
