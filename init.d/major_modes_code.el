@@ -31,22 +31,14 @@
 
 (require 'project-explorer)
 
+
+
 (autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
-(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
-(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode) )
 
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-
-(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode) )
 
 (require 'ruby-end)
+(add-hook 'ruby-mode-hook 'ruby-end-mode 1)
+
 ;;---inf-Ruby---
 (require 'inf-ruby)
 (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
@@ -74,12 +66,26 @@
 ;;---Markdown Mode---
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
+
+
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-
-
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.zsh-theme\\'" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode) )
+(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode) )
 
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode) )
+(add-hook 'web-mode-hook (lambda()
+	  (hs-minor-mode -1)))
 
 (add-hook 'term-mode-hook (lambda()
 			    (setq yas-dont-activate t)))

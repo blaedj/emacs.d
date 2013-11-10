@@ -8,6 +8,8 @@
 ;(autopair-mode)
 
 (require 'smartparens)
+(smartparens-global-mode t)
+;;(sp-pair "<%=" "%>")
 
 (global-subword-mode t)
 
@@ -32,9 +34,8 @@
 ;;(setq yas-snippet-dirs "~/.emacs.d/plugins/yasnippet/snippets")
 ;;(add-to-list 'ac-sources 'ac-source-yasnippet)  ;put snippets in ac dropdown
 
-;;---Wrap-region---
-(require 'wrap-region)
-(wrap-region-global-mode t)
+(require 'web-mode)
+
 
 (show-paren-mode t)
 (setq show-paren-style 'parenthesis)

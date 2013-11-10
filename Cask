@@ -58,6 +58,7 @@
 (depends-on "smartparens")
 (depends-on "smex")
 (depends-on "solarized-theme")
+(depends-on "web-mode")
 (depends-on "windresize")
 (depends-on "wrap-region")
 (depends-on "yasnippet")
