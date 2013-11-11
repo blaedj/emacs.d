@@ -26,7 +26,6 @@
   (local-unset-key (kbd "C-c SPC"))
   (local-set-key (kbd "C-c SPC") 'ace-jump-mode)
   )
-
 (add-hook 'org-mode-hook 'org-keys)
 
 (defun ruby_keys_outputing  ()

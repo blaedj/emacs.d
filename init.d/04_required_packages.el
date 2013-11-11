@@ -3,13 +3,9 @@
 (require 'dired-details+)
 (setq dired-details-hidden-string "--  " )
 
-;; temporarily deprecated to try out smartparens
-;(require 'autopair)
-;(autopair-mode)
-
 (require 'smartparens)
+(require 'smartparens-ruby)
 (smartparens-global-mode t)
-;;(sp-pair "<%=" "%>")
 
 (global-subword-mode t)
 
@@ -17,13 +13,12 @@
 
 (require 'ido)
 (require 'flx-ido)
-(ido-mode 1) ;Enable "interactive-do"-mode
+(ido-mode 1)
 (ido-everywhere 1)
 (flx-ido-mode 1)
 ;; disable ido faces to see flx highlights.
 (setq ido-use-faces nil)
 
-;;---yasnippet---
 (require 'yasnippet)
 (yas/global-mode 1)
 (yas-load-directory "~/.emacs.d/snippets/")
@@ -31,16 +26,9 @@
 (require 'ace-jump-mode)
 
 (require 'buffer-move)
-;;(setq yas-snippet-dirs "~/.emacs.d/plugins/yasnippet/snippets")
-;;(add-to-list 'ac-sources 'ac-source-yasnippet)  ;put snippets in ac dropdown
 
 (require 'web-mode)
 
-
-(show-paren-mode t)
-(setq show-paren-style 'parenthesis)
-(set-face-attribute 'show-paren-match-face nil
-        :weight 'bold :underline nil :overline nil :slant 'normal)
 
 (require 'auto-complete-config)           ;load the default configuration
 (ac-config-default)
@@ -49,3 +37,6 @@
 (setq ac-auto-start 1)  ;set ac to start after 1 character is typed
 (setq ac-auto-show-menu 0.1)
 (setq ac-use-fuzzy t)   ;use fuzzy matching
+;;(add-to-list 'ac-sources 'ac-source-yasnippet)  ;put snippets in ac dropdown
+
+(require 'ag)

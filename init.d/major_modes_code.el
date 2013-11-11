@@ -6,12 +6,12 @@
   (auto-complete-mode 1)
   (smartparens-mode 1)
   ;; temporarily deprecated to try out smartparens
-  ;(autopair-mode 1)
+					;(autopair-mode 1)
   (hs-minor-mode 1)
+  (yas-minor-mode 1)
   )
 
 (add-hook 'emacs-lisp-mode-hook 'my-coding-hook)
-(add-hook 'ruby-mode-hook 'my-coding-hook)
 (add-hook 'js2-mode-hook 'my-coding-hook)
 (add-hook 'js-mode-hook 'my-coding-hook)
 (add-hook 'csharp-mode-hook 'my-coding-hook)
@@ -29,35 +29,41 @@
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
 
-(require 'project-explorer)
+					;(require 'project-explorer)
+(require 'projectile)
+(projectile-global-mode)
 
 (require 'rspec-mode)
-(require 'ruby-end)
+;; (defadvice rspec-compile (around rspec-compile-around)
+;;   "Use BASH shell for running the specs because of ZSH issues."
+;;   (let ((shell-file-name "/bin/bash"))
+;;     ad-do-it))
+;; (ad-activate 'rspec-compile)
+					;(require 'ruby-end)
 (autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
 
-(add-hook 'ruby-mode-hook (lambda()(ruby-end-mode 1)))
-(eval-after-load 'rspec-mode
-  '(rspec-install-snippets))
-
-
+					;(add-hook 'ruby-mode-hook (lambda()(ruby-end-mode 1)))
+;; (eval-after-load 'rspec-mode
+;;   '(rspec-install-snippets))
 
 ;;---inf-Ruby---
 (require 'inf-ruby)
 (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
 (autoload 'inf-ruby-keys "inf-ruby" "" t)
-(eval-after-load 'ruby-mode
-  '(add-hook 'ruby-mode-hook 'inf-ruby-keys)
-  )
 ;;-------------------------------------------------------
+(add-hook 'ruby-mode-hook 'my-coding-hook)
 
 (setq exec-path (cons (expand-file-name "~/.gem/ruby/1.8/bin") exec-path))
 
 ;;---Java Stuff---
-(add-hook 'java-mode-hook (lambda ()
-			    ;; turn on auto-revert to deal with switching between
-			    ;; emacs and eclispe
-			    (auto-revert-mode t)
-			    ))
+(add-hook
+ 'java-mode-hook
+ (lambda ()
+   ;; turn on auto-revert to
+   ;;deal with switching between
+   ;; emacs and eclispe, netbeans etc
+   (auto-revert-mode t)
+   ))
 
 ;;---Javascript Stuff---
 (add-hook 'js-mode-hook
@@ -88,7 +94,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode) )
 (add-hook 'web-mode-hook (lambda()
-	  (hs-minor-mode -1)))
+			   (hs-minor-mode -1)))
 
 (add-hook 'term-mode-hook (lambda()
 			    (setq yas-dont-activate t)))

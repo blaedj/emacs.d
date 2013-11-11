@@ -17,3 +17,10 @@
 ;; it breaks shell tab-completion
 (add-hook 'term-mode-hook (lambda()
         (setq yas-dont-activate t)))
+(require 'multi-term)
+
+
+(show-paren-mode t)
+(setq show-paren-style 'parenthesis)
+(set-face-attribute 'show-paren-match-face nil
+        :weight 'bold :underline nil :overline nil :slant 'normal)
