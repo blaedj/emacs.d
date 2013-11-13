@@ -1,0 +1,8 @@
+# author: blaedj
+# name: testmethod
+# key: testm
+# --
+[TestMethod]
+public void $1() {
+     $2
+}
