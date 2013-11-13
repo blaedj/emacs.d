@@ -2,7 +2,47 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("menuStyle.css"
+(("makeZip"
+ (filename . "~/c/code/Workflow/Custom Controls/EmailPopupControl.ascx.cs")
+ (front-context-string . "  private string")
+ (rear-context-string . "le;\n       }*/\n\n")
+ (position . 15991))
+("iconcolor"
+ (filename . "~/c/code/WebClientWorkingCopy/Content/jquery-ui.css")
+ (front-context-string . "\n.ui-state-defau")
+ (rear-context-string . "s_3B5998_0.png)}")
+ (position . 36077))
+("routing"
+ (filename . "/cygdrive/c/code/WebClientWorkingCopy/Scripts/customScript.js")
+ (front-context-string . "  $(divID).load(")
+ (rear-context-string . "ivID })\";\n      ")
+ (position . 8067))
+("Default.aspx"
+ (filename . "/cygdrive/c/code/MSCCollege/Default.aspx")
+ (front-context-string . "            <div")
+ (rear-context-string . "v>\n            \n")
+ (position . 8539))
+("DatabaseManager.cs"
+ (filename . "~/code/MSCCollegeInfo/App_Code/DatabaseManager.cs")
+ (front-context-string . "    /**DONETODO ")
+ (rear-context-string . " + \"' \";\n    }\n\n")
+ (position . 6224))
+("LoadData"
+ (filename . "~/code/MSCCollegeInfo/App_Code/MSCCollege.cs")
+ (front-context-string . "                ")
+ (rear-context-string . "y\n            {\n")
+ (position . 11649))
+("MSCCollege.cs"
+ (filename . "~/code/MSCCollegeInfo/App_Code/MSCCollege.cs")
+ (front-context-string . "            MSCC")
+ (rear-context-string . "oadData(oldID);\n")
+ (position . 22577))
+("updateCollegeCollegeDetails"
+ (filename . "~/code/MSCCollegeInfo/CollegeDetails.aspx.cs")
+ (front-context-string . "   else {\n      ")
+ (rear-context-string . "     }\n         ")
+ (position . 9979))
+("menuStyle.css"
  (filename . "~/Documents/My-webpage/menuStyle.css")
  (front-context-string)
  (rear-context-string . ":0 20px 0 0;\n}\n\n")
