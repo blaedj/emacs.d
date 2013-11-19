@@ -36,9 +36,11 @@ of seeing_is_believing."
 (defun formatBuf ()
   "formats the () and {}"
   (interactive)
-  (while (search-forward-regexp "\)\[ \
+  (save-excursion
+    (beginning-of-buffer)
+    (while (search-forward-regexp "\)\[ \
 ]*\{" nil t)
-    (replace-match ") {" nil t))
+      (replace-match ") {" nil t)))
   )
 
 ;;; from reddit.com/r/emacs/comments/1pkld4/elisp_question_what_does_foo_mean/
@@ -46,10 +48,11 @@ of seeing_is_believing."
 (defun save-persistent-scratch ()
   "Write the contents of scratch to the file name `persistent-scratch-file-name'."
   (with-current-buffer (get-buffer-create "*scratch*") (write-region (point-min)
- (point-max) persistent-scratch-file-name)))
+								     (point-max) persistent-scratch-file-name)))
 
 (defun load-persistent-scratch ()
   "Load the contents of `persistent-scratch-file-name' into the scratch buffer, clearing its contents first."
+  (interactive)
   (if (file-exists-p persistent-scratch-file-name)
       (with-current-buffer
 	  (get-buffer "*scratch*") (delete-region (point-min) (point-max))

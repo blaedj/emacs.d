@@ -6,6 +6,7 @@
 (require 'smartparens)
 (require 'smartparens-ruby)
 (smartparens-global-mode t)
+(sp-pair "/*" "*/")
 
 (global-subword-mode t)
 
@@ -40,3 +41,7 @@
 ;;(add-to-list 'ac-sources 'ac-source-yasnippet)  ;put snippets in ac dropdown
 
 (require 'ag)
+
+(require 'sublimity)
+;(require 'sublimity-scroll)
+(require 'sublimity-map)
