@@ -30,6 +30,7 @@
 
 (require 'web-mode)
 
+(require 'yaml-mode)
 
 (require 'auto-complete-config)           ;load the default configuration
 (ac-config-default)
