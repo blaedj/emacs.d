@@ -97,6 +97,7 @@
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode) )
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode) )
 (add-hook 'web-mode-hook (lambda()
