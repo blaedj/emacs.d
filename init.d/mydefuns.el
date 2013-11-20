@@ -33,6 +33,18 @@ of seeing_is_believing."
 
 (global-set-key (kbd "C-x g") 'google-web-search)
 
+(defun devdocs-search ()
+  "Search documentation on devDocs.io"
+  (interactive)
+  (let (whichdocs)
+    (setq whichdocs (read-from-minibuffer "Which Documentation?"))
+  (browse-url
+   (concat
+    (concat "http://devdocs.io/#q=" whichdocs " " )
+    (read-from-minibuffer "Query:")))))
+
+(global-set-key (kbd "C-c d") 'devdocs-search)
+
 (defun formatBuf ()
   "formats the () and {}"
   (interactive)
