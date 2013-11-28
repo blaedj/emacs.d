@@ -57,8 +57,10 @@ of seeing_is_believing."
 
 ;;; from reddit.com/r/emacs/comments/1pkld4/elisp_question_what_does_foo_mean/
 (setq persistent-scratch-file-name "~/.emacs.d/persScratch.el")
+
 (defun save-persistent-scratch ()
   "Write the contents of scratch to the file name `persistent-scratch-file-name'."
+  (interactive)
   (with-current-buffer (get-buffer-create "*scratch*") (write-region (point-min)
 								     (point-max) persistent-scratch-file-name)))
 
