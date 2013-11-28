@@ -3,13 +3,30 @@
   (column-number-mode t)
   (idle-highlight)
   (linum-mode 1)
+
   (auto-complete-mode 1)
+  (setq ac-auto-start 1)  ;set ac to start after 1 character is typed
+  (setq ac-auto-show-menu 0.1)
+  (setq ac-use-fuzzy t)   ;use fuzzy matching
+
   (smartparens-mode 1)
-  ;; temporarily deprecated to try out smartparens
-					;(autopair-mode 1)
   (hs-minor-mode 1)
   (yas-minor-mode 1)
+  (sublimity-mode 1)
   )
+
+(defun my-experimental-coding-hook ()
+  (make-local-variable 'column-number-mode)
+  (column-number-mode t)
+  (idle-highlight)
+  (linum-mode 1)
+  (company-mode 1)
+  (smartparens-mode 1)
+  (hs-minor-mode 1)
+  (yas-minor-mode 1)
+  (sublimity-mode 1)
+  )
+
 
 (add-hook 'emacs-lisp-mode-hook 'my-coding-hook)
 (add-hook 'js2-mode-hook 'my-coding-hook)
@@ -56,14 +73,24 @@
 (setq exec-path (cons (expand-file-name "~/.gem/ruby/1.8/bin") exec-path))
 
 ;;---Java Stuff---
-(add-hook
- 'java-mode-hook
- (lambda ()
-   ;; turn on auto-revert to
-   ;;deal with switching between
-   ;; emacs and eclispe, netbeans etc
-   (auto-revert-mode t)
-   ))
+(add-hook 'java-mode-hook
+	  (lambda ()
+	    (auto-revert-mode t)
+	    (eclim-mode t)
+
+	    ))
+
+(setq eclim-auto-save t
+      eclim-executable "~/.eclipse/org.eclipse.platform_4.3.0_1473617060_linux_gtk_x86_64/eclim"
+      eclimd-executable "~/.eclipse/org.eclipse.platform_4.3.0_1473617060_linux_gtk_x86_64/eclimd"
+      eclimd-wait-for-process nil
+      eclimd-default-workspace "~/code/java/"
+      )
+(setq help-at-pt-display-when-idle t)
+(setq help-at-pt-timer-delay 0.1)
+(help-at-pt-set-timer)
+;; add the emacs-eclim source
+
 
 ;;---Javascript Stuff---
 (add-hook 'js-mode-hook
@@ -74,10 +101,10 @@
 	    ))
 
 (add-hook 'js2-mode-hook
-      '(lambda ()
-         (add-hook 'before-save-hook
-                   (lambda ()
-                     (formatBuf)))))
+	  '(lambda ()
+	     (add-hook 'before-save-hook
+		       (lambda ()
+			 (formatBuf)))))
 ;;---Markdown Mode---
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)

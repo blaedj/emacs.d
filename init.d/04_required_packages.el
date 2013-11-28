@@ -29,20 +29,27 @@
 (require 'buffer-move)
 
 (require 'web-mode)
-
 (require 'yaml-mode)
+(require 'eclim)
+(require 'eclimd)
+(require 'company)
+(require 'company-emacs-eclim)
+;(company-emacs-eclim-setup)
+(require 'ac-emacs-eclim-source)
+(ac-emacs-eclim-config)
 
 (require 'auto-complete-config)           ;load the default configuration
 (ac-config-default)
 (add-to-list 'ac-dictionary-directories "/home/blaed/.emacs.d/ac-dict")
-(global-auto-complete-mode t)
-(setq ac-auto-start 1)  ;set ac to start after 1 character is typed
-(setq ac-auto-show-menu 0.1)
-(setq ac-use-fuzzy t)   ;use fuzzy matching
+;; (global-auto-complete-mode t)
+;; (setq ac-auto-start 1)  ;set ac to start after 1 character is typed
+;; (setq ac-auto-show-menu 0.1)
+;; (setq ac-use-fuzzy t)   ;use fuzzy matching
 ;;(add-to-list 'ac-sources 'ac-source-yasnippet)  ;put snippets in ac dropdown
 
 (require 'ag)
 
 (require 'sublimity)
-;(require 'sublimity-scroll)
 (require 'sublimity-map)
+(sublimity-map-set-delay 0)
+;(sublimity-global-mode)
