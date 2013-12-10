@@ -94,12 +94,18 @@
 
 
 ;;---Javascript Stuff---
+(defun js2-hook ()
+  "Set some keybindings for js2-mode error jumping"
+  (interactive)
+  (local-unset-key (kbd "C-c `"))
+  (local-set-key (kbd "C-c `") 'js2-next-error ))
+
 (add-hook 'js-mode-hook
           (lambda ()
             ;; Scan the file for nested code blocks
             (imenu-add-menubar-index)
-	    (run-hooks 'code-modes-hook)
-	    ))
+      	    (run-hooks 'code-modes-hook)
+      	    (js2-hook)))
 
 (add-hook 'js2-mode-hook
 	  '(lambda ()
