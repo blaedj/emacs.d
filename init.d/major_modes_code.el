@@ -10,9 +10,10 @@
   (setq ac-use-fuzzy t)   ;use fuzzy matching
 
   (smartparens-mode 1)
+  (show-smartparens-mode 1)
   (hs-minor-mode 1)
   (yas-minor-mode 1)
-  (sublimity-mode 1)
+;;  (sublimity-mode 1)
   )
 
 (defun my-experimental-coding-hook ()
@@ -24,7 +25,7 @@
   (smartparens-mode 1)
   (hs-minor-mode 1)
   (yas-minor-mode 1)
-  (sublimity-mode 1)
+;;  (sublimity-mode 1)
   )
 
 

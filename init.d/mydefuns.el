@@ -43,7 +43,7 @@ of seeing_is_believing."
     (concat "http://devdocs.io/#q=" whichdocs " " )
     (read-from-minibuffer "Query:")))))
 
-(global-set-key (kbd "C-c d") 'devdocs-search)
+
 
 (defun formatBuf ()
   "formats the () and {}"
