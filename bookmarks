@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("makeZip"
+(("sortwrapper"
+ (filename . "/cygdrive/c/code/WorkflowNext/WorkflowNext/MSCWorkFlowNEXT/Areas/Managers/Scripts/lib/jquery.dataTables.js")
+ (front-context-string . "		\"sSortJUIWrapp")
+ (rear-context-string . "con-carat-1-s\",\n")
+ (position . 356654))
+("makeZip"
  (filename . "~/c/code/Workflow/Custom Controls/EmailPopupControl.ascx.cs")
  (front-context-string . "  private string")
  (rear-context-string . "le;\n       }*/\n\n")

@@ -19,14 +19,23 @@
 (require 'projectile)
 (projectile-global-mode)
 
+(require 'highlight)
+(require 'highlight-parentheses)
+
+
+(require 'multi-term)
+(setq multi-term-program "/bin/zsh")
+
 (defun my-coding-hook ()
   (make-local-variable 'column-number-mode)
   (column-number-mode t)
+  ;; (idle-highlight-mode t)
   (idle-highlight)
   (linum-mode 1)
   (auto-complete-mode 1)
   (hs-minor-mode)
   (git-gutter-mode 1)
+  (highlight-parentheses-mode t)
   (local-set-key (kbd "C-c C-e") 'hs-toggle-hiding)
   )
 (smartparens-global-mode)
@@ -67,7 +76,8 @@
 ;;M-x set-terminal-coding-system and setting it to utf-8-unix
 
 (setq org-agenda-files(list "~/org/notes.org"
-                            "~/org/todo.org"))
+                            "~/org/todo.org"
+                            "~/org/WeeklyMeeting.org"))
 (defun  bcj-org-mode-defun ()
   "Some customizations to org mode"
   (local-unset-key (kbd "C-c SPC"))
@@ -93,16 +103,26 @@
 
 ;;--Javascript--;;
 (require 'js2-mode)
-;;(add-hook 'js-mode-hook 'js2-minor-mode)
-(add-hook 'js2-mode-hook 'hs-minor-mode)
+(defun js2-hook ()
+  "Set some keybindings for js2-mode error jumping"
+  (interactive)
+  (local-unset-key (kbd "C-c `"))
+  (local-set-key (kbd "C-c `") 'js2-next-error ))
+
+(add-hook 'js2-mode-hook
+          '(lambda ()
+             ('hs-minor-mode)
+             (js2-hook)))
+
 (setq auto-mode-alist
       (append '(("\\.js\\'" . js2-mode)) auto-mode-alist))
 
 ;; format the spacing between close-paren and open-brace before save
-;; formatjs needs to be modified to handle entire file, not just point-to-eob.
 (add-hook 'js2-mode-hook
-          (lambda ()
-            (add-hook 'before-save-hook 'formatjs nil 'make-it-local)))
+      '(lambda ()
+         (add-hook 'before-save-hook
+                   (lambda ()
+                     (formatBuf)))))
 
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
@@ -162,7 +182,6 @@
 (eval-after-load 'ruby-mode
   '(add-hook 'ruby-mode-hook 'inf-ruby-keys))
 
-
 (require 'auto-complete)
 (require 'auto-complete-config)          ;load the default configuration
                                         ;make sure we can find the dictionaries
@@ -182,7 +201,7 @@
 ;;(require 'wrap-region)
 
 ;;remove unneccesary whitespace before saving a file
-(add-hook 'before-save-hook (lambda ()(delete-trailing-whitespace)))
+(add-hook 'before-save-hook (lambda ()(delete-trailing-whitespace)) )
 
 ;;yasnippet plugin-------
 (require 'yasnippet)
@@ -260,6 +279,7 @@
  '(js2-cleanup-whitespace t)
  '(js2-highlight-level 3)
  '(newsticker-url-list (quote (("arstechnicaAll" "http://feeds.arstechnica.com/arstechnica/index" nil nil nil))))
+ '(org-agenda-files (quote ("~/org/notes.org" "~/org/WeeklyMeeting.org")))
  '(send-mail-function (quote mailclient-send-it))
  '(speedbar-frame-parameters (quote ((minibuffer) (width . 30) (border-width . 0) (menu-bar-lines . 0) (tool-bar-lines . 0) (unsplittable . t) (left-fringe . 0))))
  '(vc-annotate-background "#2b2b2b")
@@ -315,4 +335,4 @@
 
 
 ;;SmartParens
-(sp-pair "/*" "*/")
+(sp-pair "/*" "*//" )
