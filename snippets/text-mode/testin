@@ -1,0 +1,8 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name : example
+# key : exr
+# --
+
+if(${1:enumerate}) {
+ $0
+} // $1

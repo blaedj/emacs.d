@@ -1,0 +1,8 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: define
+# key: define
+# --
+define(['${1:dependency}','${2:dependency}','${3:dependency}','${4:dependency}'], function($1, $2, $3, $4) {
+$0
+
+});
