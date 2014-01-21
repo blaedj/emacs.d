@@ -5,11 +5,11 @@
 
 ;; default load path
 (add-to-list 'load-path "~/.emacs.d/")
-(add-to-list 'load-path "~/.emacs.d/elpa/ido-ubiquitous-1.6")
+;;(add-to-list 'load-path "~/.emacs.d/elpa/ido-ubiquitous-1.6")
 (let ((default-directory "~/.emacs.d/elpa"))
   (normal-top-level-add-subdirs-to-load-path))
 
-(server-start)
+                                        ;(server-start)
 
 (require 'ace-jump-mode)
 (require 'smartparens)
@@ -22,34 +22,63 @@
 (require 'highlight)
 (require 'highlight-parentheses)
 
-
 (require 'multi-term)
 (setq multi-term-program "/bin/zsh")
+
+(require 'smartscan)
+                                        ;(setq 'smartscan-use-extended-syntax t)
+
+(require 'mustache-mode)
+
+(require 'omnisharp)
+(add-hook 'csharp-mode-hook 'omnisharp-mode)
+
 
 (defun my-coding-hook ()
   (make-local-variable 'column-number-mode)
   (column-number-mode t)
   ;; (idle-highlight-mode t)
   (idle-highlight)
-  (linum-mode 1)
-  (auto-complete-mode 1)
+  (linum-mode)
+  ;; (company-mode 1)
+   (auto-complete-mode 1)
   (hs-minor-mode)
   (git-gutter-mode 1)
-  (highlight-parentheses-mode t)
+  (highlight-parentheses-mode)
   (local-set-key (kbd "C-c C-e") 'hs-toggle-hiding)
   )
 (smartparens-global-mode)
+
+(defun web-mode-coding-hook ()
+  (make-local-variable 'column-number-mode)
+  (column-number-mode t)
+  ;; (idle-highlight-mode t)
+  (linum-mode)
+  (auto-complete-mode 1)
+  (git-gutter-mode 1)
+  (highlight-parentheses-mode)
+  (local-set-key (kbd "C-c C-e") 'hs-toggle-hiding)
+  )
+
+(require 'company)
+
+(defun experimental-coding-hook ()
+  "experiments"
+  (company-mode 1)
+  (git-gutter-mode 1)
+  (highlight-parentheses-mode)
+)
 
 (add-hook 'emacs-lisp-mode-hook 'my-coding-hook)
 (add-hook 'ruby-mode-hook 'my-coding-hook)
 (add-hook 'js2-mode-hook 'my-coding-hook)
 (add-hook 'js-mode-hook 'my-coding-hook)
 (add-hook 'csharp-mode-hook 'my-coding-hook)
+;(add-hook 'csharp-mode-hook 'experimental-coding-hook)
 (add-hook 'css-mode-hook 'my-coding-hook)
 (add-hook 'html-mode-hook 'my-coding-hook)
-(add-hook 'web-mode-hook 'my-coding-hook)
+(add-hook 'web-mode-hook 'web-mode-coding-hook)
 (add-hook 'coffee-mode-hook 'my-coding-hook)
-
 (add-hook 'coffee-mode-hook 'coffee-compile-on-save)
 
 (defun coffee-compile-on-save ()
@@ -70,9 +99,8 @@
 ;; disable ido faces to see flx highlights.
 (setq ido-use-faces nil)
 
-;; Use Emacs terminfo, not system terminfo
+;; Use Emacs terminfo, not system terminfo: (Why?)
 (setq system-uses-terminfo nil)
-
 ;;M-x set-terminal-coding-system and setting it to utf-8-unix
 
 (setq org-agenda-files(list "~/org/notes.org"
@@ -95,10 +123,7 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
-(require 'mydefuns ) ; some custom functions, mainly changing dired mode
-
-;;(require 'autopair)
-;;(autopair-global-mode)
+(require 'mydefuns ) ; some custom functions
 (require 'php-mode)
 
 ;;--Javascript--;;
@@ -111,7 +136,6 @@
 
 (add-hook 'js2-mode-hook
           '(lambda ()
-             ('hs-minor-mode)
              (js2-hook)))
 
 (setq auto-mode-alist
@@ -119,20 +143,16 @@
 
 ;; format the spacing between close-paren and open-brace before save
 (add-hook 'js2-mode-hook
-      '(lambda ()
-         (add-hook 'before-save-hook
-                   (lambda ()
-                     (formatBuf)))))
+          '(lambda ()
+             (add-hook 'before-save-hook
+                       (lambda ()
+                         (formatBuf)))))
 
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
 
-;; After js2 has parsed a js file, we look for jslint globals decl comment ("/* global Fred, _, Harry */") and
-;; add any symbols to a buffer-local var of acceptable global vars
-;; Note that we also support the "symbol: true" way of specifying names via a hack (remove any ":true"
-;; to make it look like a plain decl, and any ':false' are left behind so they'll effectively be ignored as
-;; you can't have a symbol called "someName:false"
+;; After js2 has parsed a js file, we look for jslint globals decl comment ("/* global Fred, _, Harry */") and add any symbols to a buffer-local var of acceptable global vars
 (add-hook 'js2-post-parse-callbacks
           (lambda ()
             (when (> (buffer-size) 0)
@@ -144,6 +164,18 @@
                        (if (string-match "/\\* *global *\\(.*?\\) *\\*/" btext) (match-string-no-properties 1 btext) "")
                        " *, *" t))
                 ))))
+
+(add-hook 'js2-mode-hook 'my-coding-hook)
+
+(defun js-boilerplate ()
+  (if (not (file-exists-p (buffer-file-name (current-buffer))))
+      (cond
+       ((string-match "\.js$" buffer-file-name)
+        (insert
+         "/* global define */"))
+       )))
+
+(add-hook 'js2-mode-hook 'js-boilerplate)
 
 ;;--Coffescript--;;
 (require 'coffee-mode)
@@ -160,14 +192,14 @@
 
 (defun my-csharp-mode-fn ()
   "function that runs when csharp-mode is initialized for a buffer."
-  (require 'flymake)
-  (flymake-mode -1)
+  ;;(require 'flymake)
+  (flymake-mode-off)
   (turn-on-auto-revert-mode)
   (setq indent-tabs-mode nil)
   (setq autopair-mode nil)
   (local-set-key (kbd "C-c C-e") 'hs-toggle-hiding)
   )
-(add-hook 'csharp-mode-hook 'my-csharp-mode-fn t)
+(add-hook 'csharp-mode-hook 'my-csharp-mode-fn)
 
 ;;--CSS-Mode--;;
 (defun my-css-mode-fn ()
@@ -224,12 +256,16 @@
 (global-set-key (kbd "\C-c SPC") 'ace-jump-mode)
 ;; like js-mode's jump-to-symbol
 (global-set-key (kbd "C-.") 'imenu-anywhere)
-(global-set-key (kbd "M-p") 'previous-multiframe-window )
-(global-set-key (kbd "M-n") 'next-multiframe-window )
+;; (global-set-key (kbd "M-p") 'previous-multiframe-window )
+;; (global-set-key (kbd "M-n") 'next-multiframe-window )
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C-M-=") 'text-scale-decrease)
 
 (global-set-key (kbd "C-x r p") 'replace-rectangle)
+
+(global-set-key (kbd "M-n") 'smartscan-symbol-go-forward)
+(global-set-key (kbd "M-p") 'smartscan-symbol-go-backward)
+
 
 (defun google-search (query)
   "Searches google for a given query"
@@ -267,6 +303,8 @@
  '(auto-save-file-name-transforms (quote ((".*" "~/.emacs.d/autosaves/\\1" t))))
  '(backup-directory-alist (quote ((".*" . "~/.emacs.d/backups/"))))
  '(column-number-mode t)
+ '(company-idle-delay 0.10000000000000001)
+ '(company-minimum-prefix-length 1)
  '(custom-safe-themes (quote ("70053ac78af15b0bdc93f4aea748b2e43e4e578b068600c3e32d468175f143bd" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "dd4db38519d2ad7eb9e2f30bc03fba61a7af49a185edfd44e020aa5345e3dca7" "9145e7a7cc3b3d9f2e619c21dba1ff3eb27fb5d0ea398762d620f524e8c58cbb" "9f443833deb3412a34d2d2c912247349d4bd1b09e0f5eaba11a3ea7872892000" "d2622a2a2966905a5237b54f35996ca6fda2f79a9253d44793cfe31079e3c92b" "72cc9ae08503b8e977801c6d6ec17043b55313cda34bcf0e6921f2f04cf2da56" "501caa208affa1145ccbb4b74b6cd66c3091e41c5bb66c677feda9def5eab19c" default)))
  '(fci-rule-color "#eee8d5")
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
@@ -279,7 +317,7 @@
  '(js2-cleanup-whitespace t)
  '(js2-highlight-level 3)
  '(newsticker-url-list (quote (("arstechnicaAll" "http://feeds.arstechnica.com/arstechnica/index" nil nil nil))))
- '(org-agenda-files (quote ("~/org/notes.org" "~/org/WeeklyMeeting.org")))
+ '(org-agenda-files (quote ("~/org/notes.org" "~/org/WeeklyMeeting.org")) t)
  '(send-mail-function (quote mailclient-send-it))
  '(speedbar-frame-parameters (quote ((minibuffer) (width . 30) (border-width . 0) (menu-bar-lines . 0) (tool-bar-lines . 0) (unsplittable . t) (left-fringe . 0))))
  '(vc-annotate-background "#2b2b2b")
@@ -297,15 +335,15 @@
 (setq tab-width 2)                      ; set tabs to width of 2 spaces
 (setq-default indent-tabs-mode nil)     ; tabs are evil
 ;;(set-frame-font "Monaco 10")
-;(set-frame-font "Anonymous Pro 13")
-(set-frame-font "DejaVu Sans Mono 12")
+(set-frame-font "Anonymous Pro 13")
+;; (set-frame-font "DejaVu Sans Mono 12")
 
 ;;COLORS -----------------------------------------------------------------
 (require 'color-theme)
 
 (load-theme 'solarized-dark-custom 't)
 
-(add-to-list 'auto-mode-alist '("\\.cshtml\\'" . html-mode))  ;;  open cshtml files with html mode
+(add-to-list 'auto-mode-alist '("\\.cshtml\\'" . web-mode))  ;;open cshtml files w/web-mode
 (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . html-mode))  ;;  open aspx/ascx files   with html mode
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
@@ -313,7 +351,7 @@
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 (add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
-
+(add-to-list 'auto-mode-alist '("\\.zsh\\'" . shell-script-mode))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

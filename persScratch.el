@@ -2,162 +2,15 @@
 ADD TO ADVANCED FILTERING SELECTION
 - for some values, have a <= or >= the selected item.
 
-| INTERVIEW COLS     |        |   |
-| Column Name        | Number |   |
-|--------------------+--------+---|
-| UniversityGroup    |      0 |   |
-| InterviewID        |      1 |   |
-| ApplicationID      |      2 |   |
-| FirstName          |      3 |   |
-| LastName           |      4 |   |
-| University         |      5 |   |
-| Date               |      6 |   |
-| Notes              |      7 |   |
-| ShortNote          |      8 |   |
-| City               |      9 |   |
-| State              |     10 |   |
-| asp                |     11 |   |
-| html               |     12 |   |
-| php                |     13 |   |
-| cPlusPlus          |     14 |   |
-| java               |     15 |   |
-| sql                |     16 |   |
-| cSharp             |     17 |   |
-| dotNet             |     18 |   |
-| vb                 |     19 |   |
-| attitudeScore      |     20 |   |
-| problemSolvingS    |     21 |   |
-| collaborationScore |     22 |   |
-| communicationScore |     23 |   |
-| TestingScore       |     24 |   |
-| SoftwareDevScore   |     25 |   |
-
-| EMPLOYEE COLS     |        |
-| Column Name       | Number |
-|                   |        |
-|-------------------+--------+
-| EmployeeID        |      0 |
-| FirstName         |      1 |
-| LastName          |      2 |
-| EmailAddress      |      3 |
-| CellPhone         |      4 |
-| PhoneNumber       |      5 |
-| GraduateStatus    |      6 |
-| StartDate         |      7 |
-| GradDate          |      8 |
-| GPA               |      9 |
-| Major             |     10 |
-| StreetAddress     |     11 |
-| StreetAddress2    |     12 |
-| City              |     13 |
-| State             |     14 |
-| ZipCode           |     15 |
-| EndDate           |     16 |
-| CustomerManager   |     17 |
-| MaverickID        |     18 |
-| BillableDate      |     19 |
-| ShortNote         |     20 |
-| Note              |     21 |
-| TempAddress       |     22 |
-| TempAddress2      |     23 |
-| TempCity          |     24 |
-| TempState         |     25 |
-| TempZipCode       |     26 |
-| GradYear          |     27 |
-| LastReviewDate    |     28 |
-| Birthdate         |     29 |
-| WorkEmail         |     30 |
-| Watched           |     31 |
-| AlarmCode         |     32 |
-| ContractsSent     |     33 |
-| Parking           |     34 |
-| OfficeName        |     35 |
-| GradSeason        |     36 |
-| UniversityName    |     37 |
-| CustomerName      |     38 |
-| EmployeeStatus    |     39 |
-| CustomerGroupName |     40 |
-
-
-| APP COLS          |        |
-| Column Name       | Number |
-|-------------------+--------|
-| UniversityGroup   |      0 |
-| ApplicationID     |      1 |
-| FirstName         |      2 |
-| LastName          |      3 |
-| StatusR           |      4 |
-| EmailAddress      |      5 |
-| PhoneNumber       |      6 |
-| University        |      7 |
-| GradStatus        |      8 |
-| TwentyHours       |      9 |
-| BusinessHours     |     10 |
-| FourtyHours       |     11 |
-| StartDate         |     12 |
-| GradDate          |     13 |
-| date              |     14 |
-| DevWork           |     15 |
-| DatabaseWork      |     16 |
-| asp               |     17 |
-| html              |     18 |
-| php               |     19 |
-| cPlusPlus         |     20 |
-| java              |     21 |
-| sql               |     22 |
-| cSharp            |     23 |
-| dotNet            |     24 |
-| vb                |     25 |
-| Resume            |     26 |
-| MajorGPA          |     27 |
-| Major             |     28 |
-| Interest          |     29 |
-| Referral          |     30 |
-| TestOrDev         |     31 |
-| class1            |     32 |
-| class2            |     33 |
-| class3            |     34 |
-| class4            |     35 |
-| class5            |     36 |
-| class6            |     37 |
-| WorkAuth          |     38 |
-| ViewedApplication |     39 |
-| Comments          |     40 |
-| Note              |     41 |
-| City              |     42 |
-| State             |     43 |
-| StreetAddress     |     44 |
-| StreetAddress2    |     45 |
-| ZipCode           |     46 |
-
-
-
-(- 71 26)
-45
-
-
-find . -name "*.css" -exec grep -nl "css_right" {} \;
-
 (emacs-uptime) Wed Dec  4 10:56:50 2013
 "14 days, 22 hours, 35 minutes, 40 seconds"
 
+(emacs-uptime) Tue Dec 31 14:21:33 2013
+"5 hours, 7 minutes, 56 seconds"
 
-(defun  ()
-  "DOCSTRING"
-  (interactive) 
-  (let (var1)
-    (setq var1 some)
-    
-    ))
+(emacs-uptime) Wed Jan  8 08:42:03 2014
+"5 days, 21 hours, 23 minutes, 43 seconds"
 
-x
-
-
-                                        ; files not in vc
-'(PostEmploymentFormController mavconsulting.jpg )
-
-rgb(46, 110, 158);
-All
 
 (global-set-key (kbd "C-c C-e") (hs-hide-block))
 (global-set-key (kbd "C-c C-a") (hs-show-block))
@@ -203,7 +56,69 @@ All
     (delete-region p1 p2 ) 
     (insert resultStr)))
 
-_thisIs
+
+(defun highlight-current-defun ()
+  "DOCSTRING"
+  (interactive)
+  (let (p1 p2)
+    (narrow-to-defun)
+    ;;(kill-ring-save (point-max) (point-min))
+    (goto-char (point-min))
+    (push-mark-command (point))
+    (goto-char (point-max))
+    (setq deactivate-mark nil)
+    (widen)
+    ))
+
+(defun highlight-current-defun ()
+  "Just use C-M-h instead, found this once I had finished writing this function."
+  (interactive)
+  (let (p1 p2)
+    (narrow-to-defun)
+    ;;(kill-ring-save (point-max) (point-min))
+    (goto-char (point-min))
+    (push-mark-command (point))
+    (goto-char (point-max))
+    (setq deactivate-mark nil)
+    (widen)
+    ))
+
+(defun get-json (url)
+  "retrieves the json from 'url'"
+  (let ((buffer (url-retrieve-synchronously url))
+        (json nil))
+    (save-excursion
+      (set-buffer buffer)
+      (goto-char (point-min))
+      (re-search-forward "^$" nil 'move)
+      (setq json (buffer-substring-no-properties (point) (point-max)))
+      (kill-buffer (current-buffer)))
+    json))
+
+(get-json "http://localhost:55949/managers/employees/getemployeedata")
+
+(defun get-and-parse-json (url)
+  (let ((json-object-type 'plist))
+    (json-read-from-string 
+     (get-json url))))
+
+(defun postman-emacs-get-json (url)
+  "prettifies a json string via json-mode"
+  (interactive "sEnter url:")
+  (let (jsondata)
+    (setq jsondata (get-json url))
+    (set-buffer (get-buffer-create (concat "**" url "**")))
+    (insert jsondata)
+    (json-mode)
+    (json-mode-beautify (point-min) (point-max) t)
+    ))
 
 
-(substring "abcd" 0 1)
+
+(require 'ac-js2)
+(add-hook 'js2-mode-hook 'ac-js2-mode)
+(setq ac-js2-evaluate-calls t)
+
+C:\Program Files (x86)\RSA SecurID Token Common;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;C:\Program Files\Symantec.cloud\PlatformAgent\;c:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files\Microsoft SQL Server\100\DTS\Binn\;c:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;c:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;c:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;c:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files\Calibre2\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files\nodejs\;%systemroot%\System32\WindowsPowerShell\v1.0\;
+
+C:\Chocolatey\bin;C:\Program Files (x86)\Git\cmd;C:\Users\bjohnsto\AppData\Roaming\scriptcs;C:\tools\gittfs;C:\Users\bjohnsto\AppData\Roaming\npm;C:\Windows\Microsoft.NET\Framework\v4.0.30319\
