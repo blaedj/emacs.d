@@ -28,6 +28,22 @@
 ;;  (sublimity-mode 1)
   )
 
+(defun web-mode-coding-hook ()
+  (make-local-variable 'column-number-mode)
+  (column-number-mode t)
+  (linum-mode 1)
+
+  (auto-complete-mode 1)
+  (setq ac-auto-start 1)  ;set ac to start after 1 character is typed
+  (setq ac-auto-show-menu 0.1)
+  (setq ac-use-fuzzy t)   ;use fuzzy matching
+
+  (smartparens-mode 1)
+  (show-smartparens-mode 1)
+  (hs-minor-mode 1)
+  (yas-minor-mode 1)
+  )
+
 
 (add-hook 'emacs-lisp-mode-hook 'my-coding-hook)
 (add-hook 'js2-mode-hook 'my-coding-hook)
@@ -35,7 +51,7 @@
 (add-hook 'csharp-mode-hook 'my-coding-hook)
 (add-hook 'css-mode-hook 'my-coding-hook)
 (add-hook 'html-mode-hook 'my-coding-hook)
-(add-hook 'web-mode-hook 'my-coding-hook)
+(add-hook 'web-mode-hook 'web-mode-coding-hook)
 (add-hook 'c++-mode-hook 'my-coding-hook)
 (add-hook 'c-mode-hook 'my-coding-hook)
 (add-hook 'cmake-mode-hook 'my-coding-hook)

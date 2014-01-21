@@ -27,11 +27,12 @@
 (require 'ace-jump-mode)
 
 (require 'zeal-at-point)
-
 (global-set-key (kbd "C-c C-d") 'devdocs-search)
 (global-set-key "\C-cd" 'zeal-at-point)
 
 (require 'buffer-move)
+(require 'smartscan)
+
 
 (require 'web-mode)
 (require 'yaml-mode)

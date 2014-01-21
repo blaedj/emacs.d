@@ -10,9 +10,6 @@
 (global-set-key (kbd "<C-S-left>")   'buf-move-left)
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
-(global-set-key (kbd "M-p") 'previous-multiframe-window )
-(global-set-key (kbd "M-n") 'next-multiframe-window )
-
 (global-set-key (kbd "C-.") 'imenu-anywhere)
 
 ;; shortcuts for changing the font size
@@ -20,6 +17,9 @@
 (global-set-key (kbd "C-M-=") 'text-scale-decrease)
 
 (global-set-key (kbd "C-x r p") 'replace-rectangle)
+
+(global-set-key (kbd "M-n") 'smartscan-symbol-go-forward )
+(global-set-key (kbd "M-p") 'smartscan-symbol-go-backward)
 
 (defun org-keys ()
   "Remap some org keybindings"

@@ -18,7 +18,7 @@
 (add-hook 'term-mode-hook (lambda()
         (setq yas-dont-activate t)))
 (require 'multi-term)
-
+(setq multi-term-program-switches "--login")
 
 (show-paren-mode t)
 (setq show-paren-style 'parenthesis)
