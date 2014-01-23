@@ -6,7 +6,7 @@
 (require 'smartparens)
 (require 'smartparens-ruby)
 (smartparens-global-mode t)
-(sp-pair "/*" "*/")
+;; (sp-pair "/*" "*/")
 
 (global-subword-mode t)
 
@@ -30,8 +30,11 @@
 (global-set-key (kbd "C-c C-d") 'devdocs-search)
 (global-set-key "\C-cd" 'zeal-at-point)
 
+;(require 'powerline)
+;(powerline-default-theme)
 (require 'buffer-move)
 (require 'smartscan)
+(require 'ag)
 
 
 (require 'web-mode)
@@ -40,7 +43,7 @@
 (require 'eclimd)
 (require 'company)
 (require 'company-emacs-eclim)
-;(company-emacs-eclim-setup)
+					;(company-emacs-eclim-setup)
 (require 'ac-emacs-eclim-source)
 (ac-emacs-eclim-config)
 
@@ -52,10 +55,17 @@
 ;; (setq ac-auto-show-menu 0.1)
 ;; (setq ac-use-fuzzy t)   ;use fuzzy matching
 ;;(add-to-list 'ac-sources 'ac-source-yasnippet)  ;put snippets in ac dropdown
+;; (setq
+;;  '(yas-prompt-functions
+;;    (quote
+;;     (yas-ido-prompt
+;;      yas-completing-prompt
+;;      yas-dropdown-prompt
+;;      yas-x-prompt
+;;      yas-no-prompt))))
 
-(require 'ag)
 
-(require 'sublimity)
-(require 'sublimity-map)
-(sublimity-map-set-delay 0)
-;(sublimity-global-mode)
+;; (require 'sublimity)
+;; (require 'sublimity-map)
+;; (sublimity-map-set-delay 0)
+;; ;(sublimity-global-mode)

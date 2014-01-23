@@ -52,6 +52,7 @@
 (depends-on "paredit")
 (depends-on "pkg-info")
 (depends-on "popup")
+(depends-on "powerline")
 (depends-on "project-explorer")
 (depends-on "projectile")
 (depends-on "rainbow-mode")

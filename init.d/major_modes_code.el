@@ -68,12 +68,13 @@
 (projectile-global-mode)
 
 (require 'rspec-mode)
-;; (defadvice rspec-compile (around rspec-compile-around)
-;;   "Use BASH shell for running the specs because of ZSH issues."
-;;   (let ((shell-file-name "/bin/bash"))
-;;     ad-do-it))
-;; (ad-activate 'rspec-compile)
-					;(require 'ruby-end)
+(defadvice rspec-compile (around rspec-compile-around)
+  "Use BASH shell for running the specs because of ZSH issues."
+  (let ((shell-file-name "/bin/bash"))
+    ad-do-it))
+(ad-activate 'rspec-compile)
+
+;;(require 'ruby-end) ; not needed anymode, smartparens handles this
 (autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
 
 					;(add-hook 'ruby-mode-hook (lambda()(ruby-end-mode 1)))

@@ -1,19 +1,17 @@
 
-
-
-
 ;; Turn off mouse interface early in startup to avoid momentary display
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-
 ;; No splash screen please ...
 (setq inhibit-startup-message t)
 
 (setq initial-frame-alist '((width . 165) (height . 100)))
 (setq bcj-emacs-init-file (or load-file-name buffer-file-name))
+
 (setq bcj-emacs-config-dir
       (file-name-directory bcj-emacs-init-file))
+
 (setq bcj-init-dir
       (expand-file-name "init.d" bcj-emacs-config-dir ))
 
@@ -25,24 +23,13 @@
 (require 'mydefuns) ;; some custom functions
 
 ;;TODO
-;; organization...
-;; tabs.el: make it work especially show-autocomplete &filepath completions
-;; look at projectile
-
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(flycheck-color-mode-line-error-face ((t (:inherit flycheck-fringe-error :background "orange red" :foreground "#efefef" :weight normal)))))
-
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(background-color "#002b36")
  '(background-mode dark)
  '(cursor-color "#657b83")
@@ -53,6 +40,13 @@
  '(js2-bounce-indent-p t)
  '(js2-highlight-level 3)
  '(send-mail-function (quote mailclient-send-it))
- '(yas-prompt-functions (quote (yas-ido-prompt yas-completing-prompt yas-dropdown-prompt yas-x-prompt yas-no-prompt))))
+ '(yas-prompt-functions
+   (quote
+    (yas-ido-prompt
+     yas-completing-prompt
+     yas-dropdown-prompt
+     yas-x-prompt
+     yas-no-prompt))))
+
 (put 'narrow-to-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
