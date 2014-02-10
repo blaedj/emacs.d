@@ -37,7 +37,8 @@
   "Revert buffer with no confirmation"
   (interactive)
   (revert-buffer nil t))
-(global-set-key (kbd "<f5>") 'bcj-revert-buffer-no-confirm)
 
+(global-set-key (kbd "<f5>") 'bcj-revert-buffer-no-confirm)
+(global-set-key (kbd "<f11>") 'multi-term)
 
 (add-hook 'ruby-mode-hook 'ruby_keys_outputing )

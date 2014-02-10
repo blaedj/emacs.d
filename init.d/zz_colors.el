@@ -6,3 +6,4 @@
 (unless (boundp 'outdated)
   (load-theme 'solarized-dark-custom t)
   )
+(require 'highlight-tail)

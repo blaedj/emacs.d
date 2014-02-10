@@ -39,17 +39,21 @@
 
 (require 'web-mode)
 (require 'yaml-mode)
-(require 'eclim)
-(require 'eclimd)
-(require 'company)
-(require 'company-emacs-eclim)
+;(require 'eclim)
+;(require 'eclimd)
+;(require 'company)
+;(require 'company-emacs-eclim)
 					;(company-emacs-eclim-setup)
-(require 'ac-emacs-eclim-source)
-(ac-emacs-eclim-config)
+;(require 'ac-emacs-eclim-source)
+;(ac-emacs-eclim-config)
 
 (require 'auto-complete-config)           ;load the default configuration
 (ac-config-default)
 (add-to-list 'ac-dictionary-directories "/home/blaed/.emacs.d/ac-dict")
+(require 'auto-complete-clang)
+
+(require 'cpputils-cmake)
+
 ;; (global-auto-complete-mode t)
 ;; (setq ac-auto-start 1)  ;set ac to start after 1 character is typed
 ;; (setq ac-auto-show-menu 0.1)
