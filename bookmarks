@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("elispehere"
+(("sceneinstance"
+ (filename . "~/code/cpp/graphics/src/petesCode/cs5721GraphicsLib/tests/test_XMLSceneParse.cpp")
+ (front-context-string . "    if (v.first ")
+ (rear-context-string . "rameters\n    //\n")
+ (position . 3046))
+("elispehere"
  (filename . "~/code/elisp/elispIn15Mins.el")
  (front-context-string . "\n;; This functio")
  (rear-context-string . "ther-window 1))\n")

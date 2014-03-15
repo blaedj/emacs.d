@@ -5,7 +5,7 @@
 
 ;;;### (autoloads (cppcm-reload-all cppcm-compile cppcm-create-or-update-flymake-files
 ;;;;;;  cppcm-get-exe-path-current-buffer) "cpputils-cmake" "cpputils-cmake.el"
-;;;;;;  (21238 34019 460499 866000))
+;;;;;;  (21242 39005 501818 783000))
 ;;; Generated autoloads from cpputils-cmake.el
 
 (autoload 'cppcm-get-exe-path-current-buffer "cpputils-cmake" "\
@@ -33,8 +33,8 @@ re-create Makefiles for flymake and re-set all the flags
 
 ;;;***
 
-;;;### (autoloads nil nil ("cpputils-cmake-pkg.el") (21238 34019
-;;;;;;  484496 126000))
+;;;### (autoloads nil nil ("cpputils-cmake-pkg.el") (21242 39005
+;;;;;;  594423 909000))
 
 ;;;***
 

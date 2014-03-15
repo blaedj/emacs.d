@@ -8,7 +8,7 @@
   (setq ac-auto-start 1)  ;set ac to start after 1 character is typed
   (setq ac-auto-show-menu 0.1)
   (setq ac-use-fuzzy t)   ;use fuzzy matching
-
+  (local-set-key (kbd "C-c C-e") 'hs-toggle-hiding)
   (smartparens-mode 1)
   (show-smartparens-mode 1)
   (hs-minor-mode 1)
@@ -50,7 +50,7 @@
   (column-number-mode t)
   (idle-highlight)
   (linum-mode 1)
-  (cppcm-reload-all)
+  ;;(cppcm-reload-all)
   (auto-complete-mode 1)
   (setq ac-auto-start 1)  ;set ac to start after 1 character is typed
   (setq ac-auto-show-menu 0.1)
@@ -60,18 +60,19 @@
   (show-smartparens-mode 1)
   (hs-minor-mode 1)
   (yas-minor-mode 1)
+  (local-set-key (kbd "C-c C-e") 'hs-toggle-hiding)
   ;;  (flycheck-mode)
 )
 
 ;; for cpputils-cmake
-(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
-(add-hook 'c++-mode-hook (lambda () (cppcm-reload-all)))
+;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
+;(add-hook 'c++-mode-hook (lambda () (cppcm-reload-all)))
 
 ;; OPTIONAL, somebody reported that they can use this package with Fortran
 (add-hook 'c90-mode-hook (lambda () (cppcm-reload-all)))
 ;; OPTIONAL, avoid typing full path when starting gdb
-(global-set-key (kbd "C-c C-g")
- '(lambda ()(interactive) (gud-gdb (concat "gdb --fullname " (cppcm-get-exe-path-current-buffer)))))
+;; (global-set-key (kbd "C-c C-g")
+;;  '(lambda ()(interactive) (gud-gdb (concat "gdb --fullname " (cppcm-get-exe-path-current-buffer)))))
 
 
 (add-hook 'emacs-lisp-mode-hook 'my-coding-hook)
@@ -83,10 +84,10 @@
 (add-hook 'web-mode-hook 'web-mode-coding-hook)
 (add-hook 'c++-mode-hook 'cpp-coding-hook)
 (add-hook 'c-mode-hook 'cpp-coding-hook)
-
+(add-hook 'coffee-mode-hook 'my-coding-hook)
 (add-hook 'cmake-mode-hook 'my-coding-hook)
 (add-hook 'java-mode-hook 'my-coding-hook)
-
+(add-hook 'nxml-mode-hook 'my-coding-hook)
 (add-hook 'html-mode-hook 'wrap-region-mode)
 
 (add-hook 'js2-mode-hook 'skewer-mode)
