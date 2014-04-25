@@ -164,7 +164,6 @@
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
 
-
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.zsh-theme\\'" . shell-script-mode))
@@ -180,8 +179,11 @@
 (add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode) )
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode) )
+
+
 (add-hook 'web-mode-hook (lambda()
 			   (hs-minor-mode -1)))
 

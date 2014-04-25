@@ -6,7 +6,7 @@
 ;; No splash screen please ...
 (setq inhibit-startup-message t)
 
-(setq initial-frame-alist '((width . 165) (height . 100)))
+;;(setq initial-frame-alist '((width . 165) (height . 100)))
 (setq bcj-emacs-init-file (or load-file-name buffer-file-name))
 
 (setq bcj-emacs-config-dir
@@ -22,6 +22,7 @@
 
 (require 'mydefuns) ;; some custom functions
 
+;;(x-focus-frame nil)
 ;;TODO
 
 (custom-set-faces
