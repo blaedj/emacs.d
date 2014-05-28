@@ -1,5 +1,0 @@
-# contributor: Blaed Johnston <blaedj@gmail.com>
-# name: <button></button>
-# key: button
-# --
-<button name="$1">$2</button>

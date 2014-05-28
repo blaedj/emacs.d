@@ -8,7 +8,6 @@
 ;;(add-to-list 'load-path "~/.emacs.d/elpa/ido-ubiquitous-1.6")
 (let ((default-directory "~/.emacs.d/elpa"))
   (normal-top-level-add-subdirs-to-load-path))
-
                                         ;(server-start)
 
 (require 'ace-jump-mode)
@@ -24,6 +23,9 @@
 
 (require 'multi-term)
 (setq multi-term-program "/bin/zsh")
+
+(add-hook 'term-mode-hook (lambda()
+			    (setq yas-dont-activate t)));; yas screws up tab completion in term-mode
 
 (require 'smartscan)
                                         ;(setq 'smartscan-use-extended-syntax t)
@@ -41,7 +43,7 @@
   (idle-highlight)
   (linum-mode)
   ;; (company-mode 1)
-   (auto-complete-mode 1)
+  (auto-complete-mode 1)
   (hs-minor-mode)
   (git-gutter-mode 1)
   (highlight-parentheses-mode)
@@ -67,19 +69,21 @@
   (company-mode 1)
   (git-gutter-mode 1)
   (highlight-parentheses-mode)
-)
+  )
 
 (add-hook 'emacs-lisp-mode-hook 'my-coding-hook)
 (add-hook 'ruby-mode-hook 'my-coding-hook)
 (add-hook 'js2-mode-hook 'my-coding-hook)
 (add-hook 'js-mode-hook 'my-coding-hook)
 (add-hook 'csharp-mode-hook 'my-coding-hook)
-;(add-hook 'csharp-mode-hook 'experimental-coding-hook)
+                                        ;(add-hook 'csharp-mode-hook 'experimental-coding-hook)
 (add-hook 'css-mode-hook 'my-coding-hook)
 (add-hook 'html-mode-hook 'my-coding-hook)
 (add-hook 'web-mode-hook 'web-mode-coding-hook)
 (add-hook 'coffee-mode-hook 'my-coding-hook)
 (add-hook 'coffee-mode-hook 'coffee-compile-on-save)
+(add-hook 'php-mode-hook 'my-coding-hook)
+
 
 (defun coffee-compile-on-save ()
   "Compile '.coffee' files on every save"
@@ -124,7 +128,12 @@
 (package-initialize)
 
 (require 'mydefuns ) ; some custom functions
+
 (require 'php-mode)
+(eval-after-load "php-mode"
+  '(progn
+     (define-key php-mode-map (kbd "C-.") 'ido-imenu-anywhere)
+    ))
 
 ;;--Javascript--;;
 (require 'js2-mode)
@@ -295,6 +304,10 @@
 (show-paren-mode t)             ;match the parens
 (make-directory "~/.emacs.d/autosaves/" t)  ; create the autosave directory
 
+
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -347,6 +360,8 @@
 (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . html-mode))  ;;  open aspx/ascx files   with html mode
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))  ;;open .tpl files w/web-mode
+
 
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))

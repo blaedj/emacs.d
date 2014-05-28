@@ -1,15 +1,9 @@
-;;NOTES
+111;;NOTES
 ADD TO ADVANCED FILTERING SELECTION
 - for some values, have a <= or >= the selected item.
 
 (emacs-uptime) Wed Dec  4 10:56:50 2013
 "14 days, 22 hours, 35 minutes, 40 seconds"
-
-(emacs-uptime) Tue Dec 31 14:21:33 2013
-"5 hours, 7 minutes, 56 seconds"
-
-(emacs-uptime) Wed Jan  8 08:42:03 2014
-"5 days, 21 hours, 23 minutes, 43 seconds"
 
 
 (global-set-key (kbd "C-c C-e") (hs-hide-block))
@@ -122,3 +116,19 @@ ADD TO ADVANCED FILTERING SELECTION
 C:\Program Files (x86)\RSA SecurID Token Common;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;C:\Program Files\Symantec.cloud\PlatformAgent\;c:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files\Microsoft SQL Server\100\DTS\Binn\;c:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;c:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;c:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;c:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files\Calibre2\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files\nodejs\;%systemroot%\System32\WindowsPowerShell\v1.0\;
 
 C:\Chocolatey\bin;C:\Program Files (x86)\Git\cmd;C:\Users\bjohnsto\AppData\Roaming\scriptcs;C:\tools\gittfs;C:\Users\bjohnsto\AppData\Roaming\npm;C:\Windows\Microsoft.NET\Framework\v4.0.30319\
+
+('skewer-flash-region)
+(/ 147 2)
+73
+
+144
+
+
+
+
+
+
+
+
+
+
