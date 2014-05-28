@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: usestrict
+# key: use
+# --
+"use strict";
