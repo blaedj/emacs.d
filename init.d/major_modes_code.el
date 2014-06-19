@@ -94,6 +94,7 @@
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
 
+;;(add-hook 'css-mode-hook rainbow-mode)
 					;(require 'project-explorer)
 (require 'projectile)
 (projectile-global-mode)
@@ -180,6 +181,8 @@
 (add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode) )
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . css-mode))
 
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode) )
 (add-hook 'web-mode-hook (lambda()
