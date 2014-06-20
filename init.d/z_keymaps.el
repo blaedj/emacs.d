@@ -4,6 +4,30 @@
 (global-set-key "\C-w" 'backward-kill-word)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
+(if (eq system-type 'darwin)
+   (mac-switch-meta)
+)
+
+
+
+
+;; mac switch meta key
+(defun mac-switch-meta nil
+  "switch meta between Option and Command"
+  (interactive)
+  (if (eq mac-option-modifier nil)
+      (progn
+	(setq mac-option-modifier 'meta)
+	(setq mac-command-modifier 'hyper)
+	)
+    (progn
+      (setq mac-option-modifier nil)
+      (setq mac-command-modifier 'meta)
+      )
+    )
+  )
+
+
 ;;(global-set-key (kbd "<tab>") 'hippie-expand  )
 (global-set-key (kbd "<C-S-up>")     'buf-move-up)
 (global-set-key (kbd "<C-S-down>")   'buf-move-down)
@@ -40,5 +64,8 @@
 
 (global-set-key (kbd "<f5>") 'bcj-revert-buffer-no-confirm)
 (global-set-key (kbd "<f11>") 'multi-term)
+
+;; I keep hitting the 'menu' hey when tring to open a terminal
+(global-unset-key (kbd "<f10>"))
 
 (add-hook 'ruby-mode-hook 'ruby_keys_outputing )
