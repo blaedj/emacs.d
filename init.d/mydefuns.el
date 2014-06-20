@@ -37,11 +37,11 @@ of seeing_is_believing."
   "Search documentation on devDocs.io"
   (interactive)
   (let (whichdocs)
-    (setq whichdocs (read-from-minibuffer "Which Documentation?"))
+    (setq whichdocs (read-from-minibuffer "Which Documentation? "))
   (browse-url
    (concat
-    (concat "http://devdocs.io/#q=" whichdocs " " )
-    (read-from-minibuffer "Query:")))))
+    (concat "http://devdocs.io/" whichdocs "/" )
+    (read-from-minibuffer "Query: ")))))
 
 
 
