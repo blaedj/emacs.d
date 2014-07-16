@@ -1,4 +1,4 @@
-;;; Tab management
+;;; My attempt to cerate some sort of custom <TAB> key management
 
 ;; Spaces instead of tabs
 (setq-default indent-tabs-mode nil)
