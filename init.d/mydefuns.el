@@ -1,4 +1,6 @@
 
+
+;; the following two defuns are modified from: http://whattheemacsd.com/setup-dired.el-02.html
 (defun dired-back-to-top ()
   (interactive)
   (beginning-of-buffer)
@@ -15,6 +17,8 @@
 (define-key dired-mode-map
   (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
 
+
+;; from seeing-is-believing: https://github.com/JoshCheek/seeing_is_believing
 (defun seeing-is-believing ()
   "Replace the current region (or the whole buffer, if none) with the output
 of seeing_is_believing."
@@ -33,6 +37,7 @@ of seeing_is_believing."
 
 (global-set-key (kbd "C-x g") 'google-web-search)
 
+;;inspired by helm-dash, if you aren't on OS X, http://devdocs.io is a decent browser-based alternative to Dash. (http://kapeli.com/dash)
 (defun devdocs-search ()
   "Search documentation on devDocs.io"
   (interactive)
@@ -44,7 +49,7 @@ of seeing_is_believing."
     (read-from-minibuffer "Query: ")))))
 
 
-
+;; custom defun to properly format the spacing around braces and parens
 (defun formatBuf ()
   "formats the () and {}"
   (interactive)

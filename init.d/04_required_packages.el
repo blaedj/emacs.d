@@ -54,6 +54,11 @@
 
 (require 'cpputils-cmake)
 
+
+(require 'minimap )
+
+;;(require 'diffscuss-mode )
+
 ;; (global-auto-complete-mode t)
 ;; (setq ac-auto-start 1)  ;set ac to start after 1 character is typed
 ;; (setq ac-auto-show-menu 0.1)

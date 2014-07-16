@@ -13,7 +13,7 @@
   (show-smartparens-mode 1)
   (hs-minor-mode 1)
   (yas-minor-mode 1)
-;;  (sublimity-mode 1)
+  ;;  (sublimity-mode 1)
   )
 
 (defun my-experimental-coding-hook ()
@@ -25,7 +25,7 @@
   (smartparens-mode 1)
   (hs-minor-mode 1)
   (yas-minor-mode 1)
-;;  (sublimity-mode 1)
+  ;;  (sublimity-mode 1)
   )
 
 (defun web-mode-coding-hook ()
@@ -62,11 +62,11 @@
   (yas-minor-mode 1)
   (local-set-key (kbd "C-c C-e") 'hs-toggle-hiding)
   ;;  (flycheck-mode)
-)
+  )
 
 ;; for cpputils-cmake
-;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
-;(add-hook 'c++-mode-hook (lambda () (cppcm-reload-all)))
+					;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
+					;(add-hook 'c++-mode-hook (lambda () (cppcm-reload-all)))
 
 ;; OPTIONAL, somebody reported that they can use this package with Fortran
 (add-hook 'c90-mode-hook (lambda () (cppcm-reload-all)))
@@ -146,7 +146,11 @@
   "Set some keybindings for js2-mode error jumping"
   (interactive)
   (local-unset-key (kbd "C-c `"))
-  (local-set-key (kbd "C-c `") 'js2-next-error ))
+  (local-set-key (kbd "C-c `") 'js2-next-error )
+  ;; properly format the braces and parens before saving a js file.
+  (add-hook 'before-save-hook
+	    (lambda ()
+	      (formatBuf))))
 
 (add-hook 'js-mode-hook
           (lambda ()
@@ -155,11 +159,13 @@
       	    (run-hooks 'code-modes-hook)
       	    (js2-hook)))
 
-(add-hook 'js2-mode-hook
-	  '(lambda ()
-	     (add-hook 'before-save-hook
-		       (lambda ()
-			 (formatBuf)))))
+;; (add-hook 'js2-mode-hook
+;; 	  '(lambda ()
+;; 	     (add-hook 'before-save-hook
+;; 		       (lambda ()
+;; 			 (formatBuf)))))
+
+
 ;;---Markdown Mode---
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
