@@ -65,8 +65,6 @@
 (depends-on "ruby-end")
 (depends-on "ruby-mode")
 (depends-on "s")
-(depends-on "sass-mode")
-(depends-on "scss-mode")
 (depends-on "simple-httpd")
 (depends-on "skewer-mode")
 (depends-on "slime")
