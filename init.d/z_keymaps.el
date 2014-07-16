@@ -1,15 +1,14 @@
 (global-set-key "\C-x\C-m" 'smex)     ; smarter M-x
+
+;; unbind the standard send email keys, too close to my smex keybindings
+(global-unset-key (kbd "\C-x m"))
+(global-set-key (kbd "\C-x m") 'smex)     ; smarter M-x
+
 (global-set-key (kbd "<menu>") 'smex)
+
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-w" 'backward-kill-word)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-
-(if (eq system-type 'darwin)
-   (mac-switch-meta)
-)
-
-
-
 
 ;; mac switch meta key
 (defun mac-switch-meta nil
@@ -26,6 +25,10 @@
       )
     )
   )
+
+;; (if (eq system-type 'darwin)
+;;    (mac-switch-meta)
+;; )
 
 
 ;;(global-set-key (kbd "<tab>") 'hippie-expand  )
