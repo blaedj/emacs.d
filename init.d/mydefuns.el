@@ -28,11 +28,21 @@ of seeing_is_believing."
     (shell-command-on-region beg end "seeing_is_believing" nil 'replace)))
 
 
+;; if we include a space in the url that we pass to browse-url, it seems to trigger an automatic http-encoding of the entire string.
+;; (not sure if this happens in browse-url or elsewhere)
+;; this breaks the url, possibly because google expects '#?=' and not '%23?=' in the query string.
+;; so we handle this by pre-encoding spaces and ?'s. This seems to fix the issue.
 (defun google-web-search ()
   "Search google for a user-specified query"
   (interactive)
   (browse-url
-   (concat "http://www.google.com/#q="(read-from-minibuffer "Query:" ) ))
+   (concat "http://www.google.com/#q=" (bcj-http-encode (read-from-minibuffer "Query: "))))
+  )
+
+(defun bcj-http-encode (string-to-encode)
+  (replace-regexp-in-string
+   "?" "%3F"
+   (replace-regexp-in-string " " "%20" string-to-encode))
   )
 
 (global-set-key (kbd "C-x g") 'google-web-search)
@@ -43,10 +53,10 @@ of seeing_is_believing."
   (interactive)
   (let (whichdocs)
     (setq whichdocs (read-from-minibuffer "Which Documentation? "))
-  (browse-url
-   (concat
-    (concat "http://devdocs.io/" whichdocs "/" )
-    (read-from-minibuffer "Query: ")))))
+    (browse-url
+     (concat
+      (concat "http://devdocs.io/" whichdocs "/" )
+      (read-from-minibuffer "Query: ")))))
 
 
 ;; custom defun to properly format the spacing around braces and parens

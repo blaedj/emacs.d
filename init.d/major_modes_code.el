@@ -126,19 +126,21 @@
 (add-hook 'java-mode-hook
 	  (lambda ()
 	    (auto-revert-mode t)
-	    (eclim-mode t)
+	    (setq tab-width 4)
+	    ;;(eclim-mode t)
 
 	    ))
 
-(setq eclim-auto-save t
-      eclim-executable "~/.eclipse/org.eclipse.platform_4.3.0_1473617060_linux_gtk_x86_64/eclim"
-      eclimd-executable "~/.eclipse/org.eclipse.platform_4.3.0_1473617060_linux_gtk_x86_64/eclimd"
-      eclimd-wait-for-process nil
-      eclimd-default-workspace "~/code/java/"
-      )
-(setq help-at-pt-display-when-idle t)
-(setq help-at-pt-timer-delay 0.1)
-(help-at-pt-set-timer)
+;;TODO: GET ECLIM WORKING
+;; (setq eclim-auto-save t
+;;       eclim-executable "~/.eclipse/org.eclipse.platform_4.3.0_1473617060_linux_gtk_x86_64/eclim"
+;;       eclimd-executable "~/.eclipse/org.eclipse.platform_4.3.0_1473617060_linux_gtk_x86_64/eclimd"
+;;       eclimd-wait-for-process nil
+;;       eclimd-default-workspace "~/code/java/"
+;;       )
+;; (setq help-at-pt-display-when-idle t)
+;; (setq help-at-pt-timer-delay 0.1)
+;; (help-at-pt-set-timer)
 ;; add the emacs-eclim source
 
 

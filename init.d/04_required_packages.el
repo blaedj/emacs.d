@@ -55,7 +55,7 @@
 (require 'cpputils-cmake)
 
 
-(require 'minimap )
+;;(require 'minimap )
 
 ;;(require 'diffscuss-mode )
 

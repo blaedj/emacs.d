@@ -38,4 +38,5 @@
 (set-face-attribute 'show-paren-match-face nil
         :weight 'bold :underline nil :overline nil :slant 'normal)
 
+
 ;;(server-start) ;; use emacs as a server so that we can use our 'ec' command from cli.
