@@ -49,7 +49,7 @@
 (global-set-key (kbd "M-p") 'smartscan-symbol-go-backward)
 
 
-(global-set-key (kbd "C-c C-s b") 'scratch-buffer)
+(global-set-key (kbd "C-c C-s b") 'create-scratch-buffer)
 
 (defun org-keys ()
   "Remap some org keybindings"

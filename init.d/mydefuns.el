@@ -91,7 +91,7 @@ of seeing_is_believing."
 (push #'save-persistent-scratch kill-emacs-hook)
 
 
-(defun scratch-buffer ()
+(defun create-scratch-buffer ()
   "creates a scratch buffer of specified type"
   (interactive)
 
