@@ -90,4 +90,20 @@ of seeing_is_believing."
 (push #'load-persistent-scratch after-init-hook)
 (push #'save-persistent-scratch kill-emacs-hook)
 
+
+(defun scratch-buffer ()
+  "creates a scratch buffer of specified type"
+  (interactive)
+
+  (let (newbuffer)
+    (let (mode-type)
+      (setq mode-type (read-from-minibuffer "scratch mode: "))
+      (setq newbuffer (get-buffer-create (concat mode-type "-scratch")))
+    (switch-to-buffer newbuffer)
+    (funcall (intern (concat mode-type "-mode")))
+    )
+  )
+)
+
+
 (provide 'mydefuns)

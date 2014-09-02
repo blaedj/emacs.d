@@ -48,6 +48,9 @@
 (global-set-key (kbd "M-n") 'smartscan-symbol-go-forward )
 (global-set-key (kbd "M-p") 'smartscan-symbol-go-backward)
 
+
+(global-set-key (kbd "C-c C-s b") 'scratch-buffer)
+
 (defun org-keys ()
   "Remap some org keybindings"
   (local-unset-key (kbd "C-c SPC"))
