@@ -188,12 +188,14 @@
 (add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode) )
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
-(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . css-mode))
 
+(add-to-list 'auto-mode-alist '("\\.vm\\'" . web-mode) )
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode) )
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode) )
 
 
 (add-hook 'web-mode-hook (lambda()

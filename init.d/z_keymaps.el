@@ -49,6 +49,7 @@
 (global-set-key (kbd "M-p") 'smartscan-symbol-go-backward)
 
 
+;; create a scratch buffer of arbitrary type
 (global-set-key (kbd "C-c C-s b") 'create-scratch-buffer)
 
 (defun org-keys ()
