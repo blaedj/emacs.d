@@ -52,6 +52,17 @@
 ;; create a scratch buffer of arbitrary type
 (global-set-key (kbd "C-c C-s b") 'create-scratch-buffer)
 
+;;better ways to jump around to different windows:
+
+;; https://github.com/abo-abo/ace-window
+; still visual, less intrusive
+(global-set-key (kbd "C-x o") 'ace-window)
+
+;; https://github.com/dimitri/switch-window
+; much more visual
+;(global-set-key (kbd "C-x o") 'switch-window)
+
+
 (defun org-keys ()
   "Remap some org keybindings"
   (local-unset-key (kbd "C-c SPC"))
