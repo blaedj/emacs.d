@@ -40,5 +40,5 @@
 
 
 ;; use emacs as a server so that we can use our 'ec' command from cli.
-(unless (server-running-p)
-  (start-server))
+;(unless (server-running-p)
+ ; (start-server))

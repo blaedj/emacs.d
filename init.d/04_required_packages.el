@@ -54,6 +54,8 @@
 
 (require 'cpputils-cmake)
 
+(require 'git-gutter-fringe)
+;(require 'git-gutter)
 
 ;;(require 'minimap )
 

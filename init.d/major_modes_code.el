@@ -4,6 +4,9 @@
   (idle-highlight)
   (linum-mode 1)
 
+					;  (git-gutter-mode)
+					;  (git-gutter:linum-setup)
+
   (auto-complete-mode 1)
   (setq ac-auto-start 1)  ;set ac to start after 1 character is typed
   (setq ac-auto-show-menu 0.1)
@@ -63,6 +66,17 @@
   (local-set-key (kbd "C-c C-e") 'hs-toggle-hiding)
   ;;  (flycheck-mode)
   )
+
+;; thanks to:
+;;webcache.googleusercontent.com/search?q=cache:blog.ryuslash.org/archives/2013/01/25/highlight-vc-diffs
+;; for this solution to git-gutter-fringe not updating on save.
+;; also could check out diff-hl-mode
+(defun maybe-use-git-gutter ()
+  "run 'git-gutter' if the current file is being tracked by git"
+  (when (eq (vc-backend (buffer-file-name)) 'Git)
+    (git-gutter)))
+
+(add-hook 'after-save-hook 'maybe-use-git-gutter)
 
 ;; for cpputils-cmake
 					;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
@@ -214,3 +228,10 @@
 (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode)
 
 (setq c-default-style "gnu")
+
+;;git-gutter-fringe customizations
+(setq git-gutter-fr:side 'left-fringe)
+(setq-default left-fringe-width 15)
+
+;; (setq-default left-fringe-width 25)
+;; (setq-default right-fringe-width 20)
