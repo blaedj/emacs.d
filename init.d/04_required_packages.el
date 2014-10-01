@@ -30,7 +30,7 @@
 (global-set-key (kbd "C-c C-d") 'devdocs-search)
 (global-set-key "\C-cd" 'zeal-at-point)
 
-;(require 'powerline)
+(require 'powerline)
 ;(powerline-default-theme)
 (require 'buffer-move)
 (require 'smartscan)
@@ -54,8 +54,12 @@
 
 (require 'cpputils-cmake)
 
-(require 'git-gutter-fringe)
-;(require 'git-gutter)
+;;Git-gutter is broken for emacs version:
+;;GNU Emacs 24.3.93.1 (x86_64-apple-darwin13.3.0, NS apple-appkit-1265.21) of 2014-08-14 on builder10-9.porkrind.org
+
+;;(require 'git-gutter-fringe)
+;;(require 'git-gutter)
+
 
 ;;(require 'minimap )
 
