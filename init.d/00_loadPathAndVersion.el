@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d/init.d")
 
 (if (< (string-to-number emacs-version) 24)
     (setq outdated t)
