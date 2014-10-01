@@ -1,0 +1,1 @@
+(define-package "main-line" "20130404.1904" "modeline replacement forked from an early version of powerline.el" 'nil :url "https://github.com/jasonm23/emacs-mainline" :keywords ("statusline" "/" "modeline"))

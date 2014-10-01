@@ -1,8 +1,9 @@
-(source melpa)
 (source gnu)
 (source marmalade)
+(source melpa)
 
 (depends-on "ace-jump-mode")
+(depends-on "ace-window")
 (depends-on "achievements")
 (depends-on "adaptive-wrap")
 (depends-on "ag")
@@ -69,6 +70,7 @@
 (depends-on "skewer-mode")
 (depends-on "slime")
 (depends-on "slime-repl")
+(depends-on "smart-mode-line")
 (depends-on "smartparens")
 (depends-on "smartscan")
 (depends-on "smex")
