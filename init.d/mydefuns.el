@@ -4,7 +4,7 @@
 (defun dired-back-to-top ()
   (interactive)
   (beginning-of-buffer)
-  (dired-next-line 3))
+  (dired-next-line 2))
 
 (define-key dired-mode-map
   (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)

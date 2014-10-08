@@ -3,9 +3,8 @@
   (column-number-mode t)
   (idle-highlight)
   (linum-mode 1)
-
-					;  (git-gutter-mode)
-					;  (git-gutter:linum-setup)
+  ;;  (git-gutter-mode)
+  ;; (git-gutter:linum-setup)
 
   (auto-complete-mode 1)
   (setq ac-auto-start 1)  ;set ac to start after 1 character is typed
@@ -35,14 +34,14 @@
   (make-local-variable 'column-number-mode)
   (column-number-mode t)
   (linum-mode 1)
-  (idle-highlight)
+  ;;(idle-highlight) makes web-mode lock up with message 'font-lock-highlight: untouched buffer (nil)'
   (auto-complete-mode 1)
   (setq ac-auto-start 1)  ;set ac to start after 1 character is typed
   (setq ac-auto-show-menu 0.1)
   (setq ac-use-fuzzy t)   ;use fuzzy matching
 
-  (smartparens-mode 1)
-  (show-smartparens-mode 1)
+					;(smartparens-mode 1)
+					;(show-smartparens-mode 1)
   ;;(hs-minor-mode 1)
   (yas-minor-mode 1)
   )
@@ -76,7 +75,7 @@
   (when (eq (vc-backend (buffer-file-name)) 'Git)
     (git-gutter)))
 
-;(add-hook 'after-save-hook 'maybe-use-git-gutter)
+					;(add-hook 'after-save-hook 'maybe-use-git-gutter)
 
 ;; for cpputils-cmake
 					;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
