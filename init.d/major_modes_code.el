@@ -122,9 +122,8 @@
 ;;(require 'ruby-end) ; not needed anymode, smartparens handles this
 (autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
 
-					;(add-hook 'ruby-mode-hook (lambda()(ruby-end-mode 1)))
-;; (eval-after-load 'rspec-mode
-;;   '(rspec-install-snippets))
+ (eval-after-load 'rspec-mode
+   '(robe-mode))
 
 ;;---inf-Ruby---
 (require 'inf-ruby)
@@ -133,9 +132,26 @@
 ;;-------------------------------------------------------
 (add-hook 'ruby-mode-hook 'my-coding-hook)
 (add-hook 'ruby-mode-hook 'robe-mode)
+(add-hook 'robe-mode-hook 'setup-robe-ac)
+
+;;(defun ac-robe-setup ()() )
+
+;;wrapper for ac-robe-setup so that we can disable it easily if it is too slow
+(defun setup-robe-ac ()
+  (ac-robe-setup))
+
+(defun rob-mode-setup ()
+    "DOCSTRING"
+  (interactive)
+  (let (var1)
+    (setq var1 some)
+
+    ))
+
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
-(add-hook 'robe-mode-hook 'ac-robe-setup)
+
+
 
 ;;(setq exec-path (cons (expand-file-name "~/.gem/ruby/1.8/bin") exec-path))
 
