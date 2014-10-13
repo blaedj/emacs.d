@@ -7,7 +7,7 @@
   ;; (git-gutter:linum-setup)
 
   (auto-complete-mode 1)
-  (setq ac-auto-start 1)  ;set ac to start after 1 character is typed
+  (setq ac-auto-start 2)  ;set ac to start after 2 characters are typed
   (setq ac-auto-show-menu 0.1)
   (setq ac-use-fuzzy t)   ;use fuzzy matching
   (local-set-key (kbd "C-c C-e") 'hs-toggle-hiding)
@@ -36,7 +36,7 @@
   (linum-mode 1)
   ;;(idle-highlight) makes web-mode lock up with message 'font-lock-highlight: untouched buffer (nil)'
   (auto-complete-mode 1)
-  (setq ac-auto-start 1)  ;set ac to start after 1 character is typed
+  (setq ac-auto-start 2)  ;set ac to start after 2 characters are typed
   (setq ac-auto-show-menu 0.1)
   (setq ac-use-fuzzy t)   ;use fuzzy matching
 
@@ -54,7 +54,7 @@
   (linum-mode 1)
   ;;(cppcm-reload-all)
   (auto-complete-mode 1)
-  (setq ac-auto-start 1)  ;set ac to start after 1 character is typed
+  (setq ac-auto-start 2)  ;set ac to start after 2 characters are typed
   (setq ac-auto-show-menu 0.1)
   (setq ac-use-fuzzy t)   ;use fuzzy matching
   (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources))

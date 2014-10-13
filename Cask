@@ -2,6 +2,7 @@
 (source marmalade)
 (source melpa)
 
+(depends-on "2048-game")
 (depends-on "ace-jump-mode")
 (depends-on "ace-window")
 (depends-on "achievements")
@@ -47,6 +48,7 @@
 (depends-on "highlight")
 (depends-on "idle-highlight")
 (depends-on "ido-ubiquitous")
+(depends-on "ido-vertical-mode")
 (depends-on "imenu-anywhere")
 (depends-on "inf-ruby")
 (depends-on "js2-mode")
