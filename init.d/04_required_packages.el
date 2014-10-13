@@ -36,16 +36,20 @@
 (require 'smartscan)
 (require 'ag)
 
-
 (require 'web-mode)
 (require 'yaml-mode)
-;(require 'eclim)
-;(require 'eclimd)
-;(require 'company)
-;(require 'company-emacs-eclim)
-					;(company-emacs-eclim-setup)
-;(require 'ac-emacs-eclim-source)
-;(ac-emacs-eclim-config)
+
+(require 'rvm)
+(rvm-use-default)
+
+
+;;(require 'eclim)
+;;(require 'eclimd)
+;;(require 'company)
+;;(require 'company-emacs-eclim)
+;;(company-emacs-eclim-setup)
+;;(require 'ac-emacs-eclim-source)
+;;(ac-emacs-eclim-config)
 
 (require 'auto-complete-config)           ;load the default configuration
 (ac-config-default)

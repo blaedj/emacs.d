@@ -132,8 +132,12 @@
 (autoload 'inf-ruby-keys "inf-ruby" "" t)
 ;;-------------------------------------------------------
 (add-hook 'ruby-mode-hook 'my-coding-hook)
+(add-hook 'ruby-mode-hook 'robe-mode)
+(defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
+  (rvm-activate-corresponding-ruby))
+(add-hook 'robe-mode-hook 'ac-robe-setup)
 
-(setq exec-path (cons (expand-file-name "~/.gem/ruby/1.8/bin") exec-path))
+;;(setq exec-path (cons (expand-file-name "~/.gem/ruby/1.8/bin") exec-path))
 
 ;;---Java Stuff---
 (add-hook 'java-mode-hook
