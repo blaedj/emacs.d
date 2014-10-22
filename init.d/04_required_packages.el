@@ -1,7 +1,7 @@
 
-(require 'dired-details)
-(require 'dired-details+)
-(setq dired-details-hidden-string "--  " )
+;; (require 'dired-details)
+;; (require 'dired-details+)
+;(setq dired-details-hidden-string "--  " )
 
 (require 'smartparens)
 (require 'smartparens-ruby)
