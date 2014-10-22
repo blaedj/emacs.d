@@ -81,7 +81,7 @@
   (revert-buffer nil t))
 
 (global-set-key (kbd "<f5>") 'bcj-revert-buffer-no-confirm)
-(global-set-key (kbd "<f11>") 'multi-term)
+;(global-set-key (kbd "<f11>") 'multi-term)
 
 ;; I keep hitting the 'menu' hey when tring to open a terminal
 (global-unset-key (kbd "<f10>"))
