@@ -253,5 +253,17 @@
 (setq git-gutter-fr:side 'left-fringe)
 (setq-default left-fringe-width 15)
 
-;; (setq-default left-fringe-width 25)
-;; (setq-default right-fringe-width 20)
+
+;;Clojure
+
+;;ac-cider config
+(require 'ac-cider)
+(add-hook 'cider-mode-hook 'ac-flyspell-workaround)
+(add-hook 'cider-mode-hook 'ac-cider-setup)
+(add-hook 'cider-repl-mode-hook 'ac-cider-setup)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'cider-mode))
+
+;(add-hook 'clojure-mode-hook '( '(my-coding-hook) (setq cider-lein-command "/usr/local/bin/lein")))
+(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(setq cider-lein-command "/usr/local/bin/lein" )
