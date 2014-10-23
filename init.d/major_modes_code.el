@@ -3,8 +3,8 @@
   (column-number-mode t)
   (idle-highlight)
   (linum-mode 1)
-  ;;  (git-gutter-mode)
-  ;; (git-gutter:linum-setup)
+  ;(git-gutter-mode)
+  ;(git-gutter:linum-setup)
 
   (auto-complete-mode 1)
   (setq ac-auto-start 2)  ;set ac to start after 2 characters are typed
@@ -40,7 +40,8 @@
   (setq ac-auto-show-menu 0.1)
   (setq ac-use-fuzzy t)   ;use fuzzy matching
 
-					;(smartparens-mode 1)
+  ;;(smartparens-mode 1)
+					;
 					;(show-smartparens-mode 1)
   ;;(hs-minor-mode 1)
   (yas-minor-mode 1)
@@ -75,17 +76,16 @@
   (when (eq (vc-backend (buffer-file-name)) 'Git)
     (git-gutter)))
 
-					;(add-hook 'after-save-hook 'maybe-use-git-gutter)
+;;(add-hook 'after-save-hook 'maybe-use-git-gutter)
 
 ;; for cpputils-cmake
-					;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
-					;(add-hook 'c++-mode-hook (lambda () (cppcm-reload-all)))
+;;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
+;;(add-hook 'c++-mode-hook (lambda () (cppcm-reload-all)))
 
-;; OPTIONAL, somebody reported that they can use this package with Fortran
-(add-hook 'c90-mode-hook (lambda () (cppcm-reload-all)))
 ;; OPTIONAL, avoid typing full path when starting gdb
 ;; (global-set-key (kbd "C-c C-g")
 ;;  '(lambda ()(interactive) (gud-gdb (concat "gdb --fullname " (cppcm-get-exe-path-current-buffer)))))
+
 
 
 (add-hook 'emacs-lisp-mode-hook 'my-coding-hook)

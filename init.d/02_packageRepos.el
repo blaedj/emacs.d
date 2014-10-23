@@ -1,5 +1,8 @@
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
+
+(unless (package-installed-p 'pallet)
+  (package-install 'pallet))
 (require 'pallet)
 
 (require 'package)

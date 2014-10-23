@@ -6,7 +6,6 @@
 ;; No splash screen please ...
 (setq inhibit-startup-message t)
 
-;(setq debug-on-error t)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -28,7 +27,6 @@
    (quote
     (yas-ido-prompt yas-completing-prompt yas-dropdown-prompt yas-x-prompt yas-no-prompt))))
 
-;;(setq initial-frame-alist '((width . 165) (height . 100)))
 (setq bcj-emacs-init-file (or load-file-name buffer-file-name))
 
 (setq bcj-emacs-config-dir
