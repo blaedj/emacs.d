@@ -1,6 +1,4 @@
 
-;(setq ns-pop-up-frames nil) ; not sure what this does, trying to open a graphical emacsclient
-
 (fset 'yes-or-no-p 'y-or-n-p)       ;use y/n instead of yes/no
 (setq tab-width 2)
 (setq tabs-mode nil)
@@ -11,6 +9,10 @@
 (setq scroll-step 1)
 (display-time-mode)
 (setq visible-bell t) ; be quiet!
+
+;; don't disable these commands
+(put 'narrow-to-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
 
 
 (set-frame-font "Monaco 11") ; great font, may need to install on non-macs

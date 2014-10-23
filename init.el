@@ -44,17 +44,9 @@
 
 (require 'mydefuns) ;; some custom functions
 
-;;(x-focus-frame nil)
-;;TODO
-
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(flycheck-color-mode-line-error-face ((t (:inherit flycheck-fringe-error :background "orange red" :foreground "#efefef" :weight normal))) t))
-
-
-
-(put 'narrow-to-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
