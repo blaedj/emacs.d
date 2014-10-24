@@ -19,6 +19,7 @@
 (flx-ido-mode 1)
 ;; disable ido faces to see flx highlights.
 (setq ido-use-faces nil)
+(ido-vertical-mode 1)
 
 (require 'yasnippet)
 (yas/global-mode 1)
@@ -73,7 +74,7 @@
 ;; (setq ac-auto-start 1)  ;set ac to start after 1 character is typed
 ;; (setq ac-auto-show-menu 0.1)
 ;; (setq ac-use-fuzzy t)   ;use fuzzy matching
-;;(add-to-list 'ac-sources 'ac-source-yasnippet)  ;put snippets in ac dropdown
+(add-to-list 'ac-sources 'ac-source-yasnippet)  ;put snippets in ac dropdown
 ;; (setq
 ;;  '(yas-prompt-functions
 ;;    (quote
