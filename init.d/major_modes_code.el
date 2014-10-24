@@ -3,13 +3,11 @@
   (column-number-mode t)
   (idle-highlight)
   (linum-mode 1)
-  ;(git-gutter-mode)
-  ;(git-gutter:linum-setup)
+					;(git-gutter-mode)
+					;(git-gutter:linum-setup)
 
   (auto-complete-mode 1)
-  (setq ac-auto-start 2)  ;set ac to start after 2 characters are typed
-  (setq ac-auto-show-menu 0.1)
-  (setq ac-use-fuzzy t)   ;use fuzzy matching
+  (bcj-ac-setup)
   (local-set-key (kbd "C-c C-e") 'hs-toggle-hiding)
   (smartparens-mode 1)
   (show-smartparens-mode 1)
@@ -35,11 +33,7 @@
   (column-number-mode t)
   (linum-mode 1)
   ;;(idle-highlight) makes web-mode lock up with message 'font-lock-highlight: untouched buffer (nil)'
-  (auto-complete-mode 1)
-  (setq ac-auto-start 2)  ;set ac to start after 2 characters are typed
-  (setq ac-auto-show-menu 0.1)
-  (setq ac-use-fuzzy t)   ;use fuzzy matching
-
+  (bcj-ac-setup)
   ;;(smartparens-mode 1)
 					;
 					;(show-smartparens-mode 1)
@@ -54,10 +48,7 @@
   (idle-highlight)
   (linum-mode 1)
   ;;(cppcm-reload-all)
-  (auto-complete-mode 1)
-  (setq ac-auto-start 2)  ;set ac to start after 2 characters are typed
-  (setq ac-auto-show-menu 0.1)
-  (setq ac-use-fuzzy t)   ;use fuzzy matching
+  (bcj-ac-setup)
   (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources))
   (smartparens-mode 1)
   (show-smartparens-mode 1)
@@ -76,7 +67,7 @@
   (when (eq (vc-backend (buffer-file-name)) 'Git)
     (git-gutter)))
 
-;;(add-hook 'after-save-hook 'maybe-use-git-gutter)
+(add-hook 'after-save-hook 'maybe-use-git-gutter)
 
 ;; for cpputils-cmake
 ;;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
@@ -122,8 +113,8 @@
 ;;(require 'ruby-end) ; not needed anymode, smartparens handles this
 (autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
 
- (eval-after-load 'rspec-mode
-   '(robe-mode))
+(eval-after-load 'rspec-mode
+  '(robe-mode))
 
 ;;---inf-Ruby---
 (require 'inf-ruby)
@@ -141,7 +132,7 @@
   (ac-robe-setup))
 
 (defun rob-mode-setup ()
-    "DOCSTRING"
+  "DOCSTRING"
   (interactive)
   (let (var1)
     (setq var1 some)
@@ -253,6 +244,12 @@
 (setq git-gutter-fr:side 'left-fringe)
 (setq-default left-fringe-width 15)
 
+(defun bcj-ac-setup ()
+  "setup auto-complete the way that I like it"
+  (setq ac-auto-start 1)  ;set ac to start after 2 characters are typed
+  (setq ac-auto-show-menu 0.1) ;show the menu almost immediately
+  (setq ac-use-fuzzy t)   ;use fuzzy matching
+  )
 
 ;;Clojure
 
@@ -264,6 +261,6 @@
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'cider-mode))
 
-;(add-hook 'clojure-mode-hook '( '(my-coding-hook) (setq cider-lein-command "/usr/local/bin/lein")))
+					;(add-hook 'clojure-mode-hook '( '(my-coding-hook) (setq cider-lein-command "/usr/local/bin/lein")))
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (setq cider-lein-command "/usr/local/bin/lein" )
