@@ -1,7 +1,7 @@
 
-;; (require 'dired-details)
-;; (require 'dired-details+)
-;(setq dired-details-hidden-string "--  " )
+(require 'dired-details)
+(require 'dired-details+)
+(setq dired-details-hidden-string "--  " )
 
 (require 'smartparens)
 (require 'smartparens-ruby)
@@ -32,7 +32,7 @@
 (global-set-key "\C-cd" 'zeal-at-point)
 
 (require 'powerline)
-;(powerline-default-theme)
+					;(powerline-default-theme)
 (require 'buffer-move)
 (require 'smartscan)
 (require 'ag)
