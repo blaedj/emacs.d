@@ -55,9 +55,13 @@
 (require 'auto-complete-config)           ;load the default configuration
 (ac-config-default)
 (add-to-list 'ac-dictionary-directories "/home/blaed/.emacs.d/ac-dict")
-(require 'auto-complete-clang)
+(add-to-list 'ac-sources 'ac-source-yasnippet)  ;put snippets in ac dropdown
 
+(require 'auto-complete-clang)
 (require 'cpputils-cmake)
+
+(require 'aggressive-indent)
+
 
 ;;Git-gutter is broken for emacs version:
 ;;GNU Emacs 24.3.93.1 (x86_64-apple-darwin13.3.0, NS apple-appkit-1265.21) of 2014-08-14 on builder10-9.porkrind.org
@@ -74,7 +78,7 @@
 ;; (setq ac-auto-start 1)  ;set ac to start after 1 character is typed
 ;; (setq ac-auto-show-menu 0.1)
 ;; (setq ac-use-fuzzy t)   ;use fuzzy matching
-(add-to-list 'ac-sources 'ac-source-yasnippet)  ;put snippets in ac dropdown
+
 ;; (setq
 ;;  '(yas-prompt-functions
 ;;    (quote
