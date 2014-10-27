@@ -9,6 +9,7 @@
 (depends-on "achievements")
 (depends-on "adaptive-wrap")
 (depends-on "ag")
+(depends-on "aggressive-indent")
 (depends-on "ample-theme")
 (depends-on "auto-complete")
 (depends-on "auto-complete-clang")
