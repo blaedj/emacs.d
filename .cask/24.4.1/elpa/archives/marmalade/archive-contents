@@ -1,4 +1,7 @@
 (1
+ (monroe .
+	 [(0 2 0)
+	  nil "Yet another client for nREPL" single])
  (zone-matrix .
 	      [(0 0 1)
 	       nil "Matrix themed Zone mode" tar])
@@ -1813,6 +1816,9 @@
  (mic-paren .
 	    [(3 8)
 	     nil "advanced highlighting of matching parentheses" single])
+ (message-templ .
+		[(0 1 20141026)
+		 nil "Templates for message-mode." single])
  (memoize .
 	  [(1 0 1)
 	   nil "Memoization functions" single])
@@ -2052,7 +2058,7 @@
 	       [(21 0)
 		nil "Commands to list Emacs Lisp library dependencies." single])
  (lexbind-mode .
-	       [(0 8)
+	       [(0 9)
 		nil "Puts the value of lexical-binding in the mode line" single])
  (levenshtein .
 	      [(1 0)
@@ -2638,8 +2644,12 @@
 		       (0 1 1)))
 		     "Fringe version of git-gutter.el" single])
  (git-gutter .
-	     [(0 42)
-	      nil "Port of Sublime Text plugin GitGutter" single])
+	     [(0 78)
+	      ((cl-lib
+		(0 5))
+	       (emacs
+		(24)))
+	      "Port of Sublime Text plugin GitGutter" single])
  (git-draft .
 	    [(0 0 2)
 	     ((dash
@@ -2939,7 +2949,7 @@
 		   (0 6 0)))
 		 "Cask support in Flycheck" single])
  (flycheck .
-	   [(0 20)
+	   [(0 21)
 	    ((dash
 	      (2 4 0))
 	     (pkg-info
@@ -3157,7 +3167,7 @@
 		(24)))
 	      "Window-management utilities" single])
  (ertx .
-       [(0 0 1)
+       [(0 0 2)
 	nil "Extra useful testing functions for EmacsLisp." single])
  (ert-x .
 	[(0)
@@ -3423,7 +3433,7 @@
 	      (22)))
 	    "A bucket of tricks for Clojure and Slime." single])
  (dummy-package .
-		[(0 0 22)
+		[(0 0 23)
 		 ((timeclock
 		   (2 6 1)))
 		 "a fake package for the marmalade test suite" single])
