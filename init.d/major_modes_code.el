@@ -67,7 +67,7 @@
   (when (eq (vc-backend (buffer-file-name)) 'Git)
     (git-gutter)))
 
-(add-hook 'after-save-hook 'maybe-use-git-gutter)
+;(add-hook 'after-save-hook 'maybe-use-git-gutter)
 
 ;; for cpputils-cmake
 ;;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
