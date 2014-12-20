@@ -1,6 +1,9 @@
 ;;emacs can't find ispell on OSX for some reason
 (if (eq system-type 'darwin)
     (setq ispell-program-name "/usr/local/bin/ispell")
+  ;; add homebrew (/usr/local/bin) to the exec path
+  ;(setenv "PATH" (concat "/opt/local/bin:/usr/local/bin:" (getenv "PATH")))
+  (push "/opt/local/bin" exec-path)
   )
 
 
@@ -11,3 +14,4 @@
 ;;(require 'el4r)
 ;;(el4r-boot)
 ;;(el4r-troubleshooting-keys)
+()
