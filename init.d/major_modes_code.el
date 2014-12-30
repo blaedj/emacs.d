@@ -261,6 +261,9 @@
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'cider-mode))
 
-					;(add-hook 'clojure-mode-hook '( '(my-coding-hook) (setq cider-lein-command "/usr/local/bin/lein")))
+;;(add-hook 'clojure-mode-hook '( '(my-coding-hook) (setq cider-lein-command "/usr/local/bin/lein")))
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (setq cider-lein-command "/usr/local/bin/lein" )
+
+
+(custom-set-variables '(coffee-tab-width 4))
