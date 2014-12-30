@@ -1,4 +1,5 @@
-(require 'cask "~/.cask/cask.el")
+;;(require 'cask "~/.cask/cask.el")
+(require 'cask "/usr/local/Cellar/cask/0.7.2/cask.el")
 (cask-initialize)
 
 (unless (package-installed-p 'pallet)
