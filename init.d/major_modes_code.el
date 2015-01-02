@@ -3,8 +3,8 @@
   (column-number-mode t)
   (idle-highlight)
   (linum-mode 1)
-					;(git-gutter-mode)
-					;(git-gutter:linum-setup)
+  ;;(git-gutter-mode)
+  ;;(git-gutter:linum-setup)
 
   (auto-complete-mode 1)
   (bcj-ac-setup)
@@ -13,7 +13,6 @@
   (show-smartparens-mode 1)
   (hs-minor-mode 1)
   (yas-minor-mode 1)
-  ;;  (sublimity-mode 1)
   )
 
 (defun my-experimental-coding-hook ()
@@ -25,7 +24,6 @@
   (smartparens-mode 1)
   (hs-minor-mode 1)
   (yas-minor-mode 1)
-  ;;  (sublimity-mode 1)
   )
 
 (defun web-mode-coding-hook ()
@@ -35,8 +33,7 @@
   ;;(idle-highlight) makes web-mode lock up with message 'font-lock-highlight: untouched buffer (nil)'
   (bcj-ac-setup)
   ;;(smartparens-mode 1)
-					;
-					;(show-smartparens-mode 1)
+  ;;(show-smartparens-mode 1)
   ;;(hs-minor-mode 1)
   (yas-minor-mode 1)
   )
@@ -125,11 +122,10 @@
 (add-hook 'ruby-mode-hook 'robe-mode)
 (add-hook 'robe-mode-hook 'setup-robe-ac)
 
-;;(defun ac-robe-setup ()() )
-
 ;;wrapper for ac-robe-setup so that we can disable it easily if it is too slow
 (defun setup-robe-ac ()
   (ac-robe-setup))
+;;(defun ac-robe-setup ()() )
 
 (defun rob-mode-setup ()
   "DOCSTRING"
@@ -139,9 +135,9 @@
 
     ))
 
+;; this might make sure that we are using the correct ruby version with robe.
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
-
 
 
 ;;(setq exec-path (cons (expand-file-name "~/.gem/ruby/1.8/bin") exec-path))
@@ -185,13 +181,6 @@
             (imenu-add-menubar-index)
       	    (run-hooks 'code-modes-hook)
       	    (js2-hook)))
-
-;; (add-hook 'js2-mode-hook
-;; 	  '(lambda ()
-;; 	     (add-hook 'before-save-hook
-;; 		       (lambda ()
-;; 			 (formatBuf)))))
-
 
 ;;---Markdown Mode---
 (autoload 'markdown-mode "markdown-mode"

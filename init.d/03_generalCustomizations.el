@@ -37,6 +37,7 @@
 (show-paren-mode t)
 (setq show-paren-style 'parenthesis)
 
+;; some face customizations for showing matching parens
 (set-face-attribute 'show-paren-match-face nil
         :weight 'bold :underline nil :overline nil :slant 'normal)
 
