@@ -2,11 +2,11 @@
 My .emacs configuration, in a state of constant flux.
 
 ## Fixing wierd characters in multi-term:
-	It seems that emacsforosx doesn't automatically create/install a ~/.terminfo file, which should contain
-	info about the terminal type declaration (not sure on the terminology for that), like TERM='xterm-256color'.
-	Emacs needs eterm-color, but you'll need to create the necessary files using the following command:
+It seems that emacsforosx doesn't automatically create/install a ~/.terminfo file, which should contain
+info about the terminal type declaration (not sure on the terminology for that), like TERM='xterm-256color'.
+Emacs needs eterm-color, but you'll need to create the necessary files using the following command:
 
-	'''tic -o ~/.terminfo /Applications/Emacs.app/Contents/Resources/etc/e/eterm-color.ti'''
+	tic -o ~/.terminfo /Applications/Emacs.app/Contents/Resources/etc/e/eterm-color.ti
 
 
 
