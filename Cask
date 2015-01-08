@@ -1,6 +1,6 @@
 (source gnu)
 (source marmalade)
-(source melpa)
+(source melpa-stable)
 
 (depends-on "2048-game")
 (depends-on "ac-cider")
@@ -32,6 +32,7 @@
 (depends-on "es-lib")
 (depends-on "es-windows")
 (depends-on "evil")
+(depends-on "exec-path-from-shell")
 (depends-on "f")
 (depends-on "figlet")
 (depends-on "find-file-in-project")
