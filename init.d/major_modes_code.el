@@ -58,6 +58,13 @@
   ;;  (flycheck-mode)
   )
 
+(defun auto-activate-ruby-end-mode-for-elixir-mode ()
+  (set (make-variable-buffer-local 'ruby-end-expand-keywords-before-re)
+       "\\(?:^\\|\\s-+\\)\\(?:do\\)")
+  (set (make-variable-buffer-local 'ruby-end-check-statement-modifiers) nil)
+  (ruby-end-mode +1))
+
+
 ;; thanks to:
 ;;webcache.googleusercontent.com/search?q=cache:blog.ryuslash.org/archives/2013/01/25/highlight-vc-diffs
 ;; for this solution to git-gutter-fringe not updating on save.
@@ -92,11 +99,14 @@
 (add-hook 'cmake-mode-hook 'my-coding-hook)
 (add-hook 'java-mode-hook 'my-coding-hook)
 (add-hook 'nxml-mode-hook 'my-coding-hook)
-(add-hook 'html-mode-hook 'wrap-region-mode)
+(add-hook 'elixir-mode-hook 'my-coding-hook)
+(add-to-list 'elixir-mode-hook 'auto-activate-ruby-end-mode-for-elixir-mode)
 
+(add-hook 'html-mode-hook 'wrap-region-mode)
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
+
 
 ;;(add-hook 'css-mode-hook rainbow-mode)
 					;(require 'project-explorer)
@@ -220,6 +230,7 @@
 (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
 
+(add-to-list 'auto-mode-alist '("\\.ex\\'" . elixir-mode))
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode) )
 
 
