@@ -101,4 +101,17 @@ of seeing_is_believing."
     (funcall (intern (concat mode-type "-mode")))))
 
 
+;;show the ouptut of runnin coffee on the current file since I can't get flymake
+;; to work properly
+(defun show-coffeelint ()
+  "show output of coffeelint on current file"
+  (interactive)
+  (let (filename output-buffer)
+    (setq filename (buffer-file-name (current-buffer)))
+    (setq output-buffer (get-buffer-create (concat "* Coffeelint" filename)))
+    ;;(with-output-to-temp-buffer output-buffer (shell-command (concat "coffeelint " filename)))
+    (shell-command (concat "coffee " filename) output-buffer output-buffer)
+    )
+  )
+
 (provide 'mydefuns)

@@ -257,5 +257,9 @@
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (setq cider-lein-command "/usr/local/bin/lein" )
 
+;; (require 'flymake)
+;; (require 'flymake-coffee)
+;; (add-hook 'coffee-mode-hook 'flymake-coffee-load)
+(setq flycheck-coffee-executable "/usr/local/bin/coffee")
 
-(custom-set-variables '(coffee-tab-width 4))
+(custom-set-variables '(coffee-tab-width 2))
