@@ -3,6 +3,7 @@
   (column-number-mode t)
   (idle-highlight)
   (linum-mode 1)
+  (fci-mode t)
   ;;(git-gutter-mode)
   ;;(git-gutter:linum-setup)
 
@@ -17,6 +18,7 @@
 
 (defun my-experimental-coding-hook ()
   (make-local-variable 'column-number-mode)
+  (fci-mode t)
   (column-number-mode t)
   (idle-highlight)
   (linum-mode 1)
@@ -41,6 +43,7 @@
 
 (defun cpp-coding-hook ()
   (make-local-variable 'column-number-mode)
+  (fci-mode t)
   (column-number-mode t)
   (idle-highlight)
   (linum-mode 1)

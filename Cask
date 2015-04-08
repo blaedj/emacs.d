@@ -35,6 +35,7 @@
 (depends-on "exec-path-from-shell")
 (depends-on "f")
 (depends-on "figlet")
+(depends-on "fill-column-indicator")
 (depends-on "find-file-in-project")
 (depends-on "floobits")
 (depends-on "flx")
