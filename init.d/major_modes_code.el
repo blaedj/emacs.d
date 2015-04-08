@@ -42,6 +42,10 @@
   ;;(hs-minor-mode 1)
   (add-hook 'write-file-hooks 'delete-trailing-whitespace nil t)
   (yas-minor-mode 1)
+  (setq web-mode-enable-current-element-highlight t)
+  (setq web-mode-enable-auto-expanding t)
+  (setq web-mode-enable-current-column-highlight t)
+  (local-set-key (kbd "C-c w") 'web-mode-element-wrap)
   )
 
 
