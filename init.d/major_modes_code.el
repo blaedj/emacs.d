@@ -4,6 +4,9 @@
   (idle-highlight)
   (linum-mode 1)
   (fci-mode t)
+  ;;(add-hook 'before-save-hook (lambda ()(delete-trailing-whitespace)))  ;remove unneccesary whitespace before saving a file
+  (add-hook 'write-file-hooks 'delete-trailing-whitespace nil t)
+
   ;;(git-gutter-mode)
   ;;(git-gutter:linum-setup)
 
@@ -37,6 +40,7 @@
   ;;(smartparens-mode 1)
   ;;(show-smartparens-mode 1)
   ;;(hs-minor-mode 1)
+  (add-hook 'write-file-hooks 'delete-trailing-whitespace nil t)
   (yas-minor-mode 1)
   )
 
@@ -67,7 +71,7 @@
   (when (eq (vc-backend (buffer-file-name)) 'Git)
     (git-gutter)))
 
-;(add-hook 'after-save-hook 'maybe-use-git-gutter)
+;;(add-hook 'after-save-hook 'maybe-use-git-gutter)
 
 ;; for cpputils-cmake
 ;;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
