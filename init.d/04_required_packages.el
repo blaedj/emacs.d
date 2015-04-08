@@ -40,6 +40,8 @@
 (require 'web-mode)
 (require 'yaml-mode)
 
+(require 'rainbow-mode)
+
 (require 'rvm)
 (rvm-use-default)
 

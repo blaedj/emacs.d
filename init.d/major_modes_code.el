@@ -106,7 +106,10 @@
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
 
-;;(add-hook 'css-mode-hook rainbow-mode)
+
+(add-hook 'scss-mode-hook rainbow-mode)
+;; don't try to compile the scss (sass) files on save. working in rails, the load paths are usually determined by sprockets
+(setq scss-compile-at-save nil)
 					;(require 'project-explorer)
 (require 'projectile)
 (projectile-global-mode)
@@ -212,8 +215,6 @@
 (add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode) )
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
-
-(add-to-list 'auto-mode-alist '("\\.scss\\'" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.riif\\'" . ruby-mode))
 
 (add-to-list 'auto-mode-alist '("\\.vm\\'" . web-mode) )
