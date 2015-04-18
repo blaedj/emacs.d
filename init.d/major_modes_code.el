@@ -233,6 +233,8 @@
 (add-to-list 'auto-mode-alist '("\\.ex\\'" . elixir-mode))
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode) )
 
+(add-to-list 'auto-mode-alist '("\\.swift\\'" . swift-mode) )
+
 
 (add-hook 'web-mode-hook (lambda()
 			   (hs-minor-mode -1)))

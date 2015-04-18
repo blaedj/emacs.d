@@ -86,6 +86,7 @@
 (depends-on "smartscan")
 (depends-on "smex")
 (depends-on "solarized-theme")
+(depends-on "swift-mode")
 (depends-on "undo-tree")
 (depends-on "w3m")
 (depends-on "web-mode")
