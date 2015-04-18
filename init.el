@@ -13,6 +13,7 @@
  ;; If there is more than one, they won't work right.
  '(background-color "#002b36")
  '(background-mode dark)
+ '(coffee-tab-width 4)
  '(cursor-color "#657b83")
  '(custom-safe-themes
    (quote
@@ -22,6 +23,7 @@
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p t)
  '(js2-highlight-level 3)
+ '(paradox-github-token t)
  '(send-mail-function (quote mailclient-send-it))
  '(yas-prompt-functions
    (quote

@@ -31,3 +31,10 @@
 ;; (custom-set-faces
 ;;  '(mode-line ((t (:foreground "#030303" :background "#bdbdbd" :box nil))))
 ;;  '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil)))))
+
+
+;; Fill column
+(require 'fill-column-indicator)
+(setq fci-rule-width 1)
+(setq fci-rule-color "sienna")
+(setq-default fill-column 80)

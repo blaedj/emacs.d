@@ -3,8 +3,12 @@
   (column-number-mode t)
   (idle-highlight)
   (linum-mode 1)
-					;(git-gutter-mode)
-					;(git-gutter:linum-setup)
+  (fci-mode t)
+  ;;(add-hook 'before-save-hook (lambda ()(delete-trailing-whitespace)))  ;remove unneccesary whitespace before saving a file
+  (add-hook 'write-file-hooks 'delete-trailing-whitespace nil t)
+
+  ;;(git-gutter-mode)
+  ;;(git-gutter:linum-setup)
 
   (auto-complete-mode 1)
   (bcj-ac-setup)
@@ -13,11 +17,11 @@
   (show-smartparens-mode 1)
   (hs-minor-mode 1)
   (yas-minor-mode 1)
-  ;;  (sublimity-mode 1)
   )
 
 (defun my-experimental-coding-hook ()
   (make-local-variable 'column-number-mode)
+  (fci-mode t)
   (column-number-mode t)
   (idle-highlight)
   (linum-mode 1)
@@ -25,7 +29,6 @@
   (smartparens-mode 1)
   (hs-minor-mode 1)
   (yas-minor-mode 1)
-  ;;  (sublimity-mode 1)
   )
 
 (defun web-mode-coding-hook ()
@@ -35,15 +38,20 @@
   ;;(idle-highlight) makes web-mode lock up with message 'font-lock-highlight: untouched buffer (nil)'
   (bcj-ac-setup)
   ;;(smartparens-mode 1)
-					;
-					;(show-smartparens-mode 1)
+  ;;(show-smartparens-mode 1)
   ;;(hs-minor-mode 1)
+  (add-hook 'write-file-hooks 'delete-trailing-whitespace nil t)
   (yas-minor-mode 1)
+  (setq web-mode-enable-current-element-highlight t)
+  (setq web-mode-enable-auto-expanding t)
+  (setq web-mode-enable-current-column-highlight t)
+  (local-set-key (kbd "C-c w") 'web-mode-element-wrap)
   )
 
 
 (defun cpp-coding-hook ()
   (make-local-variable 'column-number-mode)
+  (fci-mode t)
   (column-number-mode t)
   (idle-highlight)
   (linum-mode 1)
@@ -74,7 +82,7 @@
   (when (eq (vc-backend (buffer-file-name)) 'Git)
     (git-gutter)))
 
-;(add-hook 'after-save-hook 'maybe-use-git-gutter)
+;;(add-hook 'after-save-hook 'maybe-use-git-gutter)
 
 ;; for cpputils-cmake
 ;;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
@@ -108,8 +116,11 @@
 (add-hook 'html-mode-hook 'skewer-html-mode)
 
 
-;;(add-hook 'css-mode-hook rainbow-mode)
-					;(require 'project-explorer)
+
+(add-hook 'scss-mode-hook rainbow-mode)
+;; don't try to compile the scss (sass) files on save. working in rails, the load paths are usually determined by sprockets
+(setq scss-compile-at-save nil)
+
 (require 'projectile)
 (projectile-global-mode)
 
@@ -135,11 +146,10 @@
 (add-hook 'ruby-mode-hook 'robe-mode)
 (add-hook 'robe-mode-hook 'setup-robe-ac)
 
-;;(defun ac-robe-setup ()() )
-
 ;;wrapper for ac-robe-setup so that we can disable it easily if it is too slow
 (defun setup-robe-ac ()
   (ac-robe-setup))
+;;(defun ac-robe-setup ()() )
 
 (defun rob-mode-setup ()
   "DOCSTRING"
@@ -149,9 +159,9 @@
 
     ))
 
+;; this might make sure that we are using the correct ruby version with robe.
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
-
 
 
 ;;(setq exec-path (cons (expand-file-name "~/.gem/ruby/1.8/bin") exec-path))
@@ -196,13 +206,6 @@
       	    (run-hooks 'code-modes-hook)
       	    (js2-hook)))
 
-;; (add-hook 'js2-mode-hook
-;; 	  '(lambda ()
-;; 	     (add-hook 'before-save-hook
-;; 		       (lambda ()
-;; 			 (formatBuf)))))
-
-
 ;;---Markdown Mode---
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
@@ -222,8 +225,7 @@
 (add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode) )
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
-
-(add-to-list 'auto-mode-alist '("\\.scss\\'" . css-mode))
+(add-to-list 'auto-mode-alist '("\\.riif\\'" . ruby-mode))
 
 (add-to-list 'auto-mode-alist '("\\.vm\\'" . web-mode) )
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode) )
@@ -278,5 +280,9 @@
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (setq cider-lein-command "/usr/local/bin/lein" )
 
+;; (require 'flymake)
+;; (require 'flymake-coffee)
+;; (add-hook 'coffee-mode-hook 'flymake-coffee-load)
+(setq flycheck-coffee-executable "/usr/local/bin/coffee")
 
-(custom-set-variables '(coffee-tab-width 4))
+(custom-set-variables '(coffee-tab-width 2))
