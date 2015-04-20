@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*- <14/04/24 11:46:33 /Users/blaed/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <15/04/06 10:26:50 /Users/blaed/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
@@ -41,4 +41,6 @@
   ("readlink" "\\readlink")
   ("stat" "\\stat")
   ("id" "/usr/bin/id")
-  ("gid-integer" 0)))
+  ("gid-integer" 0))
+ (["scp" "pi" "192.168.0.154" nil nil]
+  nil))

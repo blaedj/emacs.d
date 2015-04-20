@@ -34,6 +34,10 @@
         :weight 'bold :underline nil :overline nil :slant 'normal)
 
 
+(require 'keyfreq)
+(keyfreq-mode 1)
+(keyfreq-autosave-mode 1)
+
 ;; use emacs as a server so that we can use our 'ec' command from cli.
 ;(unless (server-running-p)
  ; (start-server))

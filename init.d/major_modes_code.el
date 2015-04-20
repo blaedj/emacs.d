@@ -228,6 +228,9 @@
 (add-hook 'web-mode-hook (lambda()
 			   (hs-minor-mode -1)))
 
+(add-hook 'web-mode-hook #'(lambda ()
+			     (yas-activate-extra-mode 'html-mode)))
+
 (add-hook 'term-mode-hook (lambda()
 			    (setq yas-dont-activate t)))
 
