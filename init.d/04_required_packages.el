@@ -6,7 +6,6 @@
 (require 'smartparens)
 (require 'smartparens-ruby)
 (smartparens-global-mode t)
-;; (sp-pair "/*" "*/")
 
 (global-subword-mode t)
 
@@ -29,7 +28,8 @@
 
 (require 'zeal-at-point)
 (global-set-key (kbd "C-c C-d") 'devdocs-search)
-(global-set-key "\C-cd" 'zeal-at-point)
+(require 'dash-at-point )
+(global-set-key "\C-cd" 'dash-at-point)
 
 ;(require 'powerline)
 					;(powerline-default-theme)
