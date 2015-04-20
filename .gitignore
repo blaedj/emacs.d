@@ -27,3 +27,6 @@ games/
 /.cask/24.4.1/elpa/archives/gnu/archive-contents
 /.cask/24.4.1/elpa/archives/marmalade/archive-contents
 /.cask/24.4.1/elpa/archives/melpa/archive-contents
+/.DS_Store
+/ido.last
+/smex-items
