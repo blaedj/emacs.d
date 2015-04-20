@@ -46,6 +46,8 @@
 (rvm-use-default)
 
 
+(require 'elixir-mode)
+
 ;;(require 'eclim)
 ;;(require 'eclimd)
 ;;(require 'company)
