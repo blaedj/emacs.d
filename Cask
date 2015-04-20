@@ -37,6 +37,7 @@
 (depends-on "es-windows")
 (depends-on "evil")
 (depends-on "exec-path-from-shell")
+(depends-on "expand-region")
 (depends-on "f")
 (depends-on "figlet")
 (depends-on "fill-column-indicator")

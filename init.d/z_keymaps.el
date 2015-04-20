@@ -10,6 +10,9 @@
 (global-set-key "\C-w" 'backward-kill-word)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
+(global-set-key (kbd "M-l") 'er/expand-region)
+(global-set-key (kbd "M-L") 'er/contract-region)
+
 ;; mac switch meta key
 (defun mac-switch-meta nil
   "switch meta between Option and Command"
