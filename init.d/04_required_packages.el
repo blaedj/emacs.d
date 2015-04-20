@@ -31,7 +31,7 @@
 (global-set-key (kbd "C-c C-d") 'devdocs-search)
 (global-set-key "\C-cd" 'zeal-at-point)
 
-(require 'powerline)
+;(require 'powerline)
 					;(powerline-default-theme)
 (require 'buffer-move)
 (require 'smartscan)
@@ -61,8 +61,6 @@
 
 (require 'auto-complete-clang)
 (require 'cpputils-cmake)
-
-(require 'aggressive-indent)
 
 
 ;;Git-gutter is broken for emacs version:
