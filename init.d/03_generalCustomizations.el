@@ -15,13 +15,10 @@
 ;; don't disable these commands
 (put 'narrow-to-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
-(put 'upcase-region 'disabled nil) ; Don't prompt me before using 'upcase-region'
+(put 'upcase-region 'disabled nil)
 
 ;; Use Emacs terminfo, not system terminfo
 (setq system-uses-terminfo nil)
-
-;; don't activate yasnippet for ansi-term,
-;; it breaks shell tab-completion
 
 (require 'multi-term)
 (setq multi-term-program-switches "--login")
@@ -37,6 +34,17 @@
 (require 'keyfreq)
 (keyfreq-mode 1)
 (keyfreq-autosave-mode 1)
+
+(defun ask-before-closing ()
+  "Ask whether or not to close, and then close if y was pressed"
+  (interactive)
+  (if (y-or-n-p (format "Are you sure you want to exit Emacs? "))
+      (save-buffers-kill-emacs)
+    (message "Canceled exit")))
+
+(when window-system
+  (global-set-key (kbd "C-x C-c") 'ask-before-closing))
+
 
 ;; use emacs as a server so that we can use our 'ec' command from cli.
 ;(unless (server-running-p)

@@ -17,7 +17,8 @@
  '(cursor-color "#657b83")
  '(custom-safe-themes
    (quote
-    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))))
+    ("31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
+ '(paradox-github-token t))
 
 (setq bcj-emacs-init-file (or load-file-name buffer-file-name))
 
