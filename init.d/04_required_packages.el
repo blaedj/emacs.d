@@ -24,6 +24,27 @@
 (yas/global-mode 1)
 (yas-load-directory "~/.emacs.d/snippets/")
 
+
+(require 'popup)
+
+(defun yas/popup-isearch-prompt (prompt choices &optional display-fn)
+  (when (featurep 'popup)
+    (popup-menu*
+     (mapcar
+      (lambda (choice)
+        (popup-make-item
+         (or (and display-fn (funcall display-fn choice))
+             choice)
+         :value choice))
+      choices)
+     :prompt prompt
+     ;; start isearch mode immediately
+     :isearch t
+     )))
+
+(setq  yas/prompt-functions
+    '(yas/popup-isearch-prompt yas/ido-prompt yas/completing-prompt yas/dropdown-prompt yas-x-prompt yas-no-prompt))
+
 (require 'ace-jump-mode)
 
 (require 'zeal-at-point)
@@ -31,8 +52,9 @@
 (require 'dash-at-point )
 (global-set-key "\C-cd" 'dash-at-point)
 
-;(require 'powerline)
-					;(powerline-default-theme)
+;;(require 'powerline)
+;;(powerline-default-theme)
+
 (require 'buffer-move)
 (require 'smartscan)
 (require 'ag)
@@ -81,14 +103,7 @@
 ;; (setq ac-auto-show-menu 0.1)
 ;; (setq ac-use-fuzzy t)   ;use fuzzy matching
 
-;; (setq
-;;  '(yas-prompt-functions
-;;    (quote
-;;     (yas-ido-prompt
-;;      yas-completing-prompt
-;;      yas-dropdown-prompt
-;;      yas-x-prompt
-;;      yas-no-prompt))))
+
 
 
 ;; (require 'sublimity)
