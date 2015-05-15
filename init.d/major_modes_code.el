@@ -3,7 +3,7 @@
   (column-number-mode t)
   (idle-highlight)
   (linum-mode 1)
-  (fci-mode t)
+  ;;(fci-mode t) disabling because this bugs out auto-complete popups
   ;;(add-hook 'before-save-hook (lambda ()(delete-trailing-whitespace)))  ;remove unneccesary whitespace before saving a file
   (add-hook 'write-file-hooks 'delete-trailing-whitespace nil t)
 
@@ -13,15 +13,23 @@
   (auto-complete-mode 1)
   (bcj-ac-setup)
   (local-set-key (kbd "C-c C-e") 'hs-toggle-hiding)
+
   (smartparens-mode 1)
   (show-smartparens-mode 1)
+
+  ;; (defvar match-paren--idle-timer nil)
+  ;; (defvar match-paren--delay 0.5)
+  ;; (setq match-paren--idle-timer
+  ;;     (run-with-idle-timer match-paren--delay t #'blink-matching-open))
+
   (hs-minor-mode 1)
   (yas-minor-mode 1)
+
   )
 
 (defun my-experimental-coding-hook ()
   (make-local-variable 'column-number-mode)
-  (fci-mode t)
+  ;;(fci-mode t) disabling because this bugs out auto-complete popups
   (column-number-mode t)
   (idle-highlight)
   (linum-mode 1)
@@ -46,12 +54,13 @@
   (setq web-mode-enable-auto-expanding t)
   (setq web-mode-enable-current-column-highlight t)
   (local-set-key (kbd "C-c w") 'web-mode-element-wrap)
+  (setq web-mode-markup-indent-offset 2 )
   )
 
 
 (defun cpp-coding-hook ()
   (make-local-variable 'column-number-mode)
-  (fci-mode t)
+  ;;(fci-mode t) disabling because this bugs out auto-complete popups
   (column-number-mode t)
   (idle-highlight)
   (linum-mode 1)
@@ -66,11 +75,11 @@
   ;;  (flycheck-mode)
   )
 
-(defun auto-activate-ruby-end-mode-for-elixir-mode ()
-  (set (make-variable-buffer-local 'ruby-end-expand-keywords-before-re)
-       "\\(?:^\\|\\s-+\\)\\(?:do\\)")
-  (set (make-variable-buffer-local 'ruby-end-check-statement-modifiers) nil)
-  (ruby-end-mode +1))
+;; (defun auto-activate-ruby-end-mode-for-elixir-mode ()
+;;   (set (make-variable-buffer-local 'ruby-end-expand-keywords-before-re)
+;;        "\\(?:^\\|\\s-+\\)\\(?:do\\)")
+;;   (set (make-variable-buffer-local 'ruby-end-check-statement-modifiers) nil)
+;;   (ruby-end-mode +1))
 
 
 ;; thanks to:
@@ -108,7 +117,7 @@
 (add-hook 'java-mode-hook 'my-coding-hook)
 (add-hook 'nxml-mode-hook 'my-coding-hook)
 (add-hook 'elixir-mode-hook 'my-coding-hook)
-(add-to-list 'elixir-mode-hook 'auto-activate-ruby-end-mode-for-elixir-mode)
+;(add-to-list 'elixir-mode-hook 'auto-activate-ruby-end-mode-for-elixir-mode)
 
 (add-hook 'html-mode-hook 'wrap-region-mode)
 (add-hook 'js2-mode-hook 'skewer-mode)
@@ -131,17 +140,18 @@
     ad-do-it))
 (ad-activate 'rspec-compile)
 
-;;(require 'ruby-end) ; not needed anymode, smartparens handles this
 (autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
+
+(setq rspec-use-rake-when-possible nil)
 
 (eval-after-load 'rspec-mode
   '(robe-mode))
 
-;;---inf-Ruby---
+
 (require 'inf-ruby)
 (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
 (autoload 'inf-ruby-keys "inf-ruby" "" t)
-;;-------------------------------------------------------
+
 (add-hook 'ruby-mode-hook 'my-coding-hook)
 (add-hook 'ruby-mode-hook 'robe-mode)
 (add-hook 'robe-mode-hook 'setup-robe-ac)
