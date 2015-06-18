@@ -140,13 +140,17 @@
     ad-do-it))
 (ad-activate 'rspec-compile)
 
-(autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
-
 (setq rspec-use-rake-when-possible nil)
+
+;; we want the compilation buffer to scroll to the bottom of the output
+(setq compilation-scroll-output t)
 
 (eval-after-load 'rspec-mode
   '(robe-mode))
 
+
+
+(autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
 
 (require 'inf-ruby)
 (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
