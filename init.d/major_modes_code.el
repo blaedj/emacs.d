@@ -298,4 +298,7 @@
 ;; (add-hook 'coffee-mode-hook 'flymake-coffee-load)
 (setq flycheck-coffee-executable "/usr/local/bin/coffee")
 
+(add-hook 'coffee-mode-hook (lambda () (highlight-indentation-mode)))
+
+
 (custom-set-variables '(coffee-tab-width 2))

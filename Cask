@@ -57,6 +57,7 @@
 (depends-on "hackernews")
 (depends-on "haml-mode")
 (depends-on "highlight")
+(depends-on "highlight-indentation")
 (depends-on "idle-highlight")
 (depends-on "ido-ubiquitous")
 (depends-on "ido-vertical-mode")
