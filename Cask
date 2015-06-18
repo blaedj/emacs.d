@@ -68,6 +68,7 @@
 (depends-on "magit")
 (depends-on "main-line")
 (depends-on "markdown-mode")
+(depends-on "material-theme")
 (depends-on "multi-term")
 (depends-on "names")
 (depends-on "package-build")
