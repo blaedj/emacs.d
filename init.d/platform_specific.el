@@ -15,6 +15,8 @@
 			      (setq mac-option-modifier 'super) ; make cmd key do Meta
 			      ;;(setq mac-command-modifier 'super) ; make cmd key do super
 			      ;;(global-unset-key (kbd "s-l") )
+			      (setq ns-pop-up-frames nil)
+
 			      )))
 
 ;; Xiki
