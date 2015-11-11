@@ -34,6 +34,9 @@
 (require 'multi-term)
 (setq multi-term-program-switches "--login")
 
+;; use the correct ruby version
+
+
 (show-paren-mode t)
 (setq show-paren-style 'parenthesis)
 
@@ -42,9 +45,9 @@
         :weight 'bold :underline nil :overline nil :slant 'normal)
 
 
-(require 'keyfreq)
-(keyfreq-mode 1)
-(keyfreq-autosave-mode 1)
+;;(require 'keyfreq)
+;; (keyfreq-mode 1)
+;; (keyfreq-autosave-mode 1)
 
 (defun ask-before-closing ()
   "Ask whether or not to close, and then close if y was pressed"
