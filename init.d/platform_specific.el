@@ -1,3 +1,11 @@
+(defun set-exec-path-from-shell-PATH ()
+  (let ((path-from-shell
+      (replace-regexp-in-string "[[:space:]\n]*$" ""
+        (shell-command-to-string "$SHELL -l -c 'echo $PATH'"))))
+    (setenv "PATH" path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))))
+
+
 ;;emacs can't find ispell on OSX for some reason
 ;; probably because the default homebrew install location
 ;; isn't on the exec-path by default
@@ -15,6 +23,7 @@
 			      (setq mac-option-modifier 'super) ; make cmd key do Meta
 			      ;;(setq mac-command-modifier 'super) ; make cmd key do super
 			      ;;(global-unset-key (kbd "s-l") )
+			      (set-exec-path-from-shell-PATH)
 			      (setq ns-pop-up-frames nil)
 
 			      )))
