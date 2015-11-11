@@ -4,6 +4,11 @@
 
 (setq org-agenda-files (list "~/org/school.org"
                              "~/org/home.org"))
+;; other possibilities
+;; ▼, ↴, ⬎, ⤷, and ⋱.
+(setq org-ellipsis "↴")
+
+
 
 (add-hook 'org-mode-hook
 	  '(lambda ()
