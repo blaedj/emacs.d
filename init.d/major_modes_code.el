@@ -117,7 +117,7 @@
 (add-hook 'java-mode-hook 'my-coding-hook)
 (add-hook 'nxml-mode-hook 'my-coding-hook)
 (add-hook 'elixir-mode-hook 'my-coding-hook)
-;(add-to-list 'elixir-mode-hook 'auto-activate-ruby-end-mode-for-elixir-mode)
+;;(add-to-list 'elixir-mode-hook 'auto-activate-ruby-end-mode-for-elixir-mode)
 
 (add-hook 'html-mode-hook 'wrap-region-mode)
 (add-hook 'js2-mode-hook 'skewer-mode)
@@ -137,7 +137,17 @@
 (defadvice rspec-compile (around rspec-compile-around)
   "Use BASH shell for running the specs because of ZSH issues."
   (let ((shell-file-name "/bin/bash"))
-    ad-do-it))
+    ad-do-it
+    ))
+
+(defadvice rspec-compile (after hide-rspec-buffer activate)
+  ;; (message "it ran!!")
+  ;; (window--delete (get-buffer-window (get-buffer "*rspec-compilation*") "visible"))
+  )
+
+;; (defadvice kill-line (after say-ouch activate)
+;;   (message "Ouch!"))
+
 (ad-activate 'rspec-compile)
 
 (setq rspec-use-rake-when-possible nil)

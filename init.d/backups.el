@@ -4,3 +4,6 @@
       `(("." . ,(expand-file-name
                  (concat user-emacs-directory "backups1")))))
 (setq vc-make-backup-files t)
+
+ ;; (setq auto-save-file-name-transforms
+ ;;        '())
