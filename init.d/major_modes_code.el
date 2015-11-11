@@ -204,11 +204,15 @@
 
 ;;---Javascript Stuff---
 (defun js2-hook ()
-  "Set some keybindings for js2-mode error jumping"
-  (interactive)
+  "Set some keybindings for js2-mode error jumping, set indent step to 2 spaces"
   (local-unset-key (kbd "C-c `"))
   (local-set-key (kbd "C-c `") 'js2-next-error )
+  (unless (>= emacs-major-version 25)
+    ;; if emacs-major-version < 25, js2-mode will not use js-mode's indentaion
+    ;; behavior, so set js2's indentation offset.
+    (setq 'js2-basic-offset 2))
   ;; properly format the braces and parens before saving a js file.
+  ;; See init.d/mydefuns.el to update formatBuf behavior.
   (add-hook 'before-save-hook
 	    (lambda ()
 	      (formatBuf))))
@@ -217,6 +221,11 @@
           (lambda ()
             ;; Scan the file for nested code blocks
             (imenu-add-menubar-index)
+	    (if (>= emacs-major-version 25)
+		( setq 'js-indent-level 2) ;set js-indent-level if major version is 25+
+	      ;; if emacs-major-version < 25, js2-mode will not use js-mode's indentaion
+	      ;; behavior, so set js2's indentation offset.
+	      (setq 'js2-basic-offset 2))
       	    (run-hooks 'code-modes-hook)
       	    (js2-hook)))
 
