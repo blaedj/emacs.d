@@ -4,4 +4,3 @@
 # key: fgc
 # --
 FactoryGirl.create(:${1:factory})$0
-

@@ -4,4 +4,3 @@
 # key: fgb
 # --
 FactoryGirl.build(:${1:factory})$0
-
