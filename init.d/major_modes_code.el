@@ -231,11 +231,12 @@
           (lambda ()
             ;; Scan the file for nested code blocks
             (imenu-add-menubar-index)
-	    (if (>= emacs-major-version 25)
-		( setq 'js-indent-level 2) ;set js-indent-level if major version is 25+
-	      ;; if emacs-major-version < 25, js2-mode will not use js-mode's indentaion
-	      ;; behavior, so set js2's indentation offset.
-	      (setq 'js2-basic-offset 2))
+	    (setq js-indent-level 2) ; set indentation level
+	    (if (< emacs-major-version 25)
+		;;set js2 indentaiont if major version is < 25.
+		;; if emacs-major-version < 25, js2-mode will not use js-mode's indentaion
+		;; behavior, so set js2's indentation offset.
+		(setq js2-basic-offset 2))
       	    (run-hooks 'code-modes-hook)
       	    (js2-hook)))
 
