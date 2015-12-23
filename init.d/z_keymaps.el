@@ -59,7 +59,9 @@
 
 ;; https://github.com/abo-abo/ace-window
 ; still visual, less intrusive
-(global-set-key (kbd "C-x o") 'ace-window)
+;; (global-set-key (kbd "C-x o") 'ace-window)
+(global-set-key (kbd "C-x i") 'ace-window)
+(global-set-key (kbd "C-x o") 'other-window)
 
 ;; https://github.com/dimitri/switch-window
 ; much more visual
