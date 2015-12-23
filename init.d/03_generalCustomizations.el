@@ -8,6 +8,7 @@
 (setq scroll-step 1)
 (display-time-mode)
 (setq visible-bell t) ; be quiet!
+(setq ring-bell-function 'ignore) ; work-around to annoying bug in emacs and OSX El Capitan. wating for http://debbugs.gnu.org/cgi/bugreport.cgi?bug=21662 to land in a stable version of emacs.
 
 ;(set-frame-font "Monaco 11") ; great font, may need to install on non-macs
 ;;(set-frame-font "Hack 11") ; will need to install. Look at http://sourcefoundry.org/hack/ for the latest downloads.
