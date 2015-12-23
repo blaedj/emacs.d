@@ -99,6 +99,7 @@
 (depends-on "smart-mode-line")
 (depends-on "smartparens")
 (depends-on "smartscan")
+(depends-on "smartwin")
 (depends-on "smex")
 (depends-on "solarized-theme")
 (depends-on "spinner")
