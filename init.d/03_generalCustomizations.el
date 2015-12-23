@@ -35,9 +35,8 @@
 (require 'multi-term)
 (setq multi-term-program-switches "--login")
 
-;; use the correct ruby version
 
-
+(setq linum-format 'dynamic)
 (show-paren-mode t)
 (setq show-paren-style 'parenthesis)
 
