@@ -85,8 +85,22 @@
   (interactive)
   (revert-buffer nil t))
 
+(defun dwim-smartwin-visibility ()
+  "toggle smartwin window, if not visible makes the window visible and switches to it."
+  (interactive)
+  (let (smartwin-is-visible)
+
+    (setq smartwin-is-visible (smartwin--get-smart-window))
+    (if smartwin-is-visible
+	(smartwin-hide)
+      (smartwin-show)
+      (switch-to-buffer (window-buffer (smartwin--get-smart-window)))
+      )))
+(dwim-smartwin-visibility)
+
+
 (global-set-key (kbd "<f5>") 'bcj-revert-buffer-no-confirm)
-(global-set-key (kbd "<f12>") 'multi-term)
+(global-set-key (kbd "<f12>") 'dwim-smartwin-visibility)
 
 ;; I keep hitting the 'menu' hey when tring to open a terminal
 (global-unset-key (kbd "<f10>"))
