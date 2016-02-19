@@ -173,7 +173,6 @@
 ;;wrapper for ac-robe-setup so that we can disable it easily if it is too slow
 (defun setup-robe-ac ()
   (ac-robe-setup))
-;;(defun ac-robe-setup ()() )
 
 (defun rob-mode-setup ()
   "DOCSTRING"

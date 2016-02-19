@@ -98,16 +98,3 @@
 ;;(require 'minimap )
 
 ;;(require 'diffscuss-mode )
-
-;; (global-auto-complete-mode t)
-;; (setq ac-auto-start 1)  ;set ac to start after 1 character is typed
-;; (setq ac-auto-show-menu 0.1)
-;; (setq ac-use-fuzzy t)   ;use fuzzy matching
-
-
-
-
-;; (require 'sublimity)
-;; (require 'sublimity-map)
-;; (sublimity-map-set-delay 0)
-;; ;(sublimity-global-mode)
