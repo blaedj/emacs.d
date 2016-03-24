@@ -114,4 +114,21 @@ of seeing_is_believing."
     )
   )
 
+(defun bcj-revert-buffer-no-confirm ()
+  "Revert buffer with no confirmation"
+  (interactive)
+  (revert-buffer nil t))
+
+(defun dwim-smartwin-visibility ()
+  "toggle smartwin window, if not visible makes the window visible and switches to it."
+  (interactive)
+  (let (smartwin-is-visible)
+
+    (setq smartwin-is-visible (smartwin--get-smart-window))
+    (if smartwin-is-visible
+	(smartwin-hide)
+      (smartwin-show)
+      (switch-to-buffer (window-buffer (smartwin--get-smart-window)))
+      )))
+
 (provide 'mydefuns)
