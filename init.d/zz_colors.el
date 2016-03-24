@@ -1,16 +1,12 @@
-(if (boundp 'outdated)
-    (require 'color-theme)
-  ;; FIXME if outdated, set the color theme as well as requiring color-theme
-  ;;	(color-theme-oswald)
+
+(if (display-graphic-p)
+    (load-theme 'solarized-dark-custom t)
+  (progn
+    (require 'color-theme-approximate )
+    (color-theme-approximate-on)
+    (load-theme 'solarized-dark-custom t))
   )
-(unless (boundp 'outdated)
-  (load-theme 'solarized-dark-custom t)
-  )
 
-					;(setq-default mode-line-format '("%e"))
-
-
-;;modeline customization
 
 ;(require 'smart-mode-line )
 (sml/setup)

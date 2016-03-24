@@ -21,6 +21,7 @@
 (depends-on "cmake-mode")
 (depends-on "coffee-mode")
 (depends-on "color-theme")
+(depends-on "color-theme-approximate")
 (depends-on "color-theme-dawn-night")
 (depends-on "color-theme-heroku")
 (depends-on "color-theme-solarized")
