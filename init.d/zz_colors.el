@@ -8,16 +8,23 @@
   )
 
 
-;(require 'smart-mode-line )
+;;modeline customization;;;;;;;;;;;;;;;;
 (sml/setup)
-
-;(sml/apply-theme 'dark)
-;(sml/apply-theme 'light)
-;(sml/apply-theme 'respectful)
-;(sml/apply-theme 'automatic)
+;;(sml/apply-theme 'dark)
+;;(sml/apply-theme 'light)
+;;(sml/apply-theme 'respectful)
+;;(sml/apply-theme 'automatic)
 ;;(sml/customize)
 (setq sml/modified-char "*")
 (setq sml/show-client t)
+(setq display-time-default-load-average nil)
+(display-time)
+
+
+;; hide 'auto-complete', 'yasnippet', 'smart-parens' and 'smartwin' minor mode
+;; indicators from mode line
+(setq rm-excluded-modes '(" hl-p" " AC" " yas" " SP" " sw"))
+
 
 ;;(display-battery-mode 1)
 
