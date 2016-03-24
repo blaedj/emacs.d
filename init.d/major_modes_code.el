@@ -330,3 +330,6 @@
 (custom-set-variables '(coffee-tab-width 2))
 
 (setq magit-push-always-verify nil)
+
+
+(add-hook 'package-menu-hook (lambda () "turn on hl-highlight-line mode"  (hl-line-mode)))
