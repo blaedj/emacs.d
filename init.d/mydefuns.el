@@ -114,6 +114,19 @@ of seeing_is_believing."
     )
   )
 
+(defun bcj-open-project-multiterm (orig-fun &rest args)
+  "Changes the name of the multi-term buffer if in a projectile project. If we are in a project,
+the name of the terminal buffer will be 'terminal-PROJECTNAME'"
+  (let ((new-term-buffer (apply orig-fun args)))
+    (let (new-name )
+      (if (projectile-project-p)
+	  (setq new-name
+		(concat "terminal-" (upcase (projectile-project-name))))
+	(setq new-name (buffer-name new-term-buffer))
+	)
+      (rename-buffer new-name)
+      )))
+
 (defun bcj-revert-buffer-no-confirm ()
   "Revert buffer with no confirmation"
   (interactive)
