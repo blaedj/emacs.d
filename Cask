@@ -6,6 +6,7 @@
 
 (depends-on "2048-game")
 (depends-on "ac-cider")
+(depends-on "ac-etags")
 (depends-on "ace-jump-mode")
 (depends-on "ace-window")
 (depends-on "adaptive-wrap")
