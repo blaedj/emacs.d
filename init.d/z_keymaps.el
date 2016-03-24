@@ -36,8 +36,8 @@
 
 
 ;;(global-set-key (kbd "<tab>") 'hippie-expand  )
-(global-set-key (kbd "<C-S-up>")     'buf-move-up)
-(global-set-key (kbd "<C-S-down>")   'buf-move-down)
+(global-set-key (kbd "<C-s-up>")     'buf-move-up)
+(global-set-key (kbd "<C-s-down>")   'buf-move-down)
 (global-set-key (kbd "<C-S-left>")   'buf-move-left)
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
@@ -90,5 +90,10 @@
 (global-set-key (kbd "<f12>") 'dwim-smartwin-visibility)
 ;; I keep hitting the 'menu' key when tring to open a terminal
 (global-unset-key (kbd "<f10>"))
+
+;; I never use the buffer menu, but I accidentally open it enough
+;; to go through the effort to remove the keybind for it.
+;; this is normally bound to 'buffer-menu'
+(global-unset-key (kbd "\C-x \C-b"))
 
 (add-hook 'ruby-mode-hook 'ruby_keys_outputing )
