@@ -102,6 +102,7 @@
 (depends-on "smartwin")
 (depends-on "smex")
 (depends-on "solarized-theme")
+(depends-on "spaces")
 (depends-on "spinner")
 (depends-on "swift-mode")
 (depends-on "undo-tree")

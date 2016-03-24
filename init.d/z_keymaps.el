@@ -86,9 +86,9 @@
 
 
 (global-set-key (kbd "<f5>") 'bcj-revert-buffer-no-confirm)
+(global-set-key (kbd "<f8>") 'sp-switch-space)
 (global-set-key (kbd "<f12>") 'dwim-smartwin-visibility)
-
-;; I keep hitting the 'menu' hey when tring to open a terminal
+;; I keep hitting the 'menu' key when tring to open a terminal
 (global-unset-key (kbd "<f10>"))
 
 (add-hook 'ruby-mode-hook 'ruby_keys_outputing )
