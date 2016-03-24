@@ -35,11 +35,16 @@
 (setq org-todo-keyword-faces
       '(
 	("IN-PROGRESS" . (:background "lime green"  :foreground "#002b36" :weight bold))
-	)
-      )
+	("ON-HOLD" . (:background "#427"  :foreground "#ddd" :weight normal))
+	))
 
 (setq org-todo-keywords
-      '((sequence "TODO"
+      '(
+	(sequence "TODO"
 		  "IN-PROGRESS"
-		  "DONE"
-	 )))
+		  "DONE" )
+	(sequence "ON-HOLD")
+	))
+
+
+(define-key org-mode-map (kbd "<f8>") 'org-todo)
