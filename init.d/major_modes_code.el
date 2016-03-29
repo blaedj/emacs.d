@@ -1,3 +1,4 @@
+
 (defun my-coding-hook ()
   (make-local-variable 'column-number-mode)
   (column-number-mode t)
@@ -188,17 +189,17 @@
 
 
 
-(custom-set-variables
- '(ac-etags-requires 1))
+;; (custom-set-variables
+;;  '(ac-etags-requires 1))
 
-(eval-after-load "etags"
-  '(progn
-     (ac-etags-setup)))
+;; (eval-after-load "etags"
+;;   '(progn
+;;      (ac-etags-setup)))
 
-(defun bcj/ac-etags-setup-hook ()
-    (add-to-list 'ac-sources 'ac-source-etags))
+;; (defun bcj/ac-etags-setup-hook ()
+;;     (add-to-list 'ac-sources 'ac-source-etags))
 
-(add-hook 'ruby-mode-hook 'bcj/ac-etags-setup-hook)
+;; (add-hook 'ruby-mode-hook 'bcj/ac-etags-setup-hook)
 
 
 ;;(setq exec-path (cons (expand-file-name "~/.gem/ruby/1.8/bin") exec-path))

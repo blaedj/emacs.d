@@ -99,6 +99,7 @@
 (depends-on "slime")
 (depends-on "slime-repl")
 (depends-on "smart-mode-line")
+(depends-on "smart-region")
 (depends-on "smartparens")
 (depends-on "smartscan")
 (depends-on "smartwin")
