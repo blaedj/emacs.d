@@ -4,12 +4,10 @@
   (column-number-mode t)
   (idle-highlight)
   (linum-mode 1)
+  (git-gutter-mode 1)
   ;;(fci-mode t) disabling because this bugs out auto-complete popups
   ;;(add-hook 'before-save-hook (lambda ()(delete-trailing-whitespace)))  ;remove unneccesary whitespace before saving a file
   (add-hook 'write-file-hooks 'delete-trailing-whitespace nil t)
-
-  ;;(git-gutter-mode)
-  ;;(git-gutter:linum-setup)
 
   (auto-complete-mode 1)
   (bcj-ac-setup)
@@ -346,5 +344,12 @@
 
 (setq magit-push-always-verify nil)
 
-
 (add-hook 'package-menu-hook (lambda () "turn on hl-highlight-line mode"  (hl-line-mode)))
+
+
+;; custom config for git-gutter/git-gutter-fr
+(set-face-foreground 'git-gutter-fr:added "chartreuse1")
+(set-face-foreground 'git-gutter-fr:deleted "red")
+(set-face-foreground 'git-gutter-fr:modified "yellow")
+(setq git-gutter:modified-sign "~")
+(setq-default left-fringe-width 12)
