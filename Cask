@@ -35,6 +35,7 @@
 (depends-on "dash-at-point")
 (depends-on "dired-details")
 (depends-on "dired-details+")
+(depends-on "discover")
 (depends-on "elixir-mode")
 (depends-on "emacs-eclim")
 (depends-on "emojify")
