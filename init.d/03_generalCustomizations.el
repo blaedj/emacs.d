@@ -53,7 +53,34 @@
 ;;use smartwin to keep a small terminal buffer at the bottom of the frame
 (smartwin-mode 1)
 ;;customize which buffers are shunted to the smartwin buffer
-(setq smartwin-buffers '("*Miniedit Help*" compilation-mode grep-mode "*evil-registers*" "*ielm*" "*Inferior Octave*" ("^\\*sbt\\*.*" :regexp t) "*ensime-db-backtrace-buffer*" ("^\\*e?shell\\*\\(<.*>\\)?$" :regexp t) "*Pp Macroexpand Output*" "*Shell Command Output*" "*vc-diff*" "*vc-change-log*" " *undo-tree*" " Chicken REPL *" ("^\\*anything.*\\*$" :regexp t) "*slime-apropos*" "*slime-macroexpansion*" "*slime-description*" "*slime-compilation*" "*slime-xref*" sldb-mode slime-repl-mode slime-connection-list-mode term-mode))
+(setq smartwin-buffers '("*Miniedit Help*"
+;; compilation-mode
+grep-mode
+"*evil-registers*"
+"*ielm*"
+"*Inferior Octave*"
+("^\\*sbt\\*.*" :regexp t)
+"*ensime-db-backtrace-buffer*"
+("^\\*shell\\*\\(<.*>\\)?$" :regexp t)
+"*Pp Macroexpand Output*"
+"*Shell Command Output*"
+"*vc-diff*"
+"*vc-change-log*"
+" *undo-tree*"
+" Chicken REPL *"
+("^\\*anything.*\\*$" :regexp t)
+"*slime-apropos*"
+"*slime-macroexpansion*"
+"*slime-description*"
+"*slime-compilation*"
+"*slime-xref*"
+sldb-mode
+slime-repl-mode
+slime-connection-list-mode
+term-mode))
 
 ;;spaces manages window configurations
 (require 'spaces)
+
+
+(setq echo-keystrokes 0.1)
