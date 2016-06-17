@@ -1,11 +1,17 @@
-;;some org mode defaults and settings
+;;; org_mode_settings.el --- Org mode defaults and settings
+;;; Commentary:
+
+;;; Code:
 
 (setq org-log-done t)
 
 (setq org-directory "~/Dropbox/org" )
 
-(setq org-agenda-files (list "~/org/school.org"
-                             "~/org/home.org"))
+;; (setq org-agenda-files (list (concat org-directory "/todo.org")
+;; 			     "~/org/school.org"
+;;                              "~/org/home.org"))
+
+(setq org-agenda-files (list (concat org-directory "/todo.org")))
 
 ;; todo.org file, probably in dropbox if dropbox is installed
 (setq org-default-notes-file (concat org-directory "/todo.org"))
