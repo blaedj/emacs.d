@@ -16,14 +16,10 @@
   (smartparens-mode 1)
   (show-smartparens-mode 1)
 
-  ;; (defvar match-paren--idle-timer nil)
-  ;; (defvar match-paren--delay 0.5)
-  ;; (setq match-paren--idle-timer
-  ;;     (run-with-idle-timer match-paren--delay t #'blink-matching-open))
-
   (hs-minor-mode 1)
   (yas-minor-mode 1)
-
+  (flycheck-mode 1)
+  (local-set-key (kbd "C-c '") 'flycheck-next-error)
   )
 
 (defun my-experimental-coding-hook ()
@@ -73,12 +69,6 @@
   (local-set-key (kbd "C-c C-e") 'hs-toggle-hiding)
   ;;  (flycheck-mode)
   )
-
-;; (defun auto-activate-ruby-end-mode-for-elixir-mode ()
-;;   (set (make-variable-buffer-local 'ruby-end-expand-keywords-before-re)
-;;        "\\(?:^\\|\\s-+\\)\\(?:do\\)")
-;;   (set (make-variable-buffer-local 'ruby-end-check-statement-modifiers) nil)
-;;   (ruby-end-mode +1))
 
 
 ;; thanks to:
@@ -307,10 +297,6 @@
 
 (setq c-default-style "gnu")
 
-;;git-gutter-fringe customizations
-(setq git-gutter-fr:side 'left-fringe)
-(setq-default left-fringe-width 15)
-
 (defun bcj-ac-setup ()
   "setup auto-complete the way that I like it"
   (setq ac-auto-start 1)  ;set ac to start after 2 characters are typed
@@ -345,11 +331,3 @@
 (setq magit-push-always-verify nil)
 
 (add-hook 'package-menu-hook (lambda () "turn on hl-highlight-line mode"  (hl-line-mode)))
-
-
-;; custom config for git-gutter/git-gutter-fr
-(set-face-foreground 'git-gutter-fr:added "chartreuse1")
-(set-face-foreground 'git-gutter-fr:deleted "red")
-(set-face-foreground 'git-gutter-fr:modified "yellow")
-(setq git-gutter:modified-sign "~")
-(setq-default left-fringe-width 12)
