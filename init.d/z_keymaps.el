@@ -5,6 +5,9 @@
 (global-unset-key (kbd "\C-x m"))
 (global-set-key (kbd "\C-x m") 'smex)     ; smarter M-x
 
+;; I have yet to want to print from emacs...
+(global-unset-key (kbd "s-p"))
+
 (global-set-key (kbd "<menu>") 'smex)
 
 (global-set-key "\C-x\C-k" 'kill-region)

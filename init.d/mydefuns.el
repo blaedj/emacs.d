@@ -1,4 +1,10 @@
+;;; mydefuns.el --- some miscellaneous functions I use.
 
+;;; Commentary:
+;; unless noted, I wrote/heavily modified these.
+
+
+;;; Code:
 
 ;; the following two defuns are modified from: http://whattheemacsd.com/setup-dired.el-02.html
 (defun dired-back-to-top ()
