@@ -29,7 +29,7 @@
 
 
 (defun open-todo ()
-  "Opens the todo.org file stored in dropbox, if presnet"
+  "Opens the todo.org file stored in dropbox, if present."
   (interactive)
   (if (file-exists-p org-default-notes-file)
       (find-file org-default-notes-file)
@@ -54,3 +54,8 @@
 
 
 (define-key org-mode-map (kbd "<f8>") 'org-todo)
+(define-key org-mode-map (kbd "<f7>") 'org-schedule)
+
+
+(provide 'org_mode_settings)
+;;; org_mode_settings.el ends here
