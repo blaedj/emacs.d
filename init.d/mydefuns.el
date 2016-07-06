@@ -24,14 +24,14 @@
   (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
 
 
-;; from seeing-is-believing: https://github.com/JoshCheek/seeing_is_believing
-(defun seeing-is-believing ()
-  "Replace the current region (or the whole buffer, if none) with the output
-of seeing_is_believing."
-  (interactive)
-  (let ((beg (if (region-active-p) (region-beginning) (point-min)))
-        (end (if (region-active-p) (region-end) (point-max))))
-    (shell-command-on-region beg end "seeing_is_believing" nil 'replace)))
+;; ;; from seeing-is-believing: https://github.com/JoshCheek/seeing_is_believing
+;; (defun seeing-is-believing ()
+;;   "Replace the current region (or the whole buffer, if none) with the output
+;; of seeing_is_believing."
+;;   (interactive)
+;;   (let ((beg (if (region-active-p) (region-beginning) (point-min)))
+;;         (end (if (region-active-p) (region-end) (point-max))))
+;;     (shell-command-on-region beg end "seeing_is_believing" nil 'replace)))
 
 
 ;; if we include a space in the url that we pass to browse-url, it seems to trigger an automatic http-encoding of the entire string.

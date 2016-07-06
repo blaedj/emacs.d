@@ -1,4 +1,7 @@
-
+;;; major_modes_code -- setup and hooks for the major modes
+;;; Commentary:
+;;; mostly hooks for the various coding modes.
+;;; Code:
 (defun my-coding-hook ()
   (make-local-variable 'column-number-mode)
   (column-number-mode t)
@@ -158,6 +161,9 @@
 (add-hook 'ruby-mode-hook 'my-coding-hook)
 (add-hook 'ruby-mode-hook 'robe-mode)
 (add-hook 'robe-mode-hook 'setup-robe-ac)
+
+(require 'seeing-is-believing)
+(add-hook 'ruby-mode-hook 'seeing-is-believing)
 
 ;;wrapper for ac-robe-setup so that we can disable it easily if it is too slow
 (defun setup-robe-ac ()

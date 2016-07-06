@@ -79,11 +79,6 @@
   )
 (add-hook 'org-mode-hook 'org-keys)
 
-(defun ruby_keys_outputing  ()
-  "Define the keybindings for seeing-is-believing"
-(local-set-key (kbd "C-c C-o") 'seeing-is-believing )
-)
-
 (require 'mydefuns ) ;; so we can move these defuns out of the keymap file...
 ;;(dwim-smartwin-visibility)
 
@@ -98,5 +93,3 @@
 ;; to go through the effort to remove the keybind for it.
 ;; this is normally bound to 'buffer-menu'
 (global-unset-key (kbd "\C-x \C-b"))
-
-(add-hook 'ruby-mode-hook 'ruby_keys_outputing )
