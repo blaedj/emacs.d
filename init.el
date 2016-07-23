@@ -24,6 +24,11 @@
     ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "f11b028f78c8934c4dea255d94c491f7ced8720db594f9454dbec55938af3934" "1c57936ffb459ad3de4f2abbc39ef29bfb109eade28405fa72734df1bc252c13" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(fci-rule-color "#37474f")
  '(paradox-github-token t)
+ '(safe-local-variable-values
+   (quote
+    ((eval setq org-agenda-files
+	   (list
+	    (concat org-directory "/todo.org"))))))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
