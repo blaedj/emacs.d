@@ -88,16 +88,10 @@
 (require 'cpputils-cmake)
 
 
+
 ;;Git-gutter is broken for emacs version:
 ;;GNU Emacs 24.3.93.1 (x86_64-apple-darwin13.3.0, NS apple-appkit-1265.21) of 2014-08-14 on builder10-9.porkrind.org
 
-;;(require 'git-gutter-fringe)
-;;(require 'git-gutter)
-
-
-;;(require 'minimap )
-
-;;(require 'diffscuss-mode )
 ;; Enhancements to the image-viewing mode
 (eval-after-load 'image '(require 'image+))
 ;; automatically adjust the zoom level
