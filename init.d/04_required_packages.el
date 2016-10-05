@@ -98,3 +98,7 @@
 ;;(require 'minimap )
 
 ;;(require 'diffscuss-mode )
+;; Enhancements to the image-viewing mode
+(eval-after-load 'image '(require 'image+))
+;; automatically adjust the zoom level
+(eval-after-load 'image+ '(imagex-auto-adjust-mode 1))
