@@ -64,6 +64,8 @@
 (if (file-exists-p bcj-init-dir)
     (dolist (file (directory-files bcj-init-dir t "\\.el$"))
       (load file)))
+(load "~/.emacs.d/custom-lisp/seeing-is-believing.el")
+(require 'seeing-is-believing)
 
 (require 'mydefuns) ;; some custom functions
 
