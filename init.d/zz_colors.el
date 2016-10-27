@@ -44,10 +44,10 @@
 
 ;; custom config for git-gutter/git-gutter-fr
 ;;git-gutter-fringe customizations
-(require 'git-gutter)
-(setq git-gutter-fr:side 'left-fringe)
+
+;; (setq git-gutter-fr:side 'left-fringe)
 ;; (set-face-foreground 'git-gutter-fr:added "chartreuse1")
 ;; (set-face-foreground 'git-gutter-fr:deleted "red")
 ;; (set-face-foreground 'git-gutter-fr:modified "yellow")
 ;; (setq git-gutter:modified-sign "~")
-(setq-default left-fringe-width 12)
+;; (setq-default left-fringe-width 12)

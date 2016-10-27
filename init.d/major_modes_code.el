@@ -7,7 +7,6 @@
   (column-number-mode t)
   (idle-highlight)
   (linum-mode 1)
-  (git-gutter-mode 1)
   ;;(fci-mode t) disabling because this bugs out auto-complete popups
   ;;(add-hook 'before-save-hook (lambda ()(delete-trailing-whitespace)))  ;remove unneccesary whitespace before saving a file
   (add-hook 'write-file-hooks 'delete-trailing-whitespace nil t)
@@ -70,7 +69,6 @@
   (hs-minor-mode 1)
   (yas-minor-mode 1)
   (local-set-key (kbd "C-c C-e") 'hs-toggle-hiding)
-  ;;  (flycheck-mode)
   )
 
 
@@ -78,10 +76,10 @@
 ;;webcache.googleusercontent.com/search?q=cache:blog.ryuslash.org/archives/2013/01/25/highlight-vc-diffs
 ;; for this solution to git-gutter-fringe not updating on save.
 ;; also could check out diff-hl-mode
-(defun maybe-use-git-gutter ()
-  "run 'git-gutter' if the current file is being tracked by git"
-  (when (eq (vc-backend (buffer-file-name)) 'Git)
-    (git-gutter)))
+;; (defun maybe-use-git-gutter ()
+;;   "run 'git-gutter' if the current file is being tracked by git"
+;;   (when (eq (vc-backend (buffer-file-name)) 'Git)
+;;     (git-gutter)))
 
 ;;(add-hook 'after-save-hook 'maybe-use-git-gutter)
 
