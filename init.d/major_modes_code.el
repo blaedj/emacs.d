@@ -337,3 +337,26 @@
 (setq magit-push-always-verify nil)
 
 (add-hook 'package-menu-hook (lambda () "turn on hl-highlight-line mode"  (hl-line-mode)))
+;; customize flycheck
+
+;; redefine flycheck-display-error-messages so that multple errors are seperated
+;; by only one newline, not 2
+(defun flycheck-display-error-messages (errors)
+  "Display the messages of ERRORS.
+
+Concatenate all non-nil messages of ERRORS separated by 1 empty
+line, and display them with `display-message-or-buffer', which
+shows the messages either in the echo area or in a separate
+buffer, depending on the number of lines.  See Info
+node `(elisp)Displaying Messages' for more information.
+
+In the latter case, show messages in
+`flycheck-error-message-buffer'."
+  (when (and errors (flycheck-may-use-echo-area-p))
+    (let ((messages (seq-map #'flycheck-error-format-message-and-id errors)))
+      (display-message-or-buffer (string-join messages "\n")
+                                 flycheck-error-message-buffer
+                                 'not-this-window))))
+
+(provide 'major_modes_code)
+;;; major_modes_code.el ends here
