@@ -93,3 +93,15 @@
 ;; to go through the effort to remove the keybind for it.
 ;; this is normally bound to 'buffer-menu'
 (global-unset-key (kbd "\C-x \C-b"))
+
+
+;; make zap-to-char not delete the char provided
+(defadvice zap-to-char (after my-zap-to-char-advice (arg char) activate)
+  "Kill up to the ARG'th occurence of CHAR, and leave CHAR. If
+  you are deleting forward, the CHAR is replaced and the point is
+  put before CHAR"
+  (insert char)
+  (if (< 0 arg) (forward-char -1)))
+
+(provide 'z_keymaps)
+;;; z_keymaps.el ends here
