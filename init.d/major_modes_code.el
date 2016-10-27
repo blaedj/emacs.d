@@ -160,7 +160,7 @@
 (add-hook 'ruby-mode-hook 'robe-mode)
 (add-hook 'robe-mode-hook 'setup-robe-ac)
 
-(require 'seeing-is-believing)
+;;(require 'seeing-is-believing)
 (add-hook 'ruby-mode-hook 'seeing-is-believing)
 
 ;;wrapper for ac-robe-setup so that we can disable it easily if it is too slow
@@ -335,6 +335,11 @@
 (setq magit-push-always-verify nil)
 
 (add-hook 'package-menu-hook (lambda () "turn on hl-highlight-line mode"  (hl-line-mode)))
+
+(autoload 'jq-mode "jq-mode.el"
+    "Major mode for editing jq files" t)
+(add-to-list 'auto-mode-alist '("\\.jq$" . jq-mode))
+
 ;; customize flycheck
 
 ;; redefine flycheck-display-error-messages so that multple errors are seperated
