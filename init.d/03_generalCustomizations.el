@@ -63,9 +63,6 @@ grep-mode
 "*ensime-db-backtrace-buffer*"
 ("^\\*shell\\*\\(<.*>\\)?$" :regexp t)
 "*Pp Macroexpand Output*"
-"*Shell Command Output*"
-"*vc-diff*"
-"*vc-change-log*"
 " *undo-tree*"
 " Chicken REPL *"
 ("^\\*anything.*\\*$" :regexp t)
