@@ -15,6 +15,7 @@
 (depends-on "aurora-theme")
 (depends-on "auto-complete")
 (depends-on "auto-complete-clang")
+(depends-on "auto-org-md")
 (depends-on "avy")
 (depends-on "bubbleberry-theme")
 (depends-on "buffer-move")
