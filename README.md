@@ -17,3 +17,8 @@ Emacs needs eterm-color, but you'll need to create the necessary files using the
 
 ## Need to document how to use with [cask](https://github.com/cask/cask)
   * Need to make sure the to the cask.el file is correct. <path-to-cask> will vary depending on how you installed Cask: if you installed via the curl method, it is likely to be ~/.cask; if you installed via Homebrew, it is likely to be /usr/local/Cellar/cask/<version>.
+  * seems like you also need to call `package-install` interactively at least
+    once before the code in `init.d/02_packageRepos.el will be able to find the
+    `pallet` package. **TODO** Need to look into why this is the case: does
+    calling `package-install` interactively do something different than calling
+    it from elisp?
