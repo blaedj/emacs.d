@@ -121,8 +121,10 @@
   )
 
 (defun bcj-open-project-multiterm (orig-fun &rest args)
-  "Changes the name of the multi-term buffer if in a projectile project. If we are in a project,
-the name of the terminal buffer will be 'terminal-PROJECTNAME'"
+  "This is advice to rename the multi-term buffer if in a projectile-project.
+Don't understand argument ORGI-FUN.  If we are in a
+project, the name of the terminal buffer will be
+'terminal-PROJECTNAME'.  Argument ORGIN-FUN unknown."
   (let ((new-term-buffer (apply orig-fun args)))
     (let (new-name )
       (if (projectile-project-p)
@@ -134,12 +136,12 @@ the name of the terminal buffer will be 'terminal-PROJECTNAME'"
       )))
 
 (defun bcj-revert-buffer-no-confirm ()
-  "Revert buffer with no confirmation"
+  "Revert buffer with no confirmation."
   (interactive)
   (revert-buffer nil t))
 
 (defun dwim-smartwin-visibility ()
-  "toggle smartwin window, if not visible makes the window visible and switches to it."
+  "Toggle smartwin window, if not visible make the window visible and switch to it."
   (interactive)
   (let (smartwin-is-visible)
 
