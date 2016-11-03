@@ -7,3 +7,5 @@
 
  ;; (setq auto-save-file-name-transforms
  ;;        '())
+(provide 'backups)
+;;; backups.el ends here

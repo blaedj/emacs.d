@@ -34,3 +34,5 @@
 ;;(require 'el4r)
 ;;(el4r-boot)
 ;;(el4r-troubleshooting-keys)
+(provide 'platform_specific)
+;;; platform_specific.el ends here

@@ -51,3 +51,6 @@
 ;; (set-face-foreground 'git-gutter-fr:modified "yellow")
 ;; (setq git-gutter:modified-sign "~")
 ;; (setq-default left-fringe-width 12)
+
+(provide 'zz_colors)
+;;; zz_colors.el ends here

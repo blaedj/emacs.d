@@ -12,3 +12,5 @@
 
 
 ;; (set-frame-font "Anonymous Pro 13")
+(provide '05_fonts)
+;;; 05_fonts.el ends here

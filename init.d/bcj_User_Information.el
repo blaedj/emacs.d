@@ -3,3 +3,5 @@
 	  (lambda ()
     	    (setq Info-additional-directory-list Info-default-directory-list)
 	    ))
+(provide 'bcj_User_Information)
+;;; bcj_User_Information.el ends here

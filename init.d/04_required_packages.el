@@ -87,8 +87,6 @@
 (require 'auto-complete-clang)
 (require 'cpputils-cmake)
 
-
-
 ;;Git-gutter is broken for emacs version:
 ;;GNU Emacs 24.3.93.1 (x86_64-apple-darwin13.3.0, NS apple-appkit-1265.21) of 2014-08-14 on builder10-9.porkrind.org
 
@@ -96,5 +94,5 @@
 (eval-after-load 'image '(require 'image+))
 ;; automatically adjust the zoom level
 (eval-after-load 'image+ '(imagex-auto-adjust-mode 1))
-(provide '04_required_packages.el)
+(provide '04_required_packages)
 ;;; 04_required_packages.el ends here

@@ -151,3 +151,4 @@ the name of the terminal buffer will be 'terminal-PROJECTNAME'"
       )))
 
 (provide 'mydefuns)
+;;; mydefuns.el ends here

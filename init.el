@@ -1,4 +1,6 @@
-
+;;; init.el --- my init file.
+;;; Commentary:
+;;; Code:
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
@@ -83,3 +85,5 @@
  ;; If there is more than one, they won't work right.
  '(flycheck-color-mode-line-error-face ((t (:inherit flycheck-fringe-error :background "orange red" :foreground "#efefef" :weight normal))) t)
  '(magit-diff-added ((t (:inherit diff-added)))))
+(provide 'init)
+;;; init.el ends here

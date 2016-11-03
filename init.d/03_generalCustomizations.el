@@ -81,3 +81,5 @@ term-mode))
 
 
 (setq echo-keystrokes 0.1)
+(provide '03_generalCustomizations)
+;;; 03_generalCustomizations.el ends here

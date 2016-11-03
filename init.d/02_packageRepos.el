@@ -24,3 +24,5 @@
 (require 'pallet)
 (pallet-mode t)
 (pallet-install)
+(provide '02_packageRepos)
+;;; 02_packageRepos.el ends here
