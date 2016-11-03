@@ -53,7 +53,6 @@
 (global-set-key (kbd "C-x r p") 'replace-rectangle)
 
 (setq smartscan-symbol-selector "symbol")
-(setq smartscan-use-extended-syntax t)
 (global-set-key (kbd "M-n") 'smartscan-symbol-go-forward )
 (global-set-key (kbd "M-p") 'smartscan-symbol-go-backward)
 
