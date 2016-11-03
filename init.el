@@ -61,11 +61,33 @@
      (360 . "#8bc34a"))))
  '(vc-annotate-very-old-color nil))
 
+;; Display the total loading time in the minibuffer
+
+(defun display-startup-echo-area-message ()
+  "Display startup echo area message."
+  (message "Initialized in %s" (emacs-init-time)))
+
 
 (defvar bcj-emacs-init-file (or load-file-name buffer-file-name))
 
 (defvar bcj-emacs-config-dir (file-name-directory bcj-emacs-init-file))
 (defvar bcj-init-dir  (expand-file-name "init.d" bcj-emacs-config-dir ))
+
+;; credit for the benchmark code from qsdfgh.com/articles/2016/11/02/emacs-loading-time.html
+;; Benchmark loading time file by file and display it in the *Messages* buffer
+(when init-file-debug
+  (require 'benchmark))
+
+(let ((lisp-dir bcj-init-dir))
+  (add-to-list 'load-path lisp-dir)
+  (mapc (lambda (fname)
+          (let ((feat (intern (file-name-base fname))))
+            (if init-file-debug
+                (message "Feature '%s' loaded in %.2fs" feat
+                         (benchmark-elapse (require feat fname)))
+              (require feat fname))))
+        (directory-files lisp-dir t "\\.el")))
+;; -- end benchmark code
 
 
 ;; Load all elisp files in ./init.d
