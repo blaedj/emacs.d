@@ -61,13 +61,12 @@
      (360 . "#8bc34a"))))
  '(vc-annotate-very-old-color nil))
 
-(setq bcj-emacs-init-file (or load-file-name buffer-file-name))
 
-(setq bcj-emacs-config-dir
-      (file-name-directory bcj-emacs-init-file))
+(defvar bcj-emacs-init-file (or load-file-name buffer-file-name))
 
-(setq bcj-init-dir
-      (expand-file-name "init.d" bcj-emacs-config-dir ))
+(defvar bcj-emacs-config-dir (file-name-directory bcj-emacs-init-file))
+(defvar bcj-init-dir  (expand-file-name "init.d" bcj-emacs-config-dir ))
+
 
 ;; Load all elisp files in ./init.d
 (if (file-exists-p bcj-init-dir)
