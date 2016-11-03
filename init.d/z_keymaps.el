@@ -105,5 +105,11 @@
   (insert char)
   (if (< 0 arg) (forward-char -1)))
 
+;; make arrow keys navigate windows
+(global-set-key (kbd "<down>") 'windmove-down)
+(global-set-key (kbd "<left>") 'windmove-left)
+(global-set-key (kbd "<right>") 'windmove-right)
+(global-set-key (kbd "<up>") 'windmove-up)
+
 (provide 'z_keymaps)
 ;;; z_keymaps.el ends here
