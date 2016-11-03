@@ -150,5 +150,24 @@ the name of the terminal buffer will be 'terminal-PROJECTNAME'"
       (switch-to-buffer (window-buffer (smartwin--get-smart-window)))
       )))
 
+(defun bcj-window-setup ()
+  "Automate window & buffer setup."
+  (interactive)
+  (delete-other-windows)
+  (org-agenda-list)
+  (other-window 1)
+  (delete-other-windows)
+  (split-window-right 120)
+  (other-window 1)
+  (split-window-right 80)
+  (other-window 1)
+  (split-window-below)
+  (other-window 1)
+  (switch-to-buffer "*Org Agenda*")
+  (other-window -1)
+  (switch-to-buffer "todo.org")
+  )
+
+
 (provide 'mydefuns)
 ;;; mydefuns.el ends here
