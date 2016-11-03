@@ -94,5 +94,9 @@
 (eval-after-load 'image '(require 'image+))
 ;; automatically adjust the zoom level
 (eval-after-load 'image+ '(imagex-auto-adjust-mode 1))
+
+(load "~/.emacs.d/custom-lisp/seeing-is-believing.el")
+(require 'seeing-is-believing)
+
 (provide '04_required_packages)
 ;;; 04_required_packages.el ends here
