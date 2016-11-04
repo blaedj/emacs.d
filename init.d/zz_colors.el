@@ -2,9 +2,7 @@
 (if (display-graphic-p)
     (load-theme 'solarized-dark-custom t)
   (progn
-    (require 'color-theme-approximate )
-    (color-theme-approximate-on)
-    (load-theme 'solarized-dark-custom t))
+    (load-them 'subatomic256)
   )
 
 
