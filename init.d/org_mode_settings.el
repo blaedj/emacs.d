@@ -7,9 +7,7 @@
 
 (setq org-directory "~/Dropbox/org" )
 
-;; (setq org-agenda-files (list (concat org-directory "/todo.org")
-;; 			     "~/org/school.org"
-;;                              "~/org/home.org"))
+(setq org-agenda-files (list (concat org-directory "/todo.org")))
 
 (setq org-agenda-files (list (concat org-directory "/todo.org")))
 
@@ -36,13 +34,6 @@
     ))
 
 (push #'open-todo after-init-hook)
-
-
-(setq org-todo-keyword-faces
-      '(
-	("IN-PROGRESS" . (:background "lime green"  :foreground "#002b36" :weight bold))
-	("ON-HOLD" . (:background "#427"  :foreground "#ddd" :weight normal))
-	))
 
 (setq org-todo-keywords
       '(
