@@ -1,10 +1,12 @@
 
+;;; Commentary:
+;; Some color customizations
+;;; Code:
 (if (display-graphic-p)
     (load-theme 'solarized-dark-custom t)
   (progn
-    (load-them 'subatomic256)
+    (load-theme 'subatomic256))
   )
-
 
 ;;modeline customization;;;;;;;;;;;;;;;;
 (sml/setup)
@@ -49,6 +51,14 @@
 ;; (set-face-foreground 'git-gutter-fr:modified "yellow")
 ;; (setq git-gutter:modified-sign "~")
 ;; (setq-default left-fringe-width 12)
+
+(setq org-todo-keyword-faces
+      '(
+	("IN-PROGRESS" .
+	 (:background "lime green"  :foreground "#002b36" :weight bold))
+	("ON-HOLD" .
+	 (:background "#427"  :foreground "#ddd" :weight normal))
+	))
 
 (provide 'zz_colors)
 ;;; zz_colors.el ends here

@@ -23,6 +23,8 @@
 
 (require 'pallet)
 (pallet-mode t)
-(pallet-install)
+;; (pallet-install) ;; NOTE: uncomment for first run of a fresh install or
+;; upgrade
+
 (provide '02_packageRepos)
 ;;; 02_packageRepos.el ends here
