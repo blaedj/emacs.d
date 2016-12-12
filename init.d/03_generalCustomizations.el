@@ -50,35 +50,25 @@
 ;(unless (server-running-p)
  ; (start-server))
 
-;;use smartwin to keep a small terminal buffer at the bottom of the frame
-(smartwin-mode 1)
+;;use smartwin to keep a small terminal buffer at the bottom of the frame, but
+;;only on gui sessions. Doesn't work well in terminal.
+(if (display-graphic-p)
+    (smartwin-mode 1))
+
 ;;customize which buffers are shunted to the smartwin buffer
-(setq smartwin-buffers '("*Miniedit Help*"
-;; compilation-mode
-grep-mode
-"*evil-registers*"
-"*ielm*"
-"*Inferior Octave*"
-("^\\*sbt\\*.*" :regexp t)
-"*ensime-db-backtrace-buffer*"
-("^\\*shell\\*\\(<.*>\\)?$" :regexp t)
-"*Pp Macroexpand Output*"
-" *undo-tree*"
-" Chicken REPL *"
-("^\\*anything.*\\*$" :regexp t)
-"*slime-apropos*"
-"*slime-macroexpansion*"
-"*slime-description*"
-"*slime-compilation*"
-"*slime-xref*"
-sldb-mode
-slime-repl-mode
-slime-connection-list-mode
-term-mode))
+(setq smartwin-buffers
+      '("*Miniedit Help*"
+	;; compilation-mode
+	grep-mode "*evil-registers*" "*ielm*" "*Inferior Octave*"
+	("^\\*sbt\\*.*" :regexp t) "*ensime-db-backtrace-buffer*"
+	("^\\*shell\\*\\(<.*>\\)?$" :regexp t) "*Pp Macroexpand Output*"
+	" *undo-tree*"" Chicken REPL *" ("^\\*anything.*\\*$" re:gexp t)
+	"*slime-apropos*" "*slime-macroexpansion*" "*slime-description*"
+	"*slime-compilation*" "*slime-xref*" sldb-mode slime-repl-mode
+	slime-connection-listm-ode term-mode))
 
 ;;spaces manages window configurations
 (require 'spaces)
-
 
 (setq echo-keystrokes 0.1)
 (provide '03_generalCustomizations)
