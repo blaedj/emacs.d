@@ -23,7 +23,7 @@
 
 (require 'yasnippet)
 (yas/global-mode 1)
-(yas-load-directory "~/.emacs.d/snippets/")
+(setq yas-installed-snippets-dir "~/.emacs.d/snippets/")
 
 
 (require 'popup)
