@@ -119,5 +119,10 @@
     [remap subword-backward-kill] 'ido-delete-backward-updir)
   )
 
+;; auto-yasnippet mode
+(global-set-key (kbd "M-]") #'aya-create)
+(global-set-key (kbd "M-[") #'aya-expand)
+
+
 (provide 'z_keymaps)
 ;;; z_keymaps.el ends here

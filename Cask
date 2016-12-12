@@ -16,6 +16,7 @@
 (depends-on "auto-complete")
 (depends-on "auto-complete-clang")
 (depends-on "auto-org-md")
+(depends-on "auto-yasnippet")
 (depends-on "avy")
 (depends-on "bubbleberry-theme")
 (depends-on "buffer-move")
