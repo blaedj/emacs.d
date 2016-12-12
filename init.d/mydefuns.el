@@ -8,21 +8,20 @@
 
 ;; the following two defuns are modified from: http://whattheemacsd.com/setup-dired.el-02.html
 (defun dired-back-to-top ()
+  "Move the cursor to the first 'file' line in a dired buffer."
   (interactive)
-  (beginning-of-buffer)
+  (goto-char (point-min))
   (dired-next-line 2))
 
-(define-key dired-mode-map
-  (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)
+(define-key dired-mode-map [remap beginning-of-buffer] 'dired-back-to-top)
 
 (defun dired-jump-to-bottom ()
+  "Move the cursor to the last 'file' line in a dired buffer."
   (interactive)
-  (end-of-buffer)
+  (goto-char (point-max))
   (dired-next-line -1))
 
-(define-key dired-mode-map
-  (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
-
+(define-key dired-mode-map [remap end-of-buffer] 'dired-jump-to-bottom)
 
 ;; ;; from seeing-is-believing: https://github.com/JoshCheek/seeing_is_believing
 ;; (defun seeing-is-believing ()
