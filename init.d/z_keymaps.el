@@ -85,6 +85,7 @@
 
 
 (global-set-key (kbd "<f5>") 'bcj-revert-buffer-no-confirm)
+(global-set-key (kbd "<f6>") 'bcj-window-setup)
 (global-set-key (kbd "<f8>") 'sp-switch-space)
 (global-set-key (kbd "<f12>") 'dwim-smartwin-visibility)
 ;; I keep hitting the 'menu' key when tring to open a terminal
