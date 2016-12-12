@@ -154,21 +154,23 @@ terminal buffer will be 'terminal-PROJECTNAME'."
 (defun bcj-window-setup ()
   "Automate window & buffer setup."
   (interactive)
-  (delete-other-windows)
+  (delete-other-windows)            ; clear all windows
   (org-agenda-list)
-  (other-window 1)
+  (other-window 1)                  ; get out of agenda window
   (delete-other-windows)
-  (split-window-right 120)
-  (other-window 1)
-  (split-window-right 80)
-  (other-window 1)
-  (split-window-below)
-  (other-window 1)
-  (switch-to-buffer "*Org Agenda*")
-  (other-window -1)
-  (switch-to-buffer "todo.org")
+  (split-window-right 120)         ; split window @ 120 chars, creating 2nd col.
+  (split-window-below 65)          ; create 2nd row for terminals in 1st column
+  (other-window 1)                 ; jump to 1st column, 2nd row
+  (ansi-term "/bin/zsh")
+  (other-window 1)                 ; jump to 2nd column
+  (split-window-right 85)          ; split 2nd col at 85 cols, creating 3rd col.
+  (other-window 1)                 ; jump to 3rd column
+  (split-window-below)             ; create 2nd row in 3rd col for agenda.
+  (other-window 1)                 ; jump to 2nd row in 3rd col
+  (switch-to-buffer "*Org Agenda*") ; open agenda buffer
+  (other-window -1)                ; jump back to 1st row, 3rd col
+  (switch-to-buffer "todo.org")    ; open todo file
   )
-
 
 (provide 'mydefuns)
 ;;; mydefuns.el ends here
