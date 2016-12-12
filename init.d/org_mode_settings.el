@@ -18,7 +18,7 @@
 ;; ▼, ↴, ⬎, ⤷, and ⋱.
 (setq org-ellipsis "↴")
 
-
+(setq org-return-follows-link t)
 
 (add-hook 'org-mode-hook
 	  '(lambda ()
