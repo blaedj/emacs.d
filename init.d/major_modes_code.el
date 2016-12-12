@@ -71,6 +71,11 @@
   (local-set-key (kbd "C-c C-e") 'hs-toggle-hiding)
   )
 
+(defun auto-activate-ruby-end-mode-for-elixir-mode ()
+  (set (make-variable-buffer-local 'ruby-end-expand-keywords-before-re)
+       "\\(?:^\\|\\s-+\\)\\(?:do\\)")
+  (set (make-variable-buffer-local 'ruby-end-check-statement-modifiers) nil)
+  (ruby-end-mode +1))
 
 ;; thanks to:
 ;;webcache.googleusercontent.com/search?q=cache:blog.ryuslash.org/archives/2013/01/25/highlight-vc-diffs
@@ -107,7 +112,6 @@
 (add-hook 'java-mode-hook 'my-coding-hook)
 (add-hook 'nxml-mode-hook 'my-coding-hook)
 (add-hook 'elixir-mode-hook 'my-coding-hook)
-;;(add-to-list 'elixir-mode-hook 'auto-activate-ruby-end-mode-for-elixir-mode)
 
 (add-hook 'html-mode-hook 'wrap-region-mode)
 (add-hook 'js2-mode-hook 'skewer-mode)
@@ -159,9 +163,18 @@
 (add-hook 'ruby-mode-hook 'my-coding-hook)
 (add-hook 'ruby-mode-hook 'robe-mode)
 (add-hook 'robe-mode-hook 'setup-robe-ac)
-
 ;;(require 'seeing-is-believing)
 (add-hook 'ruby-mode-hook 'seeing-is-believing)
+
+(eval-after-load "hideshow"
+  '(add-to-list 'hs-special-modes-alist
+		'(ruby-mode
+		  ,(rx (or "def" "class" "module"
+			   "do" "{" "[" "if" "else"
+			   "unless")) ; block start
+		  ,(rx (or "}" "end" "]")) ; block end
+		  ,(rx (or "#" "=begin")) ; comment start
+		  ruby-forward-sexp nil)))
 
 ;;wrapper for ac-robe-setup so that we can disable it easily if it is too slow
 (defun setup-robe-ac ()
@@ -328,8 +341,6 @@
 (setq flycheck-coffee-executable "/usr/local/bin/coffee")
 
 (add-hook 'coffee-mode-hook (lambda () (highlight-indentation-mode)))
-
-
 (custom-set-variables '(coffee-tab-width 2))
 
 (setq magit-push-always-verify nil)
@@ -360,6 +371,24 @@ In the latter case, show messages in
       (display-message-or-buffer (string-join messages "\n")
                                  flycheck-error-message-buffer
                                  'not-this-window))))
+
+;;Elixir
+(require 'alchemist)
+(add-to-list 'elixir-mode-hook 'auto-activate-ruby-end-mode-for-elixir-mode)
+(add-to-list 'elixir-mode-hook 'alchemist-mode)
+(define-key alchemist-mode-map (kbd "C-c C-b") 'alchemist-eval-print-buffer)
+
+;; TODO: figure out the last bit, what does the `ruby-forward-sexp nil)` bit do
+;; in the ruby version of this?
+;; (eval-after-load "hideshow"
+;;   '(add-to-list 'hs-special-modes-alist
+;; 		'(elixir-mode
+;; 		  ,(rx (or "def" "defmodule" "do" "{" "["
+;; 			   "if" "else" "unless")) ; block start
+;; 		  ,(rx (or "}" "end" "]")) ; block end
+;; 		  ,(rx (or "#" "=begin")) ; comment start
+;; 		  elixir-smie-forward-token
+;; 		  elixir- nil)))
 
 (provide 'major_modes_code)
 ;;; major_modes_code.el ends here
