@@ -42,9 +42,6 @@
   (linum-mode 1)
   ;;(idle-highlight) makes web-mode lock up with message 'font-lock-highlight: untouched buffer (nil)'
   (bcj-ac-setup)
-  ;;(smartparens-mode 1)
-  ;;(show-smartparens-mode 1)
-  ;;(hs-minor-mode 1)
   (add-hook 'write-file-hooks 'delete-trailing-whitespace nil t)
   (yas-minor-mode 1)
   (setq web-mode-enable-current-element-highlight t)
@@ -71,33 +68,6 @@
   (local-set-key (kbd "C-c C-e") 'hs-toggle-hiding)
   )
 
-(defun auto-activate-ruby-end-mode-for-elixir-mode ()
-  (set (make-variable-buffer-local 'ruby-end-expand-keywords-before-re)
-       "\\(?:^\\|\\s-+\\)\\(?:do\\)")
-  (set (make-variable-buffer-local 'ruby-end-check-statement-modifiers) nil)
-  (ruby-end-mode +1))
-
-;; thanks to:
-;;webcache.googleusercontent.com/search?q=cache:blog.ryuslash.org/archives/2013/01/25/highlight-vc-diffs
-;; for this solution to git-gutter-fringe not updating on save.
-;; also could check out diff-hl-mode
-;; (defun maybe-use-git-gutter ()
-;;   "run 'git-gutter' if the current file is being tracked by git"
-;;   (when (eq (vc-backend (buffer-file-name)) 'Git)
-;;     (git-gutter)))
-
-;;(add-hook 'after-save-hook 'maybe-use-git-gutter)
-
-;; for cpputils-cmake
-;;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
-;;(add-hook 'c++-mode-hook (lambda () (cppcm-reload-all)))
-
-;; OPTIONAL, avoid typing full path when starting gdb
-;; (global-set-key (kbd "C-c C-g")
-;;  '(lambda ()(interactive) (gud-gdb (concat "gdb --fullname " (cppcm-get-exe-path-current-buffer)))))
-
-
-
 (add-hook 'emacs-lisp-mode-hook 'my-coding-hook)
 (add-hook 'js2-mode-hook 'my-coding-hook)
 (add-hook 'js-mode-hook 'my-coding-hook)
@@ -119,7 +89,6 @@
 (add-hook 'html-mode-hook 'skewer-html-mode)
 
 
-
 (add-hook 'scss-mode-hook rainbow-mode)
 ;; don't try to compile the scss (sass) files on save. working in rails, the load paths are usually determined by sprockets
 (setq scss-compile-at-save nil)
@@ -136,14 +105,6 @@
     ad-do-it
     ))
 
-(defadvice rspec-compile (after hide-rspec-buffer activate)
-  ;; (message "it ran!!")
-  ;; (window--delete (get-buffer-window (get-buffer "*rspec-compilation*") "visible"))
-  )
-
-;; (defadvice kill-line (after say-ouch activate)
-;;   (message "Ouch!"))
-
 (ad-activate 'rspec-compile)
 
 (setq rspec-use-rake-when-possible nil)
@@ -154,20 +115,21 @@
 (eval-after-load 'rspec-mode
   '(robe-mode))
 
-
-
 (autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
 
 (require 'inf-ruby)
 (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
 (autoload 'inf-ruby-keys "inf-ruby" "" t)
 
+;; ;;wrapper for ac-robe-setup so that we can disable it easily if it is too slow
+(defun setup-robe-ac ()
+  (ac-robe-setup))
+
 (add-hook 'ruby-mode-hook 'my-coding-hook)
 (add-hook 'ruby-mode-hook 'robe-mode)
 (add-hook 'robe-mode-hook 'setup-robe-ac)
 ;;(require 'seeing-is-believing)
 (add-hook 'ruby-mode-hook 'seeing-is-believing)
-
 (eval-after-load "hideshow"
   '(add-to-list 'hs-special-modes-alist
 		'(ruby-mode
@@ -178,46 +140,15 @@
 		  ,(rx (or "#" "=begin")) ; comment start
 		  ruby-forward-sexp nil)))
 
-;;wrapper for ac-robe-setup so that we can disable it easily if it is too slow
-(defun setup-robe-ac ()
-  (ac-robe-setup))
-
-(defun rob-mode-setup ()
-  "DOCSTRING"
-  (interactive)
-  (let (var1)
-    (setq var1 some)
-
-    ))
-
 ;; this might make sure that we are using the correct ruby version with robe.
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
-
-
-
-;; (custom-set-variables
-;;  '(ac-etags-requires 1))
-
-;; (eval-after-load "etags"
-;;   '(progn
-;;      (ac-etags-setup)))
-
-;; (defun bcj/ac-etags-setup-hook ()
-;;     (add-to-list 'ac-sources 'ac-source-etags))
-
-;; (add-hook 'ruby-mode-hook 'bcj/ac-etags-setup-hook)
-
-
-;;(setq exec-path (cons (expand-file-name "~/.gem/ruby/1.8/bin") exec-path))
 
 ;;---Java Stuff---
 (add-hook 'java-mode-hook
 	  (lambda ()
 	    (auto-revert-mode t)
 	    (setq tab-width 4)
-	    ;;(eclim-mode t)
-
 	    ))
 
 ;;TODO: GET ECLIM WORKING
@@ -337,12 +268,10 @@
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (setq cider-lein-command "/usr/local/bin/lein" )
 
-;; (require 'flymake)
-;; (require 'flymake-coffee)
-;; (add-hook 'coffee-mode-hook 'flymake-coffee-load)
 (setq flycheck-coffee-executable "/usr/local/bin/coffee")
 
 (add-hook 'coffee-mode-hook (lambda () (highlight-indentation-mode)))
+
 (custom-set-variables '(coffee-tab-width 2))
 
 (setq magit-push-always-verify nil)
@@ -366,9 +295,7 @@ line, and display them with `display-message-or-buffer', which
 shows the messages either in the echo area or in a separate
 buffer, depending on the number of lines.  See Info
 node `(elisp)Displaying Messages' for more information.
-
-In the latter case, show messages in
-`flycheck-error-message-buffer'."
+In the latter case, show messages in `flycheck-error-message-buffer'."
   (when (and errors (flycheck-may-use-echo-area-p))
     (let ((messages (seq-map #'flycheck-error-format-message-and-id errors)))
       (display-message-or-buffer (string-join messages "\n")
