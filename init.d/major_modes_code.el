@@ -125,6 +125,8 @@
 (setq scss-compile-at-save nil)
 
 (require 'projectile)
+;; navigate to project root dir in dired when switching projects
+(setq projectile-switch-project-action 'projectile-dired)
 (projectile-global-mode)
 
 (require 'rspec-mode)
