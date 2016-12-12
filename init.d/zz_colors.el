@@ -21,36 +21,17 @@
 (display-time)
 
 
-;; hide 'auto-complete', 'yasnippet', 'smart-parens' and 'smartwin' minor mode
+;; hide 'auto-complete', 'yasnippet' and 'smart-parens' minor modes
 ;; indicators from mode line
-(setq rm-excluded-modes '(" hl-p" " AC" " yas" " SP" " sw"))
-
+(setq rm-excluded-modes '(" hl-p" " AC" " yas" " SP"))
 
 ;;(display-battery-mode 1)
-
-;;(setq powerline-arrow-shape 'arrow)
-;; (setq powerline-color1 "grey22")
-;; (setq powerline-color2 "grey40")
-;; (custom-set-faces
-;;  '(mode-line ((t (:foreground "#030303" :background "#bdbdbd" :box nil))))
-;;  '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil)))))
-
 
 ;; Fill column
 (require 'fill-column-indicator)
 (setq fci-rule-width 1)
 (setq fci-rule-color "sienna")
 (setq-default fill-column 80)
-
-;; custom config for git-gutter/git-gutter-fr
-;;git-gutter-fringe customizations
-
-;; (setq git-gutter-fr:side 'left-fringe)
-;; (set-face-foreground 'git-gutter-fr:added "chartreuse1")
-;; (set-face-foreground 'git-gutter-fr:deleted "red")
-;; (set-face-foreground 'git-gutter-fr:modified "yellow")
-;; (setq git-gutter:modified-sign "~")
-;; (setq-default left-fringe-width 12)
 
 (setq org-todo-keyword-faces
       '(

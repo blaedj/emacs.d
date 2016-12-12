@@ -140,17 +140,17 @@ terminal buffer will be 'terminal-PROJECTNAME'."
   (interactive)
   (revert-buffer nil t))
 
-(defun dwim-smartwin-visibility ()
-  "Toggle smartwin window, if not visible make the window visible and switch to it."
-  (interactive)
-  (let (smartwin-is-visible)
+;; (defun dwim-smartwin-visibility ()
+;;   "Toggle smartwin window, if not visible make the window visible and switch to it."
+;;   (interactive)
+;;   (let (smartwin-is-visible)
 
-    (setq smartwin-is-visible (smartwin--get-smart-window))
-    (if smartwin-is-visible
-	(smartwin-hide)
-      (smartwin-show)
-      (switch-to-buffer (window-buffer (smartwin--get-smart-window)))
-      )))
+;;     (setq smartwin-is-visible (smartwin--get-smart-window))
+;;     (if smartwin-is-visible
+;; 	(smartwin-hide)
+;;       (smartwin-show)
+;;       (switch-to-buffer (window-buffer (smartwin--get-smart-window)))
+;;       )))
 
 (defun bcj-window-setup ()
   "Automate window & buffer setup."

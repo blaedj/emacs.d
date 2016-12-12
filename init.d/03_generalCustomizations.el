@@ -18,10 +18,6 @@
 ;; Use Emacs terminfo, not system terminfo
 (setq system-uses-terminfo nil)
 
-(require 'multi-term)
-(setq multi-term-program-switches "--login")
-
-
 (setq linum-format 'dynamic)
 (show-paren-mode t)
 (setq show-paren-style 'parenthesis)
@@ -49,23 +45,6 @@
 ;; use emacs as a server so that we can use our 'ec' command from cli.
 ;(unless (server-running-p)
  ; (start-server))
-
-;;use smartwin to keep a small terminal buffer at the bottom of the frame, but
-;;only on gui sessions. Doesn't work well in terminal.
-(if (display-graphic-p)
-    (smartwin-mode 1))
-
-;;customize which buffers are shunted to the smartwin buffer
-(setq smartwin-buffers
-      '("*Miniedit Help*"
-	;; compilation-mode
-	grep-mode "*evil-registers*" "*ielm*" "*Inferior Octave*"
-	("^\\*sbt\\*.*" :regexp t) "*ensime-db-backtrace-buffer*"
-	("^\\*shell\\*\\(<.*>\\)?$" :regexp t) "*Pp Macroexpand Output*"
-	" *undo-tree*"" Chicken REPL *" ("^\\*anything.*\\*$" re:gexp t)
-	"*slime-apropos*" "*slime-macroexpansion*" "*slime-description*"
-	"*slime-compilation*" "*slime-xref*" sldb-mode slime-repl-mode
-	slime-connection-listm-ode term-mode))
 
 ;;spaces manages window configurations
 (require 'spaces)

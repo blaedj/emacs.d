@@ -119,7 +119,6 @@
 (depends-on "smart-region")
 (depends-on "smartparens")
 (depends-on "smartscan")
-(depends-on "smartwin")
 (depends-on "smex")
 (depends-on "solarized-theme")
 (depends-on "spaces")
