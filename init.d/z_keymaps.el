@@ -95,7 +95,6 @@
 ;; this is normally bound to 'buffer-menu'
 (global-unset-key (kbd "\C-x \C-b"))
 
-
 ;; make zap-to-char not delete the char provided
 (defadvice zap-to-char (after my-zap-to-char-advice (arg char) activate)
   "Kill up to the ARG'th occurence of CHAR, and leave CHAR. If
@@ -109,6 +108,15 @@
 (global-set-key (kbd "<left>") 'windmove-left)
 (global-set-key (kbd "<right>") 'windmove-right)
 (global-set-key (kbd "<up>") 'windmove-up)
+(add-hook 'ruby-mode-hook 'ruby_keys_outputing )
+
+(defun bcj-ido-keys ()
+  "Add my keybinds for Ido."
+  (define-key ido-file-dir-completion-map
+    (kbd "\C-w") 'ido-delete-backward-updir)
+  (define-key ido-file-dir-completion-map
+    [remap subword-backward-kill] 'ido-delete-backward-updir)
+  )
 
 (provide 'z_keymaps)
 ;;; z_keymaps.el ends here
