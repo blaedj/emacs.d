@@ -110,7 +110,7 @@
 ;;show the ouptut of runnin coffee on the current file since I can't get flymake
 ;; to work properly
 (defun show-coffeelint ()
-  "show output of coffeelint on current file"
+  "Show output of coffeelint on current file."
   (interactive)
   (let (filename output-buffer)
     (setq filename (buffer-file-name (current-buffer)))
@@ -120,11 +120,11 @@
     )
   )
 
-(defun bcj-open-project-multiterm (orig-fun &rest args)
-  "This is advice to rename the multi-term buffer if in a projectile-project.
-Don't understand argument ORGI-FUN.  If we are in a
-project, the name of the terminal buffer will be
-'terminal-PROJECTNAME'.  Argument ORGIN-FUN unknown."
+(defun bcj-open-project-term (orig-fun &rest args)
+  "This is some advice to wrap around ORIG-FUN and ARGS.
+This is advice to rename the term buffer if in a
+projectile-project.  If we are in a project, the name of the
+terminal buffer will be 'terminal-PROJECTNAME'."
   (let ((new-term-buffer (apply orig-fun args)))
     (let (new-name )
       (if (projectile-project-p)
