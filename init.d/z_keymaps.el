@@ -107,15 +107,6 @@
 (global-set-key (kbd "<left>") 'windmove-left)
 (global-set-key (kbd "<right>") 'windmove-right)
 (global-set-key (kbd "<up>") 'windmove-up)
-(add-hook 'ruby-mode-hook 'ruby_keys_outputing )
-
-(defun bcj-ido-keys ()
-  "Add my keybinds for Ido."
-  (define-key ido-file-dir-completion-map
-    (kbd "\C-w") 'ido-delete-backward-updir)
-  (define-key ido-file-dir-completion-map
-    [remap subword-backward-kill] 'ido-delete-backward-updir)
-  )
 
 ;; auto-yasnippet mode
 (global-set-key (kbd "M-]") #'aya-create)
