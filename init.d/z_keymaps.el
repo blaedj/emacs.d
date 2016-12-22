@@ -107,6 +107,7 @@
 (global-set-key (kbd "<left>") 'windmove-left)
 (global-set-key (kbd "<right>") 'windmove-right)
 (global-set-key (kbd "<up>") 'windmove-up)
+;; (add-hook 'ruby-mode-hook 'ruby_keys_outputing ) ;; what is this even.
 
 ;; auto-yasnippet mode
 (global-set-key (kbd "M-]") #'aya-create)
