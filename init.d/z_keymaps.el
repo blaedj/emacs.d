@@ -113,6 +113,10 @@
 (global-set-key (kbd "M-]") #'aya-create)
 (global-set-key (kbd "M-[") #'aya-expand)
 
+;; alchemist-mode, for elixir
+(define-key alchemist-mode-map (kbd "C-c , a") 'alchemist-mix-test)
+(define-key alchemist-mode-map (kbd "C-c , s") 'alchemist-mix-test-at-point)
+(define-key alchemist-mode-map (kbd "C-c , m") 'alchemist-mix-test-this-buffer)
 
 (provide 'z_keymaps)
 ;;; z_keymaps.el ends here
