@@ -30,6 +30,7 @@
 (depends-on "color-theme-heroku")
 (depends-on "color-theme-solarized")
 (depends-on "column-enforce-mode")
+(depends-on "column-marker")
 (depends-on "company")
 (depends-on "cpputils-cmake")
 (depends-on "csv-mode")

@@ -7,14 +7,14 @@
   (column-number-mode t)
   (idle-highlight)
   (linum-mode 1)
-  ;;(fci-mode t) disabling because this bugs out auto-complete popups
-  ;;(add-hook 'before-save-hook (lambda ()(delete-trailing-whitespace)))  ;remove unneccesary whitespace before saving a file
+  ;;(fci-mode t) ;;this bugs out auto-complete popups
   (add-hook 'write-file-hooks 'delete-trailing-whitespace nil t)
-
+  (column-marker-3 80) ;; highlight background of 80th column, in purple
+  ;; (column-marker-1 80) ;; highlight background of 80th column
+  ;; (column-marker-1 80) ;; highlight background of 80th column
   (auto-complete-mode 1)
   (bcj-ac-setup)
   (local-set-key (kbd "C-c C-e") 'hs-toggle-hiding)
-
   (smartparens-mode 1)
   (show-smartparens-mode 1)
 
@@ -22,18 +22,6 @@
   (yas-minor-mode 1)
   (flycheck-mode 1)
   (local-set-key (kbd "C-c '") 'flycheck-next-error)
-  )
-
-(defun my-experimental-coding-hook ()
-  (make-local-variable 'column-number-mode)
-  ;;(fci-mode t) disabling because this bugs out auto-complete popups
-  (column-number-mode t)
-  (idle-highlight)
-  (linum-mode 1)
-  ;; (company-mode 1)
-  (smartparens-mode 1)
-  (hs-minor-mode 1)
-  (yas-minor-mode 1)
   )
 
 (defun web-mode-coding-hook ()
@@ -179,7 +167,20 @@
 	    (lambda ()
 	      (formatBuf))))
 
-(add-hook 'js-mode-hook
+
+;; (add-hook 'js-mode-hook
+;;           (lambda ()
+;;             ;; Scan the file for nested code blocks
+;;             (imenu-add-menubar-index)
+;; 	    (setq js-indent-level 2) ; set indentation level
+;; 	    (if (< emacs-major-version 25)
+;; 		;;set js2 indentaiont if major version is < 25.
+;; 		;; if emacs-major-version < 25, js2-mode will not use js-mode's indentaion
+;; 		;; behavior, so set js2's indentation offset.
+;; 		(setq js2-basic-offset 2))
+;;       	    (run-hooks 'code-modes-hook)
+;;       	    (js2-hook)))
+(remove-hook 'js-mode-hook
           (lambda ()
             ;; Scan the file for nested code blocks
             (imenu-add-menubar-index)
@@ -200,6 +201,7 @@
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.zsh-theme\\'" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.es6\\'" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode) )
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
@@ -304,7 +306,6 @@ In the latter case, show messages in `flycheck-error-message-buffer'."
 
 ;;Elixir
 (require 'alchemist)
-(add-to-list 'elixir-mode-hook 'auto-activate-ruby-end-mode-for-elixir-mode)
 (add-to-list 'elixir-mode-hook 'alchemist-mode)
 (define-key alchemist-mode-map (kbd "C-c C-b") 'alchemist-eval-print-buffer)
 
