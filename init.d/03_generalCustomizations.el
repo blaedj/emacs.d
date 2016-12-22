@@ -2,7 +2,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)       ;use y/n instead of yes/no
 (setq tab-width 2)
 (setq tabs-mode nil)
-(setq transient-mark-mode t)        ;transient mark mode, can never remember what this is, but its probably important
+(setq transient-mark-mode t)        ;can never remember what this is, but its vitally important
 (setq user-mail-address "blaedj@gmail.com")
 (setq standard-indent 2)            ;Set indentation to 2 spaces
 (setq scroll-step 1)

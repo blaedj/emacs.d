@@ -162,15 +162,32 @@ terminal buffer will be 'terminal-PROJECTNAME'."
   (split-window-below 65)          ; create 2nd row for terminals in 1st column
   (other-window 1)                 ; jump to 1st column, 2nd row
   (ansi-term "/bin/zsh")
+  (toggle-window-dedicated)        ; make the window for terminal 'dedicated'
   (other-window 1)                 ; jump to 2nd column
   (split-window-right 85)          ; split 2nd col at 85 cols, creating 3rd col.
   (other-window 1)                 ; jump to 3rd column
   (split-window-below)             ; create 2nd row in 3rd col for agenda.
   (other-window 1)                 ; jump to 2nd row in 3rd col
-  (switch-to-buffer "*Org Agenda*") ; open agenda buffer
+  (switch-to-buffer "*Org Agenda*"); open agenda buffer
+  (toggle-window-dedicated)        ; make window for agenda dedicated
   (other-window -1)                ; jump back to 1st row, 3rd col
   (switch-to-buffer "todo.org")    ; open todo file
+  (toggle-window-dedicated)        ; make window for todo.org dedicated
   )
+
+;; thanks to Frank Klotz
+;; http://stackoverflow.com/users/9668/frank-klotz
+;; http://stackoverflow.com/a/65992/1050853
+(defun toggle-window-dedicated ()
+  "Toggle whether the current active window is dedicated or not."
+  (interactive)
+  (message
+   (if (let (window (get-buffer-window (current-buffer)))
+	 (set-window-dedicated-p window
+				 (not (window-dedicated-p window))))
+       "Window '%s' is dedicated"
+     "Window '%s' is normal")
+   (current-buffer)))
 
 (provide 'mydefuns)
 ;;; mydefuns.el ends here
