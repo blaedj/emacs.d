@@ -9,8 +9,6 @@
 
 (setq org-agenda-files (list (concat org-directory "/todo.org")))
 
-(setq org-agenda-files (list (concat org-directory "/todo.org")))
-
 ;; todo.org file, probably in dropbox if dropbox is installed
 (setq org-default-notes-file (concat org-directory "/todo.org"))
 
@@ -46,6 +44,11 @@
 
 (define-key org-mode-map (kbd "<f8>") 'org-todo)
 (define-key org-mode-map (kbd "<f7>") 'org-schedule)
+
+;; custom org-agenda commands
+(add-to-list 'org-agenda-custom-commands
+	     '("b" "Agenda and In-progress todos" ((todo "IN-PROGRESS") (tags-todo "next") (agenda "")))
+	     )
 
 
 (provide 'org_mode_settings)

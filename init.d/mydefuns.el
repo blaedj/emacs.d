@@ -155,7 +155,7 @@ terminal buffer will be 'terminal-PROJECTNAME'."
   "Automate window & buffer setup."
   (interactive)
   (delete-other-windows)            ; clear all windows
-  (org-agenda-list)
+  (org-agenda nil "b")
   (other-window 1)                  ; get out of agenda window
   (delete-other-windows)
   (split-window-right 120)         ; split window @ 120 chars, creating 2nd col.
