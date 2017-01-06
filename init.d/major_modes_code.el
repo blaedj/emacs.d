@@ -9,9 +9,6 @@
   (linum-mode 1)
   ;;(fci-mode t) ;;this bugs out auto-complete popups
   (add-hook 'write-file-hooks 'delete-trailing-whitespace nil t)
-  (column-marker-3 80) ;; highlight background of 80th column, in purple
-  ;; (column-marker-1 80) ;; highlight background of 80th column
-  ;; (column-marker-1 80) ;; highlight background of 80th column
   (auto-complete-mode 1)
   (bcj-ac-setup)
   (local-set-key (kbd "C-c C-e") 'hs-toggle-hiding)
@@ -103,7 +100,7 @@
 (eval-after-load 'rspec-mode
   '(robe-mode))
 
-(autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
+;;(autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
 
 (require 'inf-ruby)
 (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
@@ -116,8 +113,11 @@
 (add-hook 'ruby-mode-hook 'my-coding-hook)
 (add-hook 'ruby-mode-hook 'robe-mode)
 (add-hook 'robe-mode-hook 'setup-robe-ac)
-;;(require 'seeing-is-believing)
 (add-hook 'ruby-mode-hook 'seeing-is-believing)
+(add-hook 'ruby-mode-hook (lambda ()
+			    (fci-mode t)
+			    ))
+
 (eval-after-load "hideshow"
   '(add-to-list 'hs-special-modes-alist
 		'(ruby-mode
