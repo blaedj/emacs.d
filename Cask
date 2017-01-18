@@ -88,6 +88,7 @@
 (depends-on "material-theme")
 (depends-on "names")
 (depends-on "org")
+(depends-on "org-bullets")
 (depends-on "package-build")
 (depends-on "pallet")
 (depends-on "paradox")

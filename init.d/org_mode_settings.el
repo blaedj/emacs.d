@@ -16,6 +16,13 @@
 ;; ▼, ↴, ⬎, ⤷, and ⋱.
 (setq org-ellipsis "↴")
 
+;; show prettier bullet points instead of asterisks
+(require 'org-bullets)
+(add-hook 'org-mode-hook
+	  (lambda ()
+	    (org-bullets-mode 1)))
+
+
 (setq org-return-follows-link t)
 
 (add-hook 'org-mode-hook
@@ -46,9 +53,8 @@
 (define-key org-mode-map (kbd "<f7>") 'org-schedule)
 
 ;; custom org-agenda commands
-(add-to-list 'org-agenda-custom-commands
-	     '("b" "Agenda and In-progress todos" ((todo "IN-PROGRESS") (tags-todo "next") (agenda "")))
-	     )
+(setq org-agenda-custom-commands
+'(("b" "Agenda and In-progress todos" ((todo "IN-PROGRESS") (tags-todo "next") (agenda "")))))
 
 
 (provide 'org_mode_settings)
