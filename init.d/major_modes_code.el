@@ -197,6 +197,8 @@
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
 
+(require 'ereader)
+(add-to-list 'auto-mode-alist '("\\.epub\\'" . ereader-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.zsh-theme\\'" . shell-script-mode))
