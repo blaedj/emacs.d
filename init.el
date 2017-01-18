@@ -69,11 +69,18 @@
   "Display startup echo area message."
   (message "Initialized in %s" (emacs-init-time)))
 
-
 (defvar bcj-emacs-init-file (or load-file-name buffer-file-name))
 
 (defvar bcj-emacs-config-dir (file-name-directory bcj-emacs-init-file))
 (defvar bcj-init-dir  (expand-file-name "init.d" bcj-emacs-config-dir ))
+
+
+;; set secrets
+(if (file-exists-p (concat bcj-emacs-config-dir ".private.el" ))
+    (load-file (concat bcj-emacs-config-dir ".private.el" ))
+  (error ".private.el does not exist, please copy .example.private.el to .private.el and fill it out")
+  )
+
 
 ;; credit for the benchmark code from qsdfgh.com/articles/2016/11/02/emacs-loading-time.html
 ;; Benchmark loading time file by file and display it in the *Messages* buffer

@@ -112,7 +112,7 @@ put before CHAR"
   (local-unset-key (kbd "C-c SPC"))
   (local-set-key (kbd "C-c SPC") 'ace-jump-mode)
   )
-(add-hook 'org-mode-hook 'org-keys)
+(add-hook 'org-mode-hook 'bcj/org-keys)
 
 ;; alchemist-mode, for elixir
 (define-key alchemist-mode-map (kbd "C-c , a") 'alchemist-mix-test)
