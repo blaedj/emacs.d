@@ -32,3 +32,4 @@ games/
 /smex-items
 newsticker/*
 /recentf
+.private.el

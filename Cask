@@ -35,8 +35,6 @@
 (depends-on "csv-mode")
 (depends-on "dash")
 (depends-on "dash-at-point")
-(depends-on "dired-details")
-(depends-on "dired-details+")
 (depends-on "dumb-jump")
 (depends-on "elixir-mode")
 (depends-on "emojify")
