@@ -50,5 +50,11 @@
 (require 'spaces)
 
 (setq echo-keystrokes 0.1)
+
+
+(setq save-place-file "~/.emacs.d/saved-point-places"
+      save-place-forget-unreadable-files nil)
+(save-place-mode t)
+
 (provide '03_generalCustomizations)
 ;;; 03_generalCustomizations.el ends here
