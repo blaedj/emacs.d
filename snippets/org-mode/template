@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: Blaed Johnston <blaedj@gmail.com>
 # name: Org Mode boilerplate
-# key: template
+# key: org
 # --
 #+TITLE: $1
 #+AUTHOR: Blaed Johnston
