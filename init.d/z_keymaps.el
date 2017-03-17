@@ -97,7 +97,7 @@ put before CHAR"
 (global-set-key (kbd "C-.") 'imenu-anywhere)
 
 (global-set-key (kbd "C-c a") 'org-agenda)
-
+(global-set-key (kbd "C-c c") 'org-capture)
 
 
 
@@ -135,6 +135,61 @@ put before CHAR"
 
 ;; unbind the standard send email keys, too close to my smex keybindings
 (global-unset-key (kbd "\C-x m"))
+
+
+
+
+;;----- MODIFICATIONS TO MODE KEYMAPS--------
+(define-key rspec-compilation-mode-map "a" #'rspec-verify-all)
+(define-key rspec-compilation-mode-map "f" #'rspec-run-last-failed)
+(define-key rspec-compilation-mode-map "n" #'next-line)
+(define-key rspec-compilation-mode-map "p" #'previous-line)
+
+(define-prefix-command 'bcj/dired-rspec-map)
+(define-key dired-mode-map "," 'bcj/dired-rspec-map)
+(define-key bcj/dired-rspec-map "a" #'rspec-verify-all)
+
+
+
+
+;; ---- CUSTOM KEY MAP GROUPS
+;; (define-prefix-command 'bcj/toggle-map)
+;; (define-key ctl-x-map "t" 'bcj/toggle-map)
+;; (define-key bcj/toggle-map "c" #'column-number-mode)
+;; (define-key bcj/toggle-map "r" #'rainbow-mode)
+;; (define-key bcj/toggle-map "w" #'whitespace-mode)
+
+;; --------- HYDRAS
+(require 'hydra)
+
+(global-set-key (kbd "C-c l")
+		(defhydra hydra/launcher (:color pink :hint nil)
+		  "
+^Commands^ to launch modes & things
+^^^^^^^^^^---------------------------
+ _m_: magit-status
+"
+		  ("m" magit-status :exit t)
+		  ("q" nil "cancel" :color blue)
+		  ))
+
+(global-set-key (kbd "C-c t")
+		(defhydra hydra/toggler (:color pink :hint nil)
+		  "
+^Commands^ to toggle things, mostly minor modes
+^^^^^^^^^^---------------------------
+ _w_: whitespace-mode
+ _t_: truncate-lines
+ _c_: column-number-mode
+ _r_: rainbow-mode
+"
+		  ("w" whitespace-mode :exit t)
+		  ("t" toggle-truncate-lines :exit t)
+		  ("c" column-number-mode :exit t)
+		  ("r" rainbow-mode :exit t)
+
+		  ("q" nil "cancel" :color blue)
+		  ))
 
 
 
