@@ -58,5 +58,8 @@
       save-place-forget-unreadable-files nil)
 (save-place-mode t)
 
+;;; Enable dot-mode
+;(global-dot-mode 1)
+
 (provide '03_generalCustomizations)
 ;;; 03_generalCustomizations.el ends here

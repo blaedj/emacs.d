@@ -32,6 +32,7 @@
 (depends-on "csv-mode")
 (depends-on "dash")
 (depends-on "dash-at-point")
+(depends-on "dot-mode")
 (depends-on "dumb-jump")
 (depends-on "elixir-mode")
 (depends-on "emojify")
