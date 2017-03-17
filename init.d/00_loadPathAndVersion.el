@@ -9,5 +9,7 @@
 ;; (let ((default-directory "~/.emacs.d/elpa"))
 ;;   (normal-top-level-add-subdirs-to-load-path))
 
+(add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory ))
+
 (provide '00_loadPathAndVersion)
 ;;; 00_loadPathAndVersion.el ends here

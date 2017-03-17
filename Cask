@@ -69,7 +69,6 @@
 (depends-on "highlight")
 (depends-on "highlight-indentation")
 (depends-on "hydra")
-(depends-on "idle-highlight")
 (depends-on "ido-completing-read+")
 (depends-on "ido-ubiquitous")
 (depends-on "ido-vertical-mode")
