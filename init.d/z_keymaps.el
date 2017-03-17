@@ -58,10 +58,6 @@ put before CHAR"
 
 (global-set-key (kbd "C-x r p") 'replace-rectangle)
 
-;; auto-yasnippet mode
-(global-set-key (kbd "M-]") #'aya-create)
-(global-set-key (kbd "M-[") #'aya-expand)
-
 (global-set-key (kbd "M-l") 'er/expand-region)
 (global-set-key (kbd "M-L") 'er/contract-region)
 
