@@ -9,6 +9,9 @@
 (display-time-mode)
 (setq visible-bell t) ; be quiet!
 (setq ring-bell-function 'ignore) ; work-around to annoying bug in emacs and OSX El Capitan. wating for http://debbugs.gnu.org/cgi/bugreport.cgi?bug=21662 to land in a stable version of emacs.
+(when (file-exists-p custom-file)
+  (load custom-file))
+
 
 ;; don't disable these commands
 (put 'narrow-to-region 'disabled nil)
