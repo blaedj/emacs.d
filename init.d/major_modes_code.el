@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; mostly hooks for the various coding modes.
 ;;; Code:
+
 (defun my-coding-hook ()
   (make-local-variable 'column-number-mode)
   (column-number-mode t)
@@ -9,12 +10,10 @@
   (linum-mode 1)
   ;;(fci-mode t) ;;this bugs out auto-complete popups
   (add-hook 'write-file-hooks 'delete-trailing-whitespace nil t)
-  (auto-complete-mode 1)
-  (bcj-ac-setup)
+  (bcj/auto-completion-setup)
   (local-set-key (kbd "C-c C-e") 'hs-toggle-hiding)
   (smartparens-mode 1)
   (show-smartparens-mode 1)
-
   (hs-minor-mode 1)
   (yas-minor-mode 1)
   (flycheck-mode 1)
@@ -26,13 +25,14 @@
   (column-number-mode t)
   (linum-mode 1)
   ;;(idle-highlight) makes web-mode lock up with message 'font-lock-highlight: untouched buffer (nil)'
-  (bcj-ac-setup)
+  (bcj/auto-completion-setup)
   (add-hook 'write-file-hooks 'delete-trailing-whitespace nil t)
   (yas-minor-mode 1)
   (setq web-mode-enable-current-element-highlight t)
   (setq web-mode-enable-auto-expanding t)
   (setq web-mode-enable-current-column-highlight t)
   (local-set-key (kbd "C-c w") 'web-mode-element-wrap)
+  (local-set-key (kbd "C-c f") 'web-mode-fold-or-unfold)
   (setq web-mode-markup-indent-offset 2 )
   )
 
@@ -44,7 +44,7 @@
   (idle-highlight)
   (linum-mode 1)
   ;;(cppcm-reload-all)
-  (bcj-ac-setup)
+  (bcj/auto-completion-setup)
   (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources))
   (smartparens-mode 1)
   (show-smartparens-mode 1)
@@ -251,8 +251,30 @@
 
 (setq c-default-style "gnu")
 
+(defun bcj/auto-completion-setup ()
+  "Set up an configure autocompletion.
+This function allows callers to be backend-independent, and
+allows for easy experimentation with different aut-complete
+frameworks."
+  ;; (bcj-ac-setup)
+  (bcj/company-setup)
+  )
+
+(defun bcj/company-setup ()
+  "Turn on and configure company mode."
+  (company-mode 1)
+  (company-quickhelp-mode 1)
+  (define-key company-active-map (kbd "C-w") nil)
+  (define-key company-active-map (kbd "TAB") 'company-complete-common-or-cycle)
+  (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
+  (setq company-tooltip-idle-delay 0.01)
+  (setq company-show-numbers t)
+  (setq company-minimum-prefix-length 1)
+  )
+
 (defun bcj-ac-setup ()
-  "setup auto-complete the way that I like it"
+  "Setup auto-complete the way that I like it."
+  (auto-complete-mode 1)
   (setq ac-auto-start 1)  ;set ac to start after 2 characters are typed
   (setq ac-auto-show-menu 0.1) ;show the menu almost immediately
   (setq ac-use-fuzzy t)   ;use fuzzy matching

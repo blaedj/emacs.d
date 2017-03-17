@@ -72,13 +72,6 @@
 ;;(require 'company)
 ;;(require 'company-emacs-eclim)
 ;;(company-emacs-eclim-setup)
-;;(require 'ac-emacs-eclim-source)
-;;(ac-emacs-eclim-config)
-
-(require 'auto-complete-config)           ;load the default configuration
-(ac-config-default)
-(add-to-list 'ac-dictionary-directories "/home/blaed/.emacs.d/ac-dict")
-(add-to-list 'ac-sources 'ac-source-yasnippet)  ;put snippets in ac dropdown
 
 (require 'auto-complete-clang)
 (require 'cpputils-cmake)
