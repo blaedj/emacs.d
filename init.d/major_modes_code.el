@@ -67,6 +67,7 @@
 (add-hook 'java-mode-hook 'my-coding-hook)
 (add-hook 'nxml-mode-hook 'my-coding-hook)
 (add-hook 'elixir-mode-hook 'my-coding-hook)
+(add-hook 'octave-mode-hook 'my-coding-hook)
 
 (add-hook 'html-mode-hook 'wrap-region-mode)
 (add-hook 'js2-mode-hook 'skewer-mode)
@@ -202,9 +203,14 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.zsh-theme\\'" . shell-script-mode))
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.es6\\'" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode) )
+
+(add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode) )
+;; (add-to-list 'auto-mode-alist '("\\.m\\'" . objc-mode) )
+
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
