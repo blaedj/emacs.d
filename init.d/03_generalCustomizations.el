@@ -8,10 +8,12 @@
 (setq scroll-step 1)
 (display-time-mode)
 (setq visible-bell t) ; be quiet!
-(setq ring-bell-function 'ignore) ; work-around to annoying bug in emacs and OSX El Capitan. wating for http://debbugs.gnu.org/cgi/bugreport.cgi?bug=21662 to land in a stable version of emacs.
+(setq ring-bell-function 'ignore)
+
 (when (file-exists-p custom-file)
   (load custom-file))
 
+(ivy-mode 1)
 
 ;; don't disable these commands
 (put 'narrow-to-region 'disabled nil)
@@ -48,9 +50,6 @@
 ;; use emacs as a server so that we can use our 'ec' command from cli.
 ;(unless (server-running-p)
  ; (start-server))
-
-;;spaces manages window configurations
-(require 'spaces)
 
 (setq echo-keystrokes 0.1)
 
