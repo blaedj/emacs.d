@@ -1,8 +1,6 @@
-
-;;(setq dired-details-hidden-string "--  " )
-
 (require 'smartparens)
-(require 'smartparens-ruby)
+(require 'smartparens-config)
+
 (smartparens-global-mode t)
 
 (global-subword-mode t)
