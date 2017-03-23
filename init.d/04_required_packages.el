@@ -1,56 +1,18 @@
 (require 'smartparens)
 (require 'smartparens-config)
 
-(smartparens-global-mode t)
-
-(global-subword-mode t)
-
 (require 'smex)
-
+(require 'idle-highlight)
 (require 'ido)
 (require 'flx-ido)
-(ido-mode 1)
-(ido-everywhere 1)
-(flx-ido-mode 1)
-;; disable ido faces to see flx highlights.
-(setq ido-use-faces nil)
-(ido-vertical-mode 1)
-(setq ido-vertical-define-keys 'C-n-and-C-p-only)
 
 (require 'yasnippet)
-(yas/global-mode 1)
-(setq yas-installed-snippets-dir "~/.emacs.d/snippets/")
-
-
-(require 'popup)
-
-(defun yas/popup-isearch-prompt (prompt choices &optional display-fn)
-  (when (featurep 'popup)
-    (popup-menu*
-     (mapcar
-      (lambda (choice)
-        (popup-make-item
-         (or (and display-fn (funcall display-fn choice))
-             choice)
-         :value choice))
-      choices)
-     :prompt prompt
-     ;; start isearch mode immediately
-     :isearch t
-     )))
-
-(setq  yas/prompt-functions
-    '(yas/popup-isearch-prompt yas/ido-prompt yas/completing-prompt yas/dropdown-prompt yas-x-prompt yas-no-prompt))
 
 (require 'ace-jump-mode)
 
 (require 'zeal-at-point)
-(global-set-key (kbd "C-c C-d") 'devdocs-search)
-(require 'dash-at-point )
-(global-set-key "\C-cd" 'dash-at-point)
 
-;;(require 'powerline)
-;;(powerline-default-theme)
+(require 'dash-at-point )
 
 (require 'buffer-move)
 (require 'smartscan)
@@ -67,6 +29,7 @@
 
 (require 'elixir-mode)
 
+(require 'vue-mode)
 ;;(require 'eclim)
 ;;(require 'eclimd)
 ;;(require 'company)

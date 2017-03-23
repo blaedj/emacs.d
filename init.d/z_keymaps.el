@@ -100,6 +100,11 @@ put before CHAR"
 (global-set-key (kbd "C-c c") 'org-capture)
 
 
+;; documentation searching
+(global-set-key (kbd "C-c C-d") 'devdocs-search)
+(global-set-key "\C-cd" 'dash-at-point)
+
+
 
 ;;;;;;;; MAJOR MODE KEYBINDS --------------------
 

@@ -1,3 +1,4 @@
+(setq user-mail-address "blaedj@gmail.com")
 (add-to-list 'Info-default-directory-list "/usr/share/info/emacs-24")
 (add-hook 'Info-mode-hook		; After Info-mode has started
 	  (lambda ()

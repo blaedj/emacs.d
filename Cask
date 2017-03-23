@@ -122,6 +122,7 @@
 (depends-on "swift-mode")
 (depends-on "twilight-theme")
 (depends-on "undo-tree")
+(depends-on "vue-mode")
 (depends-on "w3m")
 (depends-on "web-mode")
 (depends-on "windresize")
