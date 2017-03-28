@@ -96,7 +96,7 @@
 (setq rspec-use-rake-when-possible nil)
 
 ;; we want the compilation buffer to scroll to the bottom of the output
-(setq compilation-scroll-output t)
+(setq compilation-scroll-output nil)
 
 (eval-after-load 'rspec-mode
   '(robe-mode))
@@ -168,31 +168,12 @@
 	    (lambda ()
 	      (formatBuf))))
 
-
-;; (add-hook 'js-mode-hook
-;;           (lambda ()
-;;             ;; Scan the file for nested code blocks
-;;             (imenu-add-menubar-index)
-;; 	    (setq js-indent-level 2) ; set indentation level
-;; 	    (if (< emacs-major-version 25)
-;; 		;;set js2 indentaiont if major version is < 25.
-;; 		;; if emacs-major-version < 25, js2-mode will not use js-mode's indentaion
-;; 		;; behavior, so set js2's indentation offset.
-;; 		(setq js2-basic-offset 2))
-;;       	    (run-hooks 'code-modes-hook)
-;;       	    (js2-hook)))
-(remove-hook 'js-mode-hook
-          (lambda ()
-            ;; Scan the file for nested code blocks
-            (imenu-add-menubar-index)
-	    (setq js-indent-level 2) ; set indentation level
-	    (if (< emacs-major-version 25)
-		;;set js2 indentaiont if major version is < 25.
-		;; if emacs-major-version < 25, js2-mode will not use js-mode's indentaion
-		;; behavior, so set js2's indentation offset.
-		(setq js2-basic-offset 2))
-      	    (run-hooks 'code-modes-hook)
-      	    (js2-hook)))
+(add-hook 'js-mode-hook (lambda ()
+			  (add-hook 'before-save-hook
+				    (lambda ()
+				      (formatBuf)))
+			  (fci-mode t)
+			  ))
 
 ;;---Markdown Mode---
 (autoload 'markdown-mode "markdown-mode"
@@ -229,8 +210,10 @@
 (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.eex\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.handlebars\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.hbs\\'" . handlebars-mode))
+(add-to-list 'auto-mode-alist '("\\.handlebars\\'" . handlebars-mode))
+
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode))
 
 (add-to-list 'auto-mode-alist '("\\.ex\\'" . elixir-mode))
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode) )
@@ -335,6 +318,11 @@ In the latter case, show messages in `flycheck-error-message-buffer'."
                                  'not-this-window))))
 
 ;;Elixir
+(add-hook 'elixir-mode-hook (lambda ()
+			      (fci-mode t)
+			      ))
+
+
 (require 'alchemist)
 (add-to-list 'elixir-mode-hook 'alchemist-mode)
 (define-key alchemist-mode-map (kbd "C-c C-b") 'alchemist-eval-print-buffer)
