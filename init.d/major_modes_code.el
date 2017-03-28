@@ -278,28 +278,34 @@ frameworks."
 (add-hook 'cider-repl-mode-hook 'ac-cider-setup)
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'cider-mode))
-
 ;;(add-hook 'clojure-mode-hook '( '(my-coding-hook) (setq cider-lein-command "/usr/local/bin/lein")))
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (setq cider-lein-command "/usr/local/bin/lein" )
+
+
+;; Coffeescript =-==-==-==-==-==-==-==-==-=
 
 (setq flycheck-coffee-executable "/usr/local/bin/coffee")
 
 (add-hook 'coffee-mode-hook (lambda () (highlight-indentation-mode)))
 
 (custom-set-variables '(coffee-tab-width 2))
+;;  =-==-==-==-==-==-==-==-==-==-==-==-==-==-==
 
+
+
+;; Magit customizations  =-==-==-==-==-==-==-==-==-=
 (setq magit-push-always-verify nil)
-(setq magit-display-buffer-function (quote magit-display-buffer-same-window-except-diff-v1))
+(setq magit-display-buffer-function
+      (quote magit-display-buffer-same-window-except-diff-v1))
+;; =-==-==-==-==-==-==-==-==-==-==-=-==-=-==-
 
-(add-hook 'package-menu-hook (lambda () "turn on hl-highlight-line mode"  (hl-line-mode)))
 
 (autoload 'jq-mode "jq-mode.el"
     "Major mode for editing jq files" t)
 (add-to-list 'auto-mode-alist '("\\.jq$" . jq-mode))
 
 ;; customize flycheck
-
 ;; redefine flycheck-display-error-messages so that multple errors are seperated
 ;; by only one newline, not 2
 (defun flycheck-display-error-messages (errors)
