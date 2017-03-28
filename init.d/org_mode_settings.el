@@ -57,5 +57,48 @@
 '(("b" "Agenda and In-progress todos" ((todo "IN-PROGRESS") (tags-todo "next") (agenda "")))))
 
 
+;;; SORTING ;;;;;
+
+(setq org-default-priority 68)
+
+(defun todo-to-int (todo)
+    "Get the int score of TODO for sorting, based on keyword."
+    (cond ((string= todo "IN-PROGRESS") 1)
+	  ((string= todo "TODO") 2)
+	  ((string= todo "ON-HOLD") 3)
+	  ((string= todo "DONE") 5)
+	  (t 4) ; default
+	  ))
+(defun bcj/org-sort-key ()
+  "Return the sorting key for the todo at point."
+  (let* ( (todo-max (+ (apply #'max (mapcar #'length org-todo-keywords)) 1))
+	  (todo (org-entry-get (point) "TODO"))
+	  ;; (todo-int (if todo (todo-to-int todo) todo-max))
+	  (todo-int (todo-to-int todo))
+	  (priority (org-entry-get (point) "PRIORITY"))
+	  (priority-int (if priority (string-to-char priority) org-default-priority)))
+    (format "%03d %03d" todo-int priority-int)
+    ))
+
+(defun bcj/org-sort-entries ()
+  "Sort the entries at point via my custom sorting function."
+  (interactive)
+  (org-sort-entries nil ?f #'bcj/org-sort-key))
+
+
+;; enable org-babel execution of sh source blocks
+;; TODO: the below doesn't work when ran from here
+;; (org-babel-do-load-languages
+;;  'org-babel-load-languages
+;;  '((emacs-lip . t)
+;;    (sh . t)
+;;    ))
+
+;; turn on flyspell mode in org mode.
+(add-hook 'org-mode-hook
+	  (lambda ()
+	    (flyspell-mode 1)
+	    (yas-minor-mode 1)
+	    ))
 (provide 'org_mode_settings)
 ;;; org_mode_settings.el ends here

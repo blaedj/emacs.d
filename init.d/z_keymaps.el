@@ -112,6 +112,7 @@ put before CHAR"
   "Remap some org keybindings."
   (local-unset-key (kbd "C-c SPC"))
   (local-set-key (kbd "C-c SPC") 'ace-jump-mode)
+  (local-set-key (kbd "<f10>") 'bcj/org-sort-entries)
   )
 (add-hook 'org-mode-hook 'bcj/org-keys)
 
