@@ -54,7 +54,42 @@
 
 ;; custom org-agenda commands
 (setq org-agenda-custom-commands
-'(("b" "Agenda and In-progress todos" ((todo "IN-PROGRESS") (tags-todo "next") (agenda "")))))
+      '(
+	("b" "Agenda and In-progress todos"
+	 ((todo "IN-PROGRESS") (tags-todo "next") (agenda "" ((org-agenda-ndays 1)))))
+
+	("w" "Weekly review"
+	 agenda ""
+	 ((org-agenda-span 'week)
+	  (org-agenda-start-on-weekday 0)
+	  (org-agenda-start-with-log-mode t)
+	  (org-agenda-skip-function
+	   '(org-agenda-skip-entry-if 'nottodo 'done))
+	  ))
+	))
+
+;; setup org-mobile-push and org-mobile-pull for sync w/mobile devices.
+(setq org-mobile-directory (concat org-directory "/../Apps/MobileOrg/mobile") )
+(setq org-mobile-inbox-for-pull (concat org-mobile-directory "/inbox.org"))
+
+(setq org-capture-templates
+      '(("t" "To Do Item" entry (file+headline "~/Dropbox/org/todo.org" "Tasks")
+	"* %?\n%T :unfiled:" :prepend t)
+
+	("c" "Contingency ToDo"
+	 entry
+	 (file+headline "~/Dropbox/org/todo.org" "Contingency") "** %?")
+
+       ("j" "Journal Entry"
+	entry (file+weektree (concat org-directory "/personal/journal.org"))
+	"* %U %?" :empty-lines 1)
+
+       ("p" "tracking"
+	entry (file
+	       (concat org-directory "/personal/tracking.org")
+	       "."
+	       ) "* %t .")
+       ))
 
 
 ;;; SORTING ;;;;;
