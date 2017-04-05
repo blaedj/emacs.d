@@ -3,7 +3,8 @@
 ;; Some color customizations
 ;;; Code:
 (if (display-graphic-p)
-    (load-theme 'solarized-dark-custom t)
+    ;; (load-theme 'solarized-dark-custom t)
+    (load-theme 'ample-zen t)
   (progn
     (load-theme 'subatomic256))
   )
@@ -20,16 +21,16 @@
 (setq display-time-default-load-average nil)
 (display-time)
 
-
 ;; hide 'auto-complete', 'yasnippet' and 'smart-parens' minor modes
 ;; indicators from mode line
-(setq rm-excluded-modes '(" hl-p" " AC" " yas" " SP"))
+(setq rm-excluded-modes '(" hl-p" " AC" " yas" " SP" "Grid"
+			  "Week" " ARev" " hs" " company" " ivy"))
 
 ;;(display-battery-mode 1)
 
 ;; Fill column
 (require 'fill-column-indicator)
-(setq fci-rule-width 1)
+(setq fci-rule-width 2)
 (setq fci-rule-color "sienna")
 (setq-default fill-column 80)
 

@@ -1,3 +1,4 @@
+(source "marmalade" "https://marmalade-repo.org/packages/")
 (source "melpa" "http://melpa.org/packages/")
 (source "melpa-stable" "http://melpa.org/packages/")
 (source gnu)
@@ -10,6 +11,7 @@
 (depends-on "adaptive-wrap")
 (depends-on "ag")
 (depends-on "alchemist")
+(depends-on "ample-zen-theme")
 (depends-on "async")
 (depends-on "auto-complete")
 (depends-on "auto-complete-clang")
