@@ -122,7 +122,9 @@ put before CHAR"
 (define-key alchemist-mode-map (kbd "C-c , m") 'alchemist-mix-test-this-buffer)
 
 
-
+;; ansi-term mode
+(define-key term-raw-map (kbd "M-<up>") 'scroll-down-line)
+(define-key term-raw-map (kbd "M-<down>") 'scroll-up-line)
 
 
 
