@@ -188,11 +188,13 @@ put before CHAR"
  _t_: truncate-lines
  _c_: column-number-mode
  _r_: rainbow-mode
+ _h_: hl-line-mode
 "
 		  ("w" whitespace-mode :exit t)
 		  ("t" toggle-truncate-lines :exit t)
 		  ("c" column-number-mode :exit t)
 		  ("r" rainbow-mode :exit t)
+		  ("h" hl-line-mode :exit t)
 
 		  ("q" nil "cancel" :color blue)
 		  ))
