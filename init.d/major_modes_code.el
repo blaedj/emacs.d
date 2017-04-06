@@ -346,5 +346,10 @@ In the latter case, show messages in `flycheck-error-message-buffer'."
 ;; 		  elixir-smie-forward-token
 ;; 		  elixir- nil)))
 
+
+;; ag search mode
+
+(add-to-list 'ag-mode-hook (lambda () (hl-line-mode t)))
+
 (provide 'major_modes_code)
 ;;; major_modes_code.el ends here
