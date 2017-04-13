@@ -123,9 +123,13 @@ put before CHAR"
 
 
 ;; ansi-term mode
-(define-key term-raw-map (kbd "M-<up>") 'scroll-down-line)
-(define-key term-raw-map (kbd "M-<down>") 'scroll-up-line)
 
+(add-hook 'term-mode-hook (lambda ()
+			   (define-key term-raw-map (kbd "M-<up>") 'scroll-down-line)
+			   (define-key term-raw-map (kbd "M-<down>") 'scroll-up-line)
+			   ))
+
+;;
 
 
 
