@@ -1,7 +1,13 @@
 (if (eq system-type 'darwin)
-    (require 'cask "/usr/local/Cellar/cask/0.7.2/cask.el")
-  (require 'cask "~/.cask/cask.el") ;;expect cask to be installed in home dir when not on osx
-  )
+    (progn
+      ;; find installed cask version, if any.
+      ;; will blow up if cask isn't installed.
+      (let ((installed-cask-version (replace-regexp-in-string "\n" "" (shell-command-to-string "cask --version"))))
+	(require 'cask   (concat
+			  "/usr/local/Cellar/cask/" installed-cask-version "/cask.el")))
+      )
+  ;;expect cask to be installed in home dir when not on osx
+  (require 'cask "~/.cask/cask.el"))
 
 (cask-initialize)
 (require 'package)
