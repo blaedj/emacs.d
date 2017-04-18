@@ -18,6 +18,7 @@
   (yas-minor-mode 1)
   (flycheck-mode 1)
   (local-set-key (kbd "C-c '") 'flycheck-next-error)
+  (dumb-jump-mode t)
   )
 
 (defun web-mode-coding-hook ()
@@ -347,8 +348,12 @@ In the latter case, show messages in `flycheck-error-message-buffer'."
 ;; 		  elixir- nil)))
 
 
-;; ag search mode
+(setq dump-jump-selector 'ivy)
+(add-to-list 'dumb-jump-language-file-exts
+	      '((:language "ruby" :ext "erb" :agtype "ruby" :rgtype "ruby"))
+	     )
 
+;; ag search mode
 (add-to-list 'ag-mode-hook (lambda () (hl-line-mode t)))
 
 (provide 'major_modes_code)
