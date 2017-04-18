@@ -4,10 +4,13 @@
 ;;; Code:
 (if (display-graphic-p)
     ;; (load-theme 'solarized-dark-custom t)
-    (load-theme 'ample-zen t)
+    (progn
+      (load-theme 'ample-zen t)
+      (set-cursor-color "chartreuse1"))
   (progn
     (load-theme 'subatomic256))
   )
+
 
 ;;modeline customization;;;;;;;;;;;;;;;;
 (sml/setup)
