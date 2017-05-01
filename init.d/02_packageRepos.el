@@ -2,7 +2,7 @@
     (progn
       ;; find installed cask version, if any.
       ;; will blow up if cask isn't installed.
-      (let ((installed-cask-version (replace-regexp-in-string "\n" "" (shell-command-to-string "cask --version"))))
+      (let ((installed-cask-version (replace-regexp-in-string "\n" "" (shell-command-to-string "/usr/local/bin/cask --version"))))
 	(require 'cask   (concat
 			  "/usr/local/Cellar/cask/" installed-cask-version "/cask.el")))
       )
