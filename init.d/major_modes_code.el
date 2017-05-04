@@ -122,13 +122,11 @@
 
 (eval-after-load "hideshow"
   '(add-to-list 'hs-special-modes-alist
-		'(ruby-mode
-		  ,(rx (or "def" "class" "module"
-			   "do" "{" "[" "if" "else"
-			   "unless")) ; block start
-		  ,(rx (or "}" "end" "]")) ; block end
-		  ,(rx (or "#" "=begin")) ; comment start
-		  ruby-forward-sexp nil)))
+              `(ruby-mode
+                ,(rx (or "def" "class" "module" "do" "{" "[" "if" "else" "unless")) ; Block start
+                ,(rx (or "}" "]" "end"))                       ; Block end
+                ,(rx (or "#" "=begin"))                        ; Comment start
+                ruby-forward-sexp nil)))
 
 ;; this might make sure that we are using the correct ruby version with robe.
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
@@ -348,10 +346,12 @@ In the latter case, show messages in `flycheck-error-message-buffer'."
 ;; 		  elixir- nil)))
 
 
+
+
 (setq dump-jump-selector 'ivy)
-(add-to-list 'dumb-jump-language-file-exts
-	      '((:language "ruby" :ext "erb" :agtype "ruby" :rgtype "ruby"))
-	     )
+;; (add-to-list 'dumb-jump-language-file-exts
+;; 	      '((:language "ruby" :ext "erb" :agtype "ruby" :rgtype "ruby"))
+;; 	     )
 
 ;; ag search mode
 (add-to-list 'ag-mode-hook (lambda () (hl-line-mode t)))
