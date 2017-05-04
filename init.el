@@ -56,7 +56,7 @@
     (dolist (file (directory-files bcj-init-dir t "\\.el$"))
       (load file)))
 
-(require 'mydefuns) ;; some custom functions
+;;(require 'mydefuns) ;; some custom functions
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -64,6 +64,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(flycheck-color-mode-line-error-face ((t (:inherit flycheck-fringe-error :background "orange red" :foreground "#efefef" :weight normal))))
+ '(hl-line ((t (:inverse-video t :underline nil))))
  '(magit-diff-added ((t (:inherit diff-added)))))
 (provide 'init)
 ;;; init.el ends here

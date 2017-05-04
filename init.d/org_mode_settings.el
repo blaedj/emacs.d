@@ -4,10 +4,10 @@
 ;;; Code:
 
 (setq org-log-done t)
-
 (setq org-directory "~/Dropbox/org" )
-
-(setq org-agenda-files (list (concat org-directory "/todo.org")))
+(setq org-agenda-files (list (concat org-directory "/todo.org")
+			     (concat org-directory "/gcal.org")
+			     ))
 
 ;; todo.org file, probably in dropbox if dropbox is installed
 (setq org-default-notes-file (concat org-directory "/todo.org"))
@@ -71,6 +71,10 @@
 ;; setup org-mobile-push and org-mobile-pull for sync w/mobile devices.
 (setq org-mobile-directory (concat org-directory "/../Apps/MobileOrg/mobile") )
 (setq org-mobile-inbox-for-pull (concat org-mobile-directory "/inbox.org"))
+
+;;google calendar and org-mode syncing
+(setq org-gcal-file-alist '(("blaedj@gmail.com" .  "~/Dropbox/org/gcal.org")))
+
 
 (setq org-capture-templates
       '(("t" "To Do Item" entry (file+headline "~/Dropbox/org/todo.org" "Tasks")

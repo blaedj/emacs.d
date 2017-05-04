@@ -1,3 +1,8 @@
+;;; 04_required_packages -- require all the packages.
+;;; Commentary:
+;;;
+;;; Code:
+
 (require 'smartparens)
 (require 'smartparens-config)
 
