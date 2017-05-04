@@ -38,3 +38,5 @@ bookmarks
 /.mc-lists.el
 /projectile.cache
 /saved-point-places
+/.org-id-locations
+/network-security.data
